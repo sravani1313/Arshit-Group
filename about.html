@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Arshith Group Enterprise</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    },
+                    colors: {
+                        arshith: { dark: '#03050a', light: '#0a0f1c', emerald: '#1b4d3e', gold: '#c5a880' }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* --- Luxury Light Variables (For Footer & Themes) --- */
+        :root {
+            --lux-bg: #fbfbfc;
+            --lux-card: #ffffff;
+            --lux-dark: #111612;
+            --lux-muted: #68706c;
+            --lux-gold: #c5a880;
+            --lux-emerald: #1b4d3e;
+            --lux-mint: #f4f7f5;
+            --bezier-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* --- Base Styles --- */
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #ffffff; color: #0b0b0b; overflow-x: hidden; }
+        ::selection { background: var(--lux-emerald); color: #ffffff; }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f0f2f4; }
+        ::-webkit-scrollbar-thumb { background: var(--lux-emerald); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--lux-gold); }
+
+        /* --- Navbar Glass --- */
+        .glass-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        /* --- GSAP Text & Reveal Classes --- */
+        .gsap-line { overflow: hidden; }
+        .gsap-line span { display: block; transform: translateY(110%); opacity: 0; }
+        .parallax-img-container { overflow: hidden; position: relative; }
+        .parallax-img { transform: scale(1.2); will-change: transform; }
+
+        /* --- High-End Hover Effects --- */
+        .hover-3d-lift {
+            transition: transform 0.6s var(--bezier-luxury), box-shadow 0.6s var(--bezier-luxury);
+            will-change: transform, box-shadow;
+        }
+        .hover-3d-lift:hover {
+            transform: translateY(-12px) scale(1.01);
+            box-shadow: 0 30px 60px -15px rgba(27, 77, 62, 0.15);
+        }
+
+        .img-corporate { filter: grayscale(80%) contrast(1.1); transition: filter 0.8s ease, transform 1.5s var(--bezier-luxury); }
+        .group:hover .img-corporate { filter: grayscale(0%) contrast(1); transform: scale(1.06); }
+
+        .image-overlay-zoom { transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1); }
+        .group:hover .image-overlay-zoom { transform: scale(1.1); }
+
+        /* Glowing Gradient Border Hover */
+        .glow-border { position: relative; z-index: 1; }
+        .glow-border::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            z-index: -1;
+            background: linear-gradient(90deg, #1b4d3e, #c5a880, #1b4d3e);
+            background-size: 200% auto;
+            border-radius: inherit;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            animation: shine 3s linear infinite;
+        }
+        .glow-border:hover::before { opacity: 1; }
+        @keyframes shine { to { background-position: 200% center; } }
+
+        .glass-card { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); }
+
+        /* --- Marquee Animation --- */
+        .marquee-wrapper { display: flex; width: 200%; animation: marquee 35s linear infinite; }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* --- Timeline Styles --- */
+        .timeline-line { position: absolute; left: 50%; transform: translateX(-50%); width: 2px; height: 100%; background: linear-gradient(to bottom, rgba(27, 77, 62, 0.1), #1b4d3e, #c5a880, rgba(197, 168, 128, 0.1)); }
+
+        /* --- Footer Styles --- */
+        .premium-footer { background-color: var(--lux-bg); border-top: 1px solid rgba(0, 0, 0, 0.05); padding: 50px 0 25px 0; position: relative; color: var(--lux-dark); overflow: hidden; }
+        .premium-footer::before { content: ''; position: absolute; top: -10%; left: 50%; transform: translateX(-50%); width: 80%; height: 60%; background: radial-gradient(circle, rgba(197, 168, 128, 0.04) 0%, rgba(27, 77, 62, 0.02) 50%, transparent 100%); z-index: 1; pointer-events: none; }
+        .footer-wrap { max-width: 1200px; margin: 0 auto; padding: 0 25px; position: relative; z-index: 2; }
+        .footer-top-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0, 0, 0, 0.05); padding-bottom: 25px; margin-bottom: 35px; }
+        .brand-editorial h2 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 500; color: var(--lux-dark); line-height: 1.1; letter-spacing: -0.3px; }
+        .brand-editorial h2 span { font-family: 'Playfair Display', serif; font-style: italic; color: var(--lux-emerald); font-weight: 400; }
+        .brand-editorial p { color: var(--lux-muted); font-size: 13px; margin-top: 6px; max-width: 380px; line-height: 1.5; }
+        .lux-newsletter { width: 320px; }
+        .lux-newsletter p { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; color: var(--lux-muted); margin-bottom: 8px; }
+        .input-group-animated { position: relative; display: flex; align-items: center; border-bottom: 1.5px solid rgba(0, 0, 0, 0.1); padding-bottom: 5px; transition: all 0.4s var(--bezier-luxury); }
+        .input-group-animated input { width: 100%; border: none; outline: none; background: transparent; font-size: 14px; color: var(--lux-dark); padding-right: 30px; }
+        .input-group-animated input::placeholder { color: #a0aec0; font-weight: 300; }
+        .input-group-animated::after { content: ''; position: absolute; bottom: -1.5px; left: 0; width: 0; height: 1.5px; background: var(--lux-emerald); transition: all 0.6s var(--bezier-luxury); }
+        .input-group-animated:focus-within::after { width: 100%; }
+        .lux-submit-btn { position: absolute; right: 0; background: none; border: none; cursor: pointer; font-size: 15px; color: var(--lux-dark); transition: all 0.4s var(--bezier-luxury); }
+        .lux-submit-btn:hover { color: var(--lux-gold); transform: translateX(3px); }
+        .footer-main-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1.1fr; gap: 30px; margin-bottom: 45px; }
+        .grid-title { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; color: var(--lux-dark); margin-bottom: 16px; }
+        .lux-links-list { list-style: none; }
+        .lux-links-list li { margin-bottom: 10px; }
+        .lux-links-list a { text-decoration: none; color: var(--lux-muted); font-size: 13.5px; font-weight: 400; display: inline-block; position: relative; padding-bottom: 1px; transition: color 0.3s ease; }
+        .lux-links-list a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background-color: var(--lux-gold); transition: width 0.4s var(--bezier-luxury); }
+        .lux-links-list a:hover { color: var(--lux-dark); }
+        .lux-links-list a:hover::after { width: 100%; }
+        .lux-contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .lux-icon-circle { width: 28px; height: 28px; border-radius: 50%; background-color: var(--lux-mint); display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--lux-emerald); transition: all 0.4s var(--bezier-luxury); }
+        .lux-contact-item:hover .lux-icon-circle { background-color: var(--lux-emerald); color: #ffffff; transform: scale(1.05); }
+        .lux-contact-text span { display: block; font-size: 10px; text-transform: uppercase; color: var(--lux-muted); letter-spacing: 0.3px; }
+        .lux-contact-text a, .lux-contact-text p { font-size: 13.5px; color: var(--lux-dark); text-decoration: none; font-weight: 500; }
+        .footer-bottom-meta { border-top: 1px solid rgba(0, 0, 0, 0.05); padding-top: 25px; display: flex; justify-content: space-between; align-items: center; }
+        .copyright-lux { font-size: 12px; color: var(--lux-muted); }
+        .lux-social-container { display: flex; gap: 10px; }
+        .lux-social-wrapper { position: relative; }
+        .lux-social-link { width: 34px; height: 34px; border-radius: 50%; background: var(--lux-card); border: 1px solid rgba(0, 0, 0, 0.05); color: var(--lux-dark); display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 13px; transition: all 0.4s var(--bezier-luxury); position: relative; z-index: 2; }
+        .lux-social-link::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; background: var(--lux-emerald); transform: scale(0); transition: transform 0.4s var(--bezier-luxury); z-index: -1; }
+        .lux-social-link:hover { color: #ffffff; border-color: var(--lux-emerald); transform: translateY(-3px); box-shadow: 0 6px 15px rgba(27, 77, 62, 0.1); }
+        .lux-social-link:hover::before { transform: scale(1); }
+        .legal-lux-links { display: flex; gap: 20px; }
+        .legal-lux-links a { font-size: 12px; color: var(--lux-muted); text-decoration: none; transition: color 0.3s ease; }
+        .legal-lux-links a:hover { color: var(--lux-gold); }
+        @media (max-width: 1024px) { .footer-main-grid { grid-template-columns: 1fr 1fr; gap: 30px; } .footer-top-row { flex-direction: column; align-items: flex-start; gap: 20px; } .lux-newsletter { width: 100%; } }
+        @media (max-width: 668px) { .premium-footer { padding: 35px 0 20px 0; } .footer-wrap { padding: 0 16px; } .brand-editorial h2 { font-size: 24px; } .footer-main-grid { grid-template-columns: 1fr; gap: 25px; margin-bottom: 35px; } .footer-bottom-meta { flex-direction: column; gap: 15px; text-align: center; } .legal-lux-links { justify-content: center; order: 2; } .lux-social-container { justify-content: center; order: 1; } .copyright-lux { order: 3; } }
+    </style>
+</head>
+
+<body>
+
+    <nav id="navbar" class="fixed w-full z-50 py-5 px-8 flex justify-between items-center transition-all duration-500 text-gray-900 bg-white/80 backdrop-blur-md border-b border-transparent shadow-sm">
+        <div class="text-2xl font-extrabold tracking-tighter z-50 relative cursor-pointer">
+            ARSHITH <span class="font-light opacity-70">GROUP</span>
+        </div>
+        
+        <div class="hidden lg:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.2em]">
+            <a href="index.html" class="hover:text-emerald-700 border-b border-transparent hover:border-emerald-700 pb-1 transition-colors">Home</a>
+            <a href="about.html" class="hover:text-emerald-700 border-b-2 border-emerald-700 pb-1 transition-colors">About</a>
+            <a href="ourbusiness.html" class="hover:text-emerald-700 border-b border-transparent hover:border-emerald-700 pb-1 transition-colors">Our Businesses</a>
+            <a href="careers.html" class="hover:text-emerald-700 border-b border-transparent hover:border-emerald-700 pb-1 transition-colors">Careers</a>
+            <a href="internship.html" class="hover:text-emerald-700 border-b border-transparent hover:border-emerald-700 pb-1 transition-colors">Internship</a>
+            <a href="newsroom.html" class="hover:text-emerald-700 border-b border-transparent hover:border-emerald-700 pb-1 transition-colors">NewsRoom</a>
+            <a href="contact.html" class="hover:text-emerald-700 border-b border-transparent hover:border-emerald-700 pb-1 transition-colors">Contact</a>
+        </div>
+
+        <div class="flex items-center space-x-4 relative z-50">
+            <button id="searchBtn" class="w-11 h-11 rounded-full border border-gray-300 flex items-center justify-center hover:bg-emerald-700 hover:text-white hover:border-emerald-700 transition duration-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                </svg>
+            </button>
+
+            <button id="mobileMenuBtn" class="lg:hidden w-11 h-11 rounded-full border border-gray-300 flex items-center justify-center hover:bg-emerald-700 hover:text-white transition duration-500">
+                <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+                <svg id="closeIcon" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <div id="mobileMenu" class="fixed inset-0 z-40 bg-white/98 backdrop-blur-xl flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-500 lg:hidden">
+        <div class="flex flex-col text-center space-y-8 text-sm font-bold uppercase tracking-[0.2em] text-gray-900">
+            <a href="index.html" class="hover:text-emerald-600 transition-colors">Home</a>
+            <a href="about.html" class="text-emerald-700 transition-colors">About</a>
+            <a href="ourbusiness.html" class="hover:text-emerald-600 transition-colors">Our Businesses</a>
+            <a href="careers.html" class="hover:text-emerald-600 transition-colors">Careers</a>
+            <a href="internship.html" class="hover:text-emerald-600 transition-colors">Internship</a>
+            <a href="newsroom.html" class="hover:text-emerald-600 transition-colors">NewsRoom</a>
+            <a href="contact.html" class="hover:text-emerald-600 transition-colors">Contact</a>
+        </div>
+    </div>
+
+    <section class="relative h-screen w-full flex items-center justify-center overflow-hidden bg-">
+        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-100">
+            <source src="https://media.istockphoto.com/id/2179292241/video/virtual-meta-city-of-people-using-devices-in-connected-social-network-wireless-futuristic.mp4?s=mp4-640x640-is&k=20&c=uhFS6UkyHcEJPcU9a39Qe5-6oi2ZmXmhTnvUHbff8wU=" type="video/mp4">
+        </video>
+        
+        <div class="absolute inset-0 bg- "></div>
+
+        <div class="relative z-20 text-center px-6 max-w-6xl text-white mt-20">
+            <div class="inline-flex items-center gap-3 px-5 py-2 mb-8 border border-white/20 rounded-full glass-card" data-aos="fade-down" data-aos-duration="1000">
+                <span class="w-2 h-2 rounded-full bg-arshith-gold animate-pulse shadow-[0_0_10px_#c5a880]"></span>
+                <span class="text-[10px] uppercase tracking-[0.3em] font-bold text-gray-200">Global Enterprise Network</span>
+            </div>
+
+            <h1 class="text-5xl md:text-7xl lg:text-[7.5rem] font-black tracking-tighter leading-[0.9] mb-8 uppercase text-white">
+                <div class="gsap-line"><span>Architecting</span></div>
+                <div class="gsap-line"><span>The <span style="color: var(--lux-gold);">Future.</span></span></div>
+            </h1>
+
+            <p class="text-lg md:text-2xl text-gray-300 font-light max-w-4xl mx-auto leading-relaxed mb-10" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1200">
+                Empowering India's core infrastructure. From resilient zero-commission supply chains to hyperscale generative AI ecosystems, Arshith Group scales without boundaries.
+            </p>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center opacity-80 z-20" data-aos="fade-in" data-aos-delay="1200">
+            <span class="text-[9px] uppercase tracking-widest mb-3 font-semibold text-white">Discover Our Legacy</span>
+            <div class="w-[1px] h-16 bg-gradient-to-b from-arshith-gold to-transparent"></div>
+        </div>
+    </section>
+
+    <section class="bg-gray-900 text- py-6 overflow-hidden border-y border-white/5">
+        <div class="marquee-wrapper">
+            <div class="flex items-center space-x-16 text-[11px] font-bold uppercase tracking-[0.3em] whitespace-nowrap text-gray-300">
+                <span>0% Commission E-Commerce</span> <i class="fa-solid fa-asterisk text-arshith-gold"></i>
+                <span>Global IT Recruitment</span> <i class="fa-solid fa-asterisk text-arshith-gold"></i>
+                <span>Zero-Trust Cloud Security</span> <i class="fa-solid fa-asterisk text-arshith-gold"></i>
+                <span>100% Organic Supply Chain</span> <i class="fa-solid fa-asterisk text-arshith-gold"></i>
+                <span>Agile Software Engineering</span> <i class="fa-solid fa-asterisk text-arshith-gold"></i>
+                <span>Generative AI Solutions</span> <i class="fa-solid fa-asterisk text-arshith-gold"></i>
+                <span>Enterprise ERP Architecture</span> <i class="fa-solid fa-asterisk text-arshith-gold"></i>
+                
+                <span>0% Commission E-Commerce</span> <i class="fa-solid fa-asterisk text-arshith-gold"></i>
+                <span>Global IT Recruitment</span> <i class="fa-solid fa-asterisk text-arshith-gold"></i>
+                <span>Zero-Trust Cloud Security</span> <i class="fa-solid fa-asterisk text-arshith-gold"></i>
+                <span>100% Organic Supply Chain</span> <i class="fa-solid fa-asterisk text-arshith-gold"></i>
+                <span>Agile Software Engineering</span> <i class="fa-solid fa-asterisk text-arshith-gold"></i>
+                <span>Generative AI Solutions</span> <i class="fa-solid fa-asterisk text-arshith-gold"></i>
+                <span>Enterprise ERP Architecture</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white relative z-10 border-b border-gray-100">
+        <div class="max-w-[1400px] mx-auto px-8">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <span class="text-arshith-gold font-bold uppercase tracking-[0.3em] text-[10px] pb-3 block">Our Philosophy</span>
+                <h2 class="text-4xl md:text-6xl font-black text-gray-900 leading-[1.0] uppercase tracking-tighter">
+                    Built on <span class="font-serif italic font-normal text-arshith-emerald lowercase tracking-normal">purpose</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="group relative overflow-hidden rounded-3xl shadow-xl aspect-[4/5]" data-aos="fade-up" data-aos-delay="0">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800" class="absolute inset-0 w-full h-full object-cover image-overlay-zoom" alt="Innovation">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <span class="w-10 h-10 rounded-full bg-arshith-emerald text-white flex items-center justify-center mb-4"><i class="fa-solid fa-lightbulb"></i></span>
+                        <h3 class="text-2xl font-bold text-white mb-2">Relentless Innovation</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">Pioneering new standards in digital architecture and AI to keep global enterprises ahead of the curve.</p>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-3xl shadow-xl aspect-[4/5]" data-aos="fade-up" data-aos-delay="150">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800" class="absolute inset-0 w-full h-full object-cover image-overlay-zoom" alt="Integrity">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <span class="w-10 h-10 rounded-full bg-arshith-gold text-gray-900 flex items-center justify-center mb-4"><i class="fa-solid fa-scale-balanced"></i></span>
+                        <h3 class="text-2xl font-bold text-white mb-2">Unwavering Integrity</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">Our 0% commission model ensures that value flows directly to the creators and farmers who deserve it most.</p>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-3xl shadow-xl aspect-[4/5]" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800" class="absolute inset-0 w-full h-full object-cover image-overlay-zoom" alt="Scale">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <span class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center mb-4"><i class="fa-solid fa-globe"></i></span>
+                        <h3 class="text-2xl font-bold text-white mb-2">Global Scale</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">Architecting boundaryless infrastructure that supports thousands of partners across 40+ countries.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Arshith Group</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind & AOS CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    },
+                    colors: {
+                        arshith: { dark: '#03050a', light: '#0a0f1c', emerald: '#1b4d3e', gold: '#c5a880' }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
+        .hover-3d-lift { transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .hover-3d-lift:hover { transform: translateY(-12px) scale(1.01); box-shadow: 0 30px 60px -15px rgba(27, 77, 62, 0.15); }
+        .img-corporate { filter: grayscale(80%) contrast(1.1); transition: filter 0.8s ease, transform 1.5s ease; }
+        .group:hover .img-corporate { filter: grayscale(0%) contrast(1); transform: scale(1.06); }
+        .parallax-img-container { overflow: hidden; position: relative; }
+        .parallax-img { transform: scale(1.2); will-change: transform; }
+    </style>
+</head>
+
+<body class="bg-white">
+
+    <!-- 1. CORPORATE MANDATE SECTION -->
+    <section class="py-32 px-8 lg:px-16 bg-white relative z-10">
+        <div class="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            <div class="lg:col-span-5 relative">
+                <div class="sticky top-40" data-aos="fade-right">
+                    <span class="text-arshith-emerald font-bold uppercase tracking-[0.3em] text-[10px] pb-3 block">Corporate Mandate</span>
+                    <h2 class="text-5xl md:text-7xl font-black text-gray-900 leading-[1.0] mb-8 uppercase tracking-tighter">
+                        Growth <br><span class="font-serif italic font-normal text-arshith-emerald lowercase tracking-normal">with</span> Goodness.
+                    </h2>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                        The Arshith Group's mandate is simple: to build resilient, boundaryless ecosystems that empower the bottom of the pyramid while servicing the apex of global enterprise. 
+                    </p>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-10">
+                        From launching <strong>Arshith Fresh</strong> to scaling <strong>Suntech Solutions</strong> and <strong>Arshith InfoTech</strong> as global leaders in IT recruitment and enterprise cloud architecture, we architect progress on a national scale.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-8 border-t border-gray-100 pt-8 mb-8">
+                        <div>
+                            <h4 class="text-4xl font-black text-gray-900 mb-1">50K+</h4>
+                            <p class="text-[10px] uppercase tracking-widest text-arshith-gold font-bold">Lives Impacted</p>
+                        </div>
+                        <div>
+                            <h4 class="text-4xl font-black text-gray-900 mb-1">100%</h4>
+                            <p class="text-[10px] uppercase tracking-widest text-arshith-emerald font-bold">Traceable Ethics</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 space-y-24 mt-10 lg:mt-0">
+                
+                <div class="group parallax-section" data-aos="fade-up">
+                    <div class="parallax-img-container rounded-3xl shadow-2xl aspect-[16/10] mb-8">
+                        <img src="https://images.pexels.com/photos/6214470/pexels-photo-6214470.jpeg" alt="Arshith Fresh Ecosystem" class="w-full h-full object-cover img-corporate parallax-img">
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 hover-3d-lift">
+                        <h3 class="text-3xl font-black text-gray-900 mb-4">Arshith Fresh: Conscious Commerce</h3>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            Redefining the Indian food supply chain. We bypassed the traditional middlemen to engineer a <strong>zero-commission ecosystem</strong> that directly uplifts rural farmers.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="group parallax-section" data-aos="fade-up">
+                    <div class="parallax-img-container rounded-3xl shadow-2xl aspect-[16/10] mb-8">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200" alt="Suntech Solutions Corporate" class="w-full h-full object-cover img-corporate parallax-img">
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 hover-3d-lift">
+                        <h3 class="text-3xl font-black text-gray-900 mb-4">Suntech Solutions: Global Staffing & ERP</h3>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            Deploying elite global IT talent and specializing in vast Microsoft architecture, including O365, SharePoint, and deep Business Analytics.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="group parallax-section" data-aos="fade-up">
+                    <div class="parallax-img-container rounded-3xl shadow-2xl aspect-[16/10] mb-8">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200" alt="Arshith InfoTech Data Hub" class="w-full h-full object-cover img-corporate parallax-img">
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 hover-3d-lift">
+                        <h3 class="text-3xl font-black text-gray-900 mb-4">Arshith InfoTech: The Digital Core</h3>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            Engineering secure, highly scalable cloud infrastructure. We partner with Fortune 500 companies to execute complex multi-cloud migrations.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. VISUAL IMPACT GALLERY -->
+    <section class="py-20 bg-gray-900 overflow-hidden">
+        <div class="max-w-[1600px] mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div data-aos="fade-right">
+                    <span class="text-arshith-gold font-bold uppercase tracking-[0.4em] text-[10px] pb-4 block">Visual Impact</span>
+                    <h2 class="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter">Inside the <br>Ecosystem</h2>
+                </div>
+                <p class="text-gray-400 max-w-md text-sm md:text-base mt-6 md:mt-0" data-aos="fade-left">A glimpse into the daily operations, agricultural partnerships, and high-tech command centers.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                <div class="col-span-2 row-span-2 overflow-hidden rounded-2xl group parallax-section" data-aos="zoom-in">
+                    <img src="https://arshithgroup.com/logos/news3.jpeg" alt="Supply Chain" class="w-full h-full object-cover min-h-[400px] parallax-img img-corporate">
+                </div>
+                <div class="overflow-hidden rounded-2xl group parallax-section" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://arshithgroup.com/logos/news5.jpeg" alt="Tech Hub" class="w-full h-full object-cover min-h-[200px] parallax-img img-corporate">
+                </div>
+                <div class="overflow-hidden rounded-2xl group parallax-section" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://arshithgroup.com/logos/news4.jpeg" alt="Agriculture" class="w-full h-full object-cover min-h-[200px] parallax-img img-corporate">
+                </div>
+                <div class="col-span-2 md:col-span-2 overflow-hidden rounded-2xl group parallax-section" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://arshithgroup.com/logos/students.jpeg" alt="Corporate Boardroom" class="w-full h-full object-cover min-h-[200px] parallax-img img-corporate">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. EVOLUTION TIMELINE SECTION -->
+    <section id="evolution" class="py-20 bg-gray-50 border-b border-gray-200">
+        <div class="max-w-[1200px] mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-arshith-emerald font-bold uppercase tracking-widest text-xs pb-3 block">Evolution</span>
+                <h2 class="text-4xl md:text-6xl font-black text-gray-900 uppercase tracking-tighter">The Journey</h2>
+            </div>
+
+            <div class="relative space-y-16">
+                <div class="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gray-300 hidden md:block"></div>
+
+                <div class="relative flex flex-col md:flex-row items-center justify-between" data-aos="fade-up">
+                    <div class="md:w-5/12 text-right md:pr-12">
+                        <h4 class="text-3xl font-black text-arshith-emerald mb-2">The Genesis</h4>
+                        <p class="text-gray-600">Foundation of Arshith Group with a core mandate to revolutionize rural supply chains. Launch of Arshith Fresh to eliminate middlemen and empower farmers directly.</p>
+                    </div>
+                    <div class="w-6 h-6 rounded-full bg-arshith-gold border-4 border-white shadow-lg z-10 my-4 md:my-0"></div>
+                    <div class="md:w-5/12 md:pl-12">
+                        <img src="https://images.unsplash.com/photo-1599059813005-11265ba4b4ce?q=80&w=800" class="rounded-2xl shadow-lg w-full h-48 object-cover hover-3d-lift" alt="Genesis">
+                    </div>
+                </div>
+
+                <div class="relative flex flex-col md:flex-row-reverse items-center justify-between" data-aos="fade-up">
+                    <div class="md:w-5/12 text-left md:pl-12">
+                        <h4 class="text-3xl font-black text-gray-900 mb-2">Tech Integration</h4>
+                        <p class="text-gray-600">Strategic expansion into IT infrastructure. Launch of Suntech Solutions and Arshith InfoTech to build agile enterprise software, global staffing pipelines, and Microsoft cloud architectures.</p>
+                    </div>
+                    <div class="w-6 h-6 rounded-full bg-blue-600 border-4 border-white shadow-lg z-10 my-4 md:my-0"></div>
+                    <div class="md:w-5/12 md:pr-12">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800" class="rounded-2xl shadow-lg w-full h-48 object-cover hover-3d-lift" alt="Tech">
+                    </div>
+                </div>
+
+                <div class="relative flex flex-col md:flex-row items-center justify-between" data-aos="fade-up">
+                    <div class="md:w-5/12 text-right md:pr-12">
+                        <h4 class="text-3xl font-black text-arshith-gold mb-2">Global Scale</h4>
+                        <p class="text-gray-600">Expanding operational footprint to 40+ countries. Implementing ESG-compliant Net-Zero warehousing, Zero-Trust cloud security, and predictive Generative AI data centers.</p>
+                    </div>
+                    <div class="w-6 h-6 rounded-full bg-gray-900 border-4 border-white shadow-lg z-10 my-4 md:my-0"></div>
+                    <div class="md:w-5/12 md:pl-12">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800" class="rounded-2xl shadow-lg w-full h-48 object-cover hover-3d-lift" alt="Global">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. LEADERSHIP / PORTFOLIOS SECTION -->
+    <section id="leadership" class="py-24 bg-white">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="text-center mb-20" data-aos="fade-down">
+                <span class="text-arshith-gold text-[10px] font-bold uppercase tracking-[0.3em] mb-2 block">Executive Board</span>
+                <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter text-gray-900">Visionary <span class="text-gray-300">Leadership</span></h2>
+            </div>
+
+            <!-- Profile 1 -->
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 mb-32 group" data-aos="fade-up">
+                <div class="w-full lg:w-5/12 relative">
+                    <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl relative z-10 hover-3d-lift">
+                        <img src="https://arshithgroup.com/logos/sir(1)(1).png" alt="Farook Nurubasha" class="w-full h-full object-cover img-corporate">
+                    </div>
+                    <div class="absolute -top-6 -left-6 w-full h-full rounded-3xl border-2 border-arshith-gold/30 z-0 transition-transform duration-700 group-hover:translate-x-3 group-hover:translate-y-3"></div>
+                </div>
+                
+                <div class="w-full lg:w-7/12">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gray-100 text-gray-800 text-[10px] font-bold uppercase tracking-widest mb-6">
+                        <i class="fa-solid fa-briefcase text-arshith-gold"></i> Executive Profile
+                    </div>
+                    <h3 class="text-4xl md:text-5xl font-black text-gray-900 mb-2 tracking-tight">Farook Nurubasha</h3>
+                    <p class="text-xl font-serif italic text-arshith-emerald mb-6">Chairman & Chief Executive Officer</p>
+                    
+                    <div class="space-y-5 text-gray-600 leading-relaxed mb-8 text-lg">
+                        <p>
+                            As the principal architect of the Arshith Group ecosystem, Farook possesses a profound understanding of the intersection between rural economics and highly scalable enterprise technology. His vision catalyzed the foundation of Arshith Fresh.
+                        </p>
+                        <blockquote class="pl-6 border-l-4 border-arshith-gold italic text-gray-800 font-medium my-6">
+                            "The Arshith Group is more than just a brand — it's a growing ecosystem rooted in trust, tradition, and forward-thinking engineering."
+                        </blockquote>
+                    </div>
+
+                    <a href="https://in.linkedin.com/in/farook-n-2bb2b5344" target="_blank" class="inline-flex items-center gap-3 bg-gray-900 text-white px-8 py-4 rounded-xl font-semibold hover:bg-arshith-emerald transition-colors duration-400 shadow-lg hover:-translate-y-1 transform">
+                        <i class="fa-brands fa-linkedin text-xl"></i> Portfolio on LinkedIn
+                    </a>
+                </div>
+            </div>
+
+            <!-- Profile 2 -->
+            <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20 group" data-aos="fade-up">
+                <div class="w-full lg:w-5/12 relative">
+                    <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl relative z-10 hover-3d-lift">
+                        <!-- Clean Image Link instead of massive Base64 -->
+                        <img src="https://cdn.shopify.com/s/files/1/0858/0772/6869/files/ldd2.jpg" alt="Pallavi N." class="w-full h-full object-cover img-corporate">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 w-full h-full rounded-3xl border-2 border-arshith-emerald/30 z-0 transition-transform duration-700 group-hover:-translate-x-3 group-hover:-translate-y-3"></div>
+                </div>
+                
+                <div class="w-full lg:w-7/12 lg:text-right">
+                    <div class="inline-flex items-center justify-end gap-2 px-4 py-1.5 rounded-full bg-gray-100 text-gray-800 text-[10px] font-bold uppercase tracking-widest mb-6 lg:ml-auto">
+                        <i class="fa-solid fa-briefcase text-arshith-emerald"></i> Executive Profile
+                    </div>
+                    <h3 class="text-4xl md:text-5xl font-black text-gray-900 mb-2 tracking-tight">Pallavi N.</h3>
+                    <p class="text-xl font-serif italic text-arshith-gold mb-6">Managing Director</p>
+                    
+                    <div class="space-y-5 text-gray-600 leading-relaxed mb-8 text-lg">
+                        <p>
+                            The operational engine of the Arshith ecosystem, Pallavi brings a relentless focus on execution, ethics, and massive scalability. Her expertise in managing cross-border logistics ensures every vertical runs seamlessly.
+                        </p>
+                        <blockquote class="pr-6 border-r-4 border-arshith-emerald italic text-gray-800 font-medium my-6 lg:text-right">
+                            "At the heart of our vast ecosystem lies an uncompromising commitment to purity, ethics, and operational excellence."
+                        </blockquote>
+                    </div>
+
+                    <a href="http://linkedin.com/in/pallavi-n-4578033ab" target="_blank" class="inline-flex items-center gap-3 bg-gray-900 text-white px-8 py-4 rounded-xl font-semibold hover:bg-arshith-gold transition-colors duration-400 shadow-lg hover:-translate-y-1 transform">
+                        <i class="fa-brands fa-linkedin text-xl"></i> Portfolio on LinkedIn
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- REQUIRED SCRIPTS (DO NOT DELETE) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // 1. Initialize AOS Animations
+        AOS.init({
+            duration: 1000, 
+            once: true, 
+            offset: 100,
+            easing: 'ease-out-cubic'
+        });
+
+        // 2. GSAP Parallax Effect Initialization
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.utils.toArray('.parallax-section').forEach(section => {
+            const img = section.querySelector('.parallax-img');
+            if(img) {
+                gsap.to(img, {
+                    yPercent: 20,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top bottom", 
+                        end: "bottom top",
+                        scrub: true
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
+    <footer class="premium-footer">
+        <div class="footer-wrap">
+            
+            <div class="footer-top-row">
+                <div class="brand-editorial">
+                    <h2>Arshith <span>Group</span></h2>
+                    <p>Fusing timeless traditional integrity with sophisticated technological intelligence to build sustainable market ecosystems.</p>
+                </div>
+                
+                <div class="lux-newsletter">
+                    <p>Join the inner circle</p>
+                    <div class="input-group-animated">
+                        <input type="email" id="newsletter_email" placeholder="Enter corporate email layout" aria-label="Newsletter Email">
+                        <button class="lux-submit-btn" id="newsletter_btn" onclick="executeNewsletterSubscription(event)" aria-label="Submit Email">
+                            <i class="fa-solid fa-arrow-right-long" style="pointer-events: none;"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-main-grid">
+                <div>
+                    <h3 class="grid-title">Ecosystem</h3>
+                    <ul class="lux-links-list">
+                        <li><a href="https://arshithfresh.com/">Arshith Fresh Corporate</a></li>
+                        <li><a href="https://www.suntechsolutions.com/">Suntech Digital Labs</a></li>
+                        <li><a href="https://arshithfresh.com/">E-Commerce Supply Chain</a></li>
+                        <li><a href="https://arshithfresh.com/pages/contact-for-franchise">Global Franchises</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="grid-title">About Us</h3>
+                    <ul class="lux-links-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="ourbusiness.html">Our Businesses</a></li>
+                        <li><a href="careers.html">Careers Portal</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="grid-title">More</h3>
+                    <ul class="lux-links-list">
+                        <li><a href="internship.html">Internship</a></li>
+                        <li><a href="page.html">Apply Internship</a></li>
+                        <li><a href="newsroom.html">NewsRoom</a></li>
+                        <li><a href="contact.html">ContactUs</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="grid-title">Concierge Support</h3>
+                    
+                    <div class="lux-contact-item">
+                        <div class="lux-icon-circle"><i class="fa-solid fa-phone-flip"></i></div>
+                        <div class="lux-contact-text">
+                            <span>Inquiries Line</span>
+                            <a href="tel:+918618471424">+91 86184 71424</a>
+                        </div>
+                    </div>
+
+                    <div class="lux-contact-item">
+                        <div class="lux-icon-circle"><i class="fa-solid fa-envelope-open"></i></div>
+                        <div class="lux-contact-text">
+                            <span>Electronic Mailing</span>
+                            <a href="mailto:support@arshithfresh.com">support@arshithfresh.com</a>
+                        </div>
+                    </div>
+
+                    <div class="lux-contact-item">
+                        <div class="lux-icon-circle"><i class="fa-solid fa-map-pin"></i></div>
+                        <div class="lux-contact-text">
+                            <span>Headquarters</span>
+                            <p>Bengaluru, India</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom-meta">
+                <div class="legal-lux-links">
+                    <a href="https://arshithfresh.com/policies/privacy-policy">Privacy Charter</a>
+                    <a href="https://arshithfresh.com/policies/refund-policy">Return & Refund</a>
+                    <a href="https://arshithfresh.com/policies/terms-of-service">Accessibility Compliance</a>
+                </div>
+
+                <div class="lux-social-container">
+                    <div class="lux-social-wrapper"><a href="https://in.linkedin.com/company/arshith-fresh-india-pvt-ltd" target="_blank" class="lux-social-link"><i class="fa-brands fa-linkedin-in"></i></a></div>
+                    <div class="lux-social-wrapper"><a href="https://www.instagram.com/arshith_fresh/" class="lux-social-link"><i class="fa-brands fa-instagram"></i></a></div>
+                </div>
+
+                <div class="copyright-lux">
+                    &copy; 2026 The Arshith Group. Crafted to perfection.
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    
+    <button id="toTop" class="fixed bottom-10 right-10 z-[150] bg-arshith-emerald text-white p-4 rounded-full shadow-2xl opacity-0 transition-opacity duration-500 hover:bg-gray-900 border border-transparent hover:border-arshith-emerald">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+    </button>
+
+    <script>
+        // --- Mobile Menu Logic ---
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+        const closeIcon = document.getElementById('closeIcon');
+        let isMenuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+                menuIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // --- Navbar Scroll Effect ---
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('glass-header');
+                navbar.classList.remove('bg-white/80', 'border-transparent', 'py-5');
+                navbar.classList.add('py-4');
+            } else {
+                navbar.classList.remove('glass-header', 'py-4');
+                navbar.classList.add('bg-white/80', 'border-transparent', 'py-5');
+            }
+        });
+
+        // --- Back To Top Logic ---
+        const toTop = document.getElementById('toTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                toTop.classList.remove('opacity-0');
+            } else {
+                toTop.classList.add('opacity-0');
+            }
+        });
+        toTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // --- AOS Initialization ---
+        AOS.init({ duration: 1000, once: true, easing: 'ease-out-cubic' });
+
+        // --- GSAP Cinematic Scroll Reveals & Parallax ---
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Titles
+        gsap.utils.toArray('.gsap-line span').forEach(line => {
+            gsap.to(line, { y: 0, opacity: 1, duration: 1.5, ease: "power4.out", delay: 0.3 });
+        });
+
+        // Parallax Image Effect
+        gsap.utils.toArray('.parallax-section').forEach(section => {
+            const img = section.querySelector('.parallax-img');
+            gsap.to(img, {
+                yPercent: 20,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top bottom", 
+                    end: "bottom top",
+                    scrub: true
+                }
+            });
+        });
+
+        // --- Newsletter Logic ---
+        function executeNewsletterSubscription(event) {
+            if (event) event.preventDefault();
+            const emailInput = document.getElementById('newsletter_email');
+            const registerBtn = document.getElementById('newsletter_btn');
+            
+            if (!emailInput) return;
+            const emailData = emailInput.value.trim();
+            
+            if (!emailData || !emailData.includes('@')) {
+                alert("Please enter a valid corporate email layout.");
+                return;
+            }
+            
+            if (registerBtn) registerBtn.disabled = true;
+            
+            fetch('process_new.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: emailData })
+            })
+            .then(response => {
+                if (!response.ok) throw new Error("Network response failure, code status: " + response.status);
+                return response.json();
+            })
+            .then(payload => {
+                if (payload.success) {
+                    alert("Welcome to the inner circle. Your email has been successfully cataloged.");
+                    emailInput.value = ''; 
+                } else {
+                    alert("Database System Message: " + payload.message);
+                }
+            })
+            .catch(err => {
+                console.error('Network Transaction Failure:', err);
+                alert("Communication Error: Could not link up to process_new.php. Double check that the file is in your primary root folder.");
+            })
+            .finally(() => {
+                if (registerBtn) registerBtn.disabled = false;
+            });
+        }
+    </script>
+</body>
+</html>

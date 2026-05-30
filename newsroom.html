@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arshith Group | Media & Insights</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #f8fafc; /* Premium clean slate background */
+            overflow-x: hidden;
+            color: #0f172a;
+        }
+
+        /* NAVBAR */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.90);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+        }
+
+        /* FLOATING BLOBS (Adapted for Light Theme) */
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob { animation: blob 15s infinite alternate ease-in-out; }
+        .animation-delay-2000 { animation-delay: 2s; }
+
+        /* CENTER LINE GROWTH */
+        @keyframes grow-width {
+            0% { opacity: 0; transform: scaleX(0); }
+            100% { opacity: 1; transform: scaleX(1); }
+        }
+        .animate-grow-width { animation: grow-width 1.5s ease-out 1s both; }
+
+        /* SECTION HEADINGS */
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title p {
+            color: #6366f1;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+        .section-title h2 {
+            color: #0f172a;
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+        .section-title h2 span { color: #6366f1; }
+
+        /* PREMIUM CINEMATIC SLIDER (Light Theme Base) */
+        .modernNewsSlider { width: 100%; overflow: visible; padding: 40px 0 80px; }
+        .modernNewsSlider .swiper-wrapper { align-items: center; }
+        .modernNewsSlider .swiper-slide {
+            width: 35%;
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 0.4;
+            transform: scale(0.8);
+            filter: blur(4px);
+        }
+        .modernNewsSlider .swiper-slide-active {
+            opacity: 1 !important;
+            transform: scale(1) !important;
+            filter: blur(0px) !important;
+            z-index: 50;
+        }
+        .modernNewsSlider .swiper-slide-prev,
+        .modernNewsSlider .swiper-slide-next {
+            opacity: 0.7;
+            transform: scale(0.9);
+            filter: blur(2px);
+        }
+        .swiper-slide-active .modern-card {
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12), 0 10px 20px rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .modern-card {
+            position: relative;
+            height: 520px;
+            border-radius: 24px;
+            overflow: hidden;
+            background: #fff;
+            transition: 1s ease;
+        }
+        .modern-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .swiper-slide-active .modern-card img { transform: scale(1.05); }
+        .modern-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            /* Keeps text readable over images */
+            background: linear-gradient(to top, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.3) 50%, transparent 100%);
+        }
+        .modern-content { position: absolute; bottom: 0; left: 0; z-index: 5; padding: 35px; }
+        .modern-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #fff;
+            margin-bottom: 18px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .modern-content h2 { font-size: 2rem; line-height: 1.2; margin-bottom: 10px; font-weight: 800; color: white;}
+        .modern-content p { font-size: 0.95rem; line-height: 1.6; max-width: 420px; color: #e2e8f0; margin-bottom: 15px;}
+        .modern-date { font-size: 11px; letter-spacing: 1px; color: #94a3b8; font-weight: 700;}
+
+        /* MNC NEWS ARCHIVE GRID */
+        .news-grid-card {
+            background: #ffffff;
+            border: 1px solid #f1f5f9;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        .news-grid-card:hover {
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.1), 0 10px 20px -5px rgba(99, 102, 241, 0.05);
+        }
+        .news-grid-image { overflow: hidden; position: relative; }
+        .news-grid-image img {
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+        .news-grid-card:hover .news-grid-image img { transform: scale(1.06); }
+
+        /* CALENDAR / EVENTS */
+        .event-row {
+            transition: all 0.4s ease;
+            border-bottom: 1px solid #f1f5f9;
+            background: #ffffff;
+        }
+        .event-row:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+            transform: translateX(5px);
+        }
+
+        /* BRAND ASSETS CARD */
+        .asset-card {
+            background: #ffffff;
+            border: 1px solid #f1f5f9;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .asset-card:hover {
+            border-color: #93c5fd;
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.08);
+        }
+
+        /* FOOTER VARIABLES (Original Luxury Footer intact) */
+        :root {
+            --lux-bg: #fbfbfc;
+            --lux-card: #ffffff;
+            --lux-dark: #111612;
+            --lux-muted: #68706c;
+            --lux-gold: #c5a880;
+            --lux-emerald: #1b4d3e;
+            --lux-mint: #f4f7f5;
+            --bezier-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .premium-footer { background-color: var(--lux-bg); border-top: 1px solid rgba(0, 0, 0, 0.05); padding: 50px 0 25px 0; position: relative; color: var(--lux-dark); overflow: hidden; }
+        .premium-footer::before { content: ''; position: absolute; top: -10%; left: 50%; transform: translateX(-50%); width: 80%; height: 60%; background: radial-gradient(circle, rgba(197, 168, 128, 0.04) 0%, rgba(27, 77, 62, 0.02) 50%, transparent 100%); z-index: 1; pointer-events: none; }
+        .footer-wrap { max-width: 1200px; margin: 0 auto; padding: 0 25px; position: relative; z-index: 2; }
+        .footer-top-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0, 0, 0, 0.05); padding-bottom: 25px; margin-bottom: 35px; }
+        .brand-editorial h2 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 500; color: var(--lux-dark); line-height: 1.1; letter-spacing: -0.3px; }
+        .brand-editorial h2 span { font-family: 'Playfair Display', serif; font-style: italic; color: var(--lux-emerald); font-weight: 400; }
+        .brand-editorial p { color: var(--lux-muted); font-size: 13px; margin-top: 6px; max-width: 380px; line-height: 1.5; }
+        .lux-newsletter { width: 320px; }
+        .lux-newsletter p { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; color: var(--lux-muted); margin-bottom: 8px; }
+        .input-group-animated { position: relative; display: flex; align-items: center; border-bottom: 1.5px solid rgba(0, 0, 0, 0.1); padding-bottom: 5px; transition: all 0.4s var(--bezier-luxury); }
+        .input-group-animated input { width: 100%; border: none; outline: none; background: transparent; font-size: 14px; color: var(--lux-dark); padding-right: 30px; }
+        .input-group-animated input::placeholder { color: #a0aec0; font-weight: 300; }
+        .input-group-animated::after { content: ''; position: absolute; bottom: -1.5px; left: 0; width: 0; height: 1.5px; background: var(--lux-emerald); transition: all 0.6s var(--bezier-luxury); }
+        .input-group-animated:focus-within::after { width: 100%; }
+        .lux-submit-btn { position: absolute; right: 0; background: none; border: none; cursor: pointer; font-size: 15px; color: var(--lux-dark); transition: all 0.4s var(--bezier-luxury); }
+        .lux-submit-btn:hover { color: var(--lux-gold); transform: translateX(3px); }
+        .footer-main-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1.1fr; gap: 30px; margin-bottom: 45px; }
+        .grid-title { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; color: var(--lux-dark); margin-bottom: 16px; }
+        .lux-links-list { list-style: none; }
+        .lux-links-list li { margin-bottom: 10px; }
+        .lux-links-list a { text-decoration: none; color: var(--lux-muted); font-size: 13.5px; font-weight: 400; display: inline-block; position: relative; padding-bottom: 1px; transition: color 0.3s ease; }
+        .lux-links-list a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background-color: var(--lux-gold); transition: width 0.4s var(--bezier-luxury); }
+        .lux-links-list a:hover { color: var(--lux-dark); }
+        .lux-links-list a:hover::after { width: 100%; }
+        .lux-contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .lux-icon-circle { width: 28px; height: 28px; border-radius: 50%; background-color: var(--lux-mint); display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--lux-emerald); transition: all 0.4s var(--bezier-luxury); }
+        .lux-contact-item:hover .lux-icon-circle { background-color: var(--lux-emerald); color: #ffffff; transform: scale(1.05); }
+        .lux-contact-text span { display: block; font-size: 10px; text-transform: uppercase; color: var(--lux-muted); letter-spacing: 0.3px; }
+        .lux-contact-text a, .lux-contact-text p { font-size: 13.5px; color: var(--lux-dark); text-decoration: none; font-weight: 500; }
+        .footer-bottom-meta { border-top: 1px solid rgba(0, 0, 0, 0.05); padding-top: 25px; display: flex; justify-content: space-between; align-items: center; }
+        .copyright-lux { font-size: 12px; color: var(--lux-muted); }
+        .lux-social-container { display: flex; gap: 10px; }
+        .lux-social-wrapper { position: relative; }
+        .lux-social-link { width: 34px; height: 34px; border-radius: 50%; background: var(--lux-card); border: 1px solid rgba(0, 0, 0, 0.05); color: var(--lux-dark); display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 13px; transition: all 0.4s var(--bezier-luxury); position: relative; z-index: 2; }
+        .lux-social-link::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; background: var(--lux-emerald); transform: scale(0); transition: transform 0.4s var(--bezier-luxury); z-index: -1; }
+        .lux-social-link:hover { color: #ffffff; border-color: var(--lux-emerald); transform: translateY(-3px); box-shadow: 0 6px 15px rgba(27, 77, 62, 0.1); }
+        .lux-social-link:hover::before { transform: scale(1); }
+        .legal-lux-links { display: flex; gap: 20px; }
+        .legal-lux-links a { font-size: 12px; color: var(--lux-muted); text-decoration: none; transition: color 0.3s ease; }
+        .legal-lux-links a:hover { color: var(--lux-gold); }
+
+        @media(max-width:768px){
+            .section-title h2 { font-size: 2.5rem; }
+            .modernNewsSlider .swiper-slide { width: 85%; }
+            .modern-card { height: 450px; }
+            .modern-content h2 { font-size: 1.5rem; }
+            .footer-main-grid { grid-template-columns: 1fr; }
+            .footer-top-row { flex-direction: column; align-items: flex-start; gap: 20px; }
+            .footer-bottom-meta { flex-direction: column; gap: 15px; text-align: center; }
+            .legal-lux-links { justify-content: center; order: 2; }
+            .lux-social-container { justify-content: center; order: 1; }
+            .copyright-lux { order: 3; }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- 1. ADANI-STYLE NAVIGATION (Adapted to Light Theme) -->
+<nav id="navbar" class="fixed w-full z-50 py-5 px-8 flex justify-between items-center transition-all duration-500 text-gray-900">
+    <div class="text-2xl font-extrabold tracking-tighter z-50 relative">ARSHITH <span class="font-light opacity-70">GROUP</span></div>
+    
+    <div class="hidden lg:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.2em]">
+        <a href="index.html" class="hover:text-blue-600 border-b border-transparent hover:border-blue-600 pb-1 transition-colors">Home</a>
+        <a href="about.html" class="hover:text-blue-600 border-b border-transparent hover:border-blue-600 pb-1 transition-colors">About</a>
+        <a href="ourbusiness.html" class="hover:text-blue-600 border-b border-transparent hover:border-blue-600 pb-1 transition-colors">Our Businesses</a>
+        <a href="careers.html" class="hover:text-blue-600 border-b border-transparent hover:border-blue-600 pb-1 transition-colors">Careers</a>
+        <a href="internship.html" class="hover:text-blue-600 border-b border-transparent hover:border-blue-600 pb-1 transition-colors">Internship</a>
+        <a href="newsroom.html" class="text-blue-600 border-b border-blue-600 pb-1">NewsRoom</a>
+        <a href="contact.html" class="hover:text-blue-600 border-b border-transparent hover:border-blue-600 pb-1 transition-colors">Contact</a>
+    </div>
+
+    <div class="flex items-center space-x-4 relative z-50">
+        <button id="searchBtn" class="w-11 h-11 rounded-full border border-gray-300 flex items-center justify-center text-gray-900 hover:bg-gray-900 hover:text-white hover:border-gray-900 transition duration-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+        </button> 
+
+        <button id="mobileMenuBtn" class="lg:hidden w-11 h-11 rounded-full border border-gray-300 flex items-center justify-center text-gray-900 hover:bg-gray-900 hover:text-white hover:border-gray-900 transition duration-500">
+            <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="closeIcon" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+    </div>
+</nav>
+
+<!-- MOBILE MENU OVERLAY -->
+<div id="mobileMenu" class="fixed inset-0 z-40 bg-white/98 backdrop-blur-xl flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-500 lg:hidden">
+    <div class="flex flex-col text-center space-y-8 text-sm font-bold uppercase tracking-[0.2em] text-gray-900">
+        <a href="index.html" class="hover:text-blue-600 transition-colors">Home</a>
+        <a href="about.html" class="hover:text-blue-600 transition-colors">About</a>
+        <a href="ourbusiness.html" class="hover:text-blue-600 transition-colors">Our Businesses</a>
+        <a href="careers.html" class="hover:text-blue-600 transition-colors">Careers</a>
+        <a href="internship.html" class="hover:text-blue-600 transition-colors">Internship</a>
+        <a href="newsroom.html" class="text-blue-600 transition-colors">NewsRoom</a>
+        <a href="contact.html" class="hover:text-blue-600 transition-colors">Contact</a>
+    </div>
+</div>
+
+<!-- HERO SECTION (Light Theme) -->
+<section class="relative min-h-[75vh] flex items-center justify-center overflow-hidden bg-[#f8fafc]">
+    <!-- High quality corporate video, kept subtle -->
+    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0 opacity-[0.15] mix-blend-luminosity">
+        <source src="https://media.istockphoto.com/id/1359071314/video/creative-architect-holds-meeting-presentation-of-a-new-housing-project-for-a-team-of-real.mp4?s=mp4-640x640-is&k=20&c=NgxyvB9FLQmpagTYFP6QudeSbkOlQMjKLJ0W6gyp6oI=" type="video/mp4">
+    </video>
+    
+    <div class="absolute inset-0 bg-gradient-to-b from-white/95 via-white/80 to-[#f8fafc]"></div>
+
+    <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-purple-300/40 rounded-full mix-blend-multiply filter blur-[100px] animate-blob"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-300/40 rounded-full mix-blend-multiply filter blur-[100px] animate-blob animation-delay-2000"></div>
+    </div>
+
+    <div class="relative z-10 max-w-5xl mx-auto text-center px-6 mt-20" data-aos="fade-up" data-aos-duration="1200">
+        <p class="text-[10px] md:text-[12px] uppercase tracking-[0.4em] text-blue-600 font-extrabold mb-4">Official Press & Insights</p>
+        <h1 class="text-5xl md:text-7xl lg:text-[6.5rem] font-black tracking-tighter leading-[0.9] text-gray-900 mb-6 drop-shadow-sm">
+            The <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">Newsroom</span>
+        </h1>
+        <p class="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto font-medium mb-12">Stay updated with the latest strategic milestones, global expansions, and technological innovations across the Arshith Group ecosystem.</p>
+
+        <div class="flex flex-col items-center gap-6">
+            <div class="flex justify-center items-center gap-4 animate-grow-width">
+                <div class="h-[1px] w-12 bg-gray-300"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse"></div>
+                <div class="h-[1px] w-12 bg-gray-300"></div>
+            </div>
+            <span class="text-[9px] uppercase tracking-[0.3em] text-gray-400 font-bold">Discover More</span>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURED SWIPER SECTION (Light Background) -->
+<section class="pt-20 pb-16 relative z-10 bg-[#f8fafc]">
+    <div class="section-title" data-aos="fade-up">
+        <p>LATEST UPDATES</p>
+        <h2>Featured <span>News</span></h2>
+    </div>
+
+    <div class="swiper modernNewsSlider" data-aos="fade-in" data-aos-delay="200" data-aos-duration="1500">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="modern-card">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200" alt="Corporate">
+                    <div class="modern-content">
+                        <div class="modern-tag">ARSHITH GROUP</div>
+                        <h2>Defining Our Future</h2>
+                        <p>Strategic Milestones for the Road Ahead.</p>
+                        <div class="modern-date">OCTOBER 24, 2025</div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="modern-card">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200" alt="Tech">
+                    <div class="modern-content">
+                        <div class="modern-tag">ARSHITH INFO TECH</div>
+                        <h2>Elevating Our Standards</h2>
+                        <p>A New Era of Growth and Cloud Infrastructure.</p>
+                        <div class="modern-date">OCTOBER 18, 2025</div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="modern-card">
+                    <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=1200" alt="Agriculture">
+                    <div class="modern-content">
+                        <div class="modern-tag">ARSHITH FRESH</div>
+                        <h2>Revolutionizing Organic Farming</h2>
+                        <p>Empowering farmers through technology-enabled sustainable agriculture.</p>
+                        <div class="modern-date">DECEMBER 01, 2025</div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="modern-card">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200" alt="Team">
+                    <div class="modern-content">
+                        <div class="modern-tag">ARSHITH GROUP</div>
+                        <h2>Cultivating Leadership</h2>
+                        <p>Shaping the Future, One Mind at a Time.</p>
+                        <div class="modern-date">NOVEMBER 08, 2025</div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="modern-card">
+                    <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=1200" alt="Energy">
+                    <div class="modern-content">
+                        <div class="modern-tag">SUNTECH SOLUTIONS</div>
+                        <h2>Renewable Energy Milestone</h2>
+                        <p>Scaling solar infrastructure for a sustainable tomorrow.</p>
+                        <div class="modern-date">OCTOBER 12, 2025</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MNC STYLE COMPREHENSIVE NEWS ARCHIVE -->
+<section class="py-24 bg-white border-t border-gray-100 relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
+        
+        <!-- Filter Header -->
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-gray-100 pb-8" data-aos="fade-up">
+            <div>
+                <h3 class="text-3xl md:text-4xl font-black text-gray-900 tracking-tight">Press Releases & Media</h3>
+                <p class="text-gray-500 mt-2 font-medium">Comprehensive updates across all Arshith subsidiaries.</p>
+            </div>
+            
+            <div class="mt-8 md:mt-0 flex flex-wrap gap-3">
+                <button class="px-6 py-2.5 rounded-full bg-purple-600 text-white text-[11px] font-bold uppercase tracking-wider shadow-md hover:bg-purple-700 transition">All News</button>
+                <button class="px-6 py-2.5 rounded-full bg-gray-50 border border-gray-200 text-gray-600 text-[11px] font-bold uppercase tracking-wider hover:bg-gray-100 hover:text-gray-900 transition">Corporate</button>
+                <button class="px-6 py-2.5 rounded-full bg-gray-50 border border-gray-200 text-gray-600 text-[11px] font-bold uppercase tracking-wider hover:bg-gray-100 hover:text-gray-900 transition">Technology</button>
+                <button class="px-6 py-2.5 rounded-full bg-gray-50 border border-gray-200 text-gray-600 text-[11px] font-bold uppercase tracking-wider hover:bg-gray-100 hover:text-gray-900 transition">Agriculture</button>
+            </div>
+        </div>
+
+        <!-- News Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Grid Item 1 -->
+            <div class="news-grid-card group" data-aos="fade-up" data-aos-delay="0">
+                <div class="news-grid-image">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200" alt="Earnings">
+                    <div class="absolute top-4 right-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-md shadow-sm text-[10px] font-extrabold tracking-widest text-gray-900 border border-gray-100">FINANCIAL</div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow bg-white">
+                    <p class="text-xs text-purple-600 font-bold tracking-wider mb-3">MARCH 15, 2026</p>
+                    <h4 class="text-xl font-bold text-gray-900 leading-tight mb-3 group-hover:text-purple-600 transition-colors">Arshith Group Announces Record Q1 2026 Revenue Growth</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed mb-6 flex-grow">Driven by massive expansion in the InfoTech sector and scaled operations in Arshith Fresh, the conglomerate reports a 45% YoY increase in operational revenue.</p>
+                    <a href="#" class="inline-flex items-center text-sm font-bold text-gray-900 group-hover:text-purple-600 transition-colors mt-auto">
+                        Read Press Release <i class="fa-solid fa-arrow-right ml-2 text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Grid Item 2 -->
+            <div class="news-grid-card group" data-aos="fade-up" data-aos-delay="100">
+                <div class="news-grid-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200" alt="Partnership">
+                    <div class="absolute top-4 right-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-md shadow-sm text-[10px] font-extrabold tracking-widest text-gray-900 border border-gray-100">CORPORATE</div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow bg-white">
+                    <p class="text-xs text-blue-600 font-bold tracking-wider mb-3">FEBRUARY 28, 2026</p>
+                    <h4 class="text-xl font-bold text-gray-900 leading-tight mb-3 group-hover:text-blue-600 transition-colors">Strategic Alliance Formed with Global Logistics Leaders</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed mb-6 flex-grow">In a bid to conquer international supply chain hurdles, Arshith Group finalizes a $50M joint venture to streamline cross-border agricultural exports.</p>
+                    <a href="#" class="inline-flex items-center text-sm font-bold text-gray-900 group-hover:text-blue-600 transition-colors mt-auto">
+                        Read Press Release <i class="fa-solid fa-arrow-right ml-2 text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Grid Item 3 -->
+            <div class="news-grid-card group" data-aos="fade-up" data-aos-delay="200">
+                <div class="news-grid-image">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200" alt="Tech">
+                    <div class="absolute top-4 right-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-md shadow-sm text-[10px] font-extrabold tracking-widest text-gray-900 border border-gray-100">TECHNOLOGY</div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow bg-white">
+                    <p class="text-xs text-emerald-600 font-bold tracking-wider mb-3">FEBRUARY 10, 2026</p>
+                    <h4 class="text-xl font-bold text-gray-900 leading-tight mb-3 group-hover:text-emerald-600 transition-colors">Arshith InfoTech Deploys Next-Gen Zero-Trust Framework</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed mb-6 flex-grow">Our cybersecurity division has successfully rolled out its proprietary military-grade zero-trust architecture for enterprise partners across Europe and Asia.</p>
+                    <a href="#" class="inline-flex items-center text-sm font-bold text-gray-900 group-hover:text-emerald-600 transition-colors mt-auto">
+                        Read Press Release <i class="fa-solid fa-arrow-right ml-2 text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Grid Item 4 -->
+            <div class="news-grid-card group" data-aos="fade-up" data-aos-delay="0">
+                <div class="news-grid-image">
+                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1200" alt="Agri">
+                    <div class="absolute top-4 right-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-md shadow-sm text-[10px] font-extrabold tracking-widest text-gray-900 border border-gray-100">AGRICULTURE</div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow bg-white">
+                    <p class="text-xs text-amber-600 font-bold tracking-wider mb-3">JANUARY 22, 2026</p>
+                    <h4 class="text-xl font-bold text-gray-900 leading-tight mb-3 group-hover:text-amber-600 transition-colors">Arshith Fresh Hits 100,000 Rural Partner Milestone</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed mb-6 flex-grow">By maintaining a strict 0% commission promise, the Arshith Fresh ecosystem has officially integrated over 100,000 independent farmers across India.</p>
+                    <a href="#" class="inline-flex items-center text-sm font-bold text-gray-900 group-hover:text-amber-600 transition-colors mt-auto">
+                        Read Press Release <i class="fa-solid fa-arrow-right ml-2 text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Grid Item 5 -->
+            <div class="news-grid-card group" data-aos="fade-up" data-aos-delay="100">
+                <div class="news-grid-image">
+                    <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=1200" alt="Sustainability">
+                    <div class="absolute top-4 right-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-md shadow-sm text-[10px] font-extrabold tracking-widest text-gray-900 border border-gray-100">SUSTAINABILITY</div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow bg-white">
+                    <p class="text-xs text-teal-600 font-bold tracking-wider mb-3">JANUARY 05, 2026</p>
+                    <h4 class="text-xl font-bold text-gray-900 leading-tight mb-3 group-hover:text-teal-600 transition-colors">Group Commits to Net-Zero Emissions by 2035</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed mb-6 flex-grow">The board of directors has unveiled an aggressive ESG mandate, transforming all logistical warehouses into solar-powered, net-zero hubs within the decade.</p>
+                    <a href="#" class="inline-flex items-center text-sm font-bold text-gray-900 group-hover:text-teal-600 transition-colors mt-auto">
+                        Read Press Release <i class="fa-solid fa-arrow-right ml-2 text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Grid Item 6 -->
+            <div class="news-grid-card group" data-aos="fade-up" data-aos-delay="200">
+                <div class="news-grid-image">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200" alt="Award">
+                    <div class="absolute top-4 right-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-md shadow-sm text-[10px] font-extrabold tracking-widest text-gray-900 border border-gray-100">AWARDS</div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow bg-white">
+                    <p class="text-xs text-orange-600 font-bold tracking-wider mb-3">DECEMBER 18, 2025</p>
+                    <h4 class="text-xl font-bold text-gray-900 leading-tight mb-3 group-hover:text-orange-600 transition-colors">Suntech Solutions Named 'Global Innovator of the Year'</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed mb-6 flex-grow">At the International Enterprise Tech Summit, Suntech Solutions was recognized for its groundbreaking work in deploying predictive Generative AI for corporate ERPs.</p>
+                    <a href="#" class="inline-flex items-center text-sm font-bold text-gray-900 group-hover:text-orange-600 transition-colors mt-auto">
+                        Read Press Release <i class="fa-solid fa-arrow-right ml-2 text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Load More -->
+        <div class="mt-16 text-center" data-aos="fade-up">
+            <button class="px-10 py-4 rounded-full bg-white border-2 border-gray-300 text-gray-900 font-bold tracking-widest text-xs uppercase shadow-sm hover:bg-gray-900 hover:text-white hover:border-gray-900 transition duration-300">
+                Load More Articles
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- EXECUTIVE PERSPECTIVES (THOUGHT LEADERSHIP) -->
+<section class="py-24 bg-[#f8fafc] border-t border-gray-200 relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center justify-between mb-16" data-aos="fade-up">
+            <div>
+                <p class="text-blue-600 font-bold uppercase tracking-[0.3em] text-[10px] mb-2">Thought Leadership</p>
+                <h2 class="text-4xl md:text-5xl font-black text-gray-900">Executive Perspectives</h2>
+            </div>
+            <a href="#" class="hidden md:inline-flex items-center text-sm font-bold text-gray-600 hover:text-blue-600 transition-colors">
+                View All Op-Eds <i class="fa-solid fa-arrow-right ml-2 text-[10px]"></i>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <!-- Perspective 1 -->
+            <div class="bg-white border border-gray-200 rounded-3xl p-8 md:p-10 shadow-sm hover:shadow-xl hover:border-purple-300 transition-all duration-500 group" data-aos="fade-up" data-aos-delay="0">
+                <div class="flex items-center gap-6 mb-8">
+                    <img src="https://arshithgroup.com/logos/sir(1)(1).png" alt="Farook N." class="w-20 h-20 rounded-full object-cover border-2 border-purple-100">
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-900">Farook Nurubasha</h4>
+                        <p class="text-xs text-gray-500 font-extrabold tracking-wider uppercase">Chairman & CEO</p>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-black text-gray-900 mb-4 group-hover:text-purple-600 transition-colors line-clamp-2">"The Era of Middlemen is Over: Why Direct-to-Farmer Tech is the Future of Global Food Security."</h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-8">In his latest Op-Ed for the Global Economic Forum, Farook breaks down the economics of the 0% commission model and how technology can permanently dismantle exploitative agricultural supply chains.</p>
+                <a href="#" class="text-xs font-bold text-gray-900 uppercase tracking-widest border-b-2 border-purple-500 pb-1 hover:text-purple-600 transition-colors">Read Article</a>
+            </div>
+
+            <!-- Perspective 2 -->
+            <div class="bg-white border border-gray-200 rounded-3xl p-8 md:p-10 shadow-sm hover:shadow-xl hover:border-blue-300 transition-all duration-500 group" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex items-center gap-6 mb-8">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800" alt="Pallavi N." class="w-20 h-20 rounded-full object-cover border-2 border-blue-100">
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-900">Pallavi N.</h4>
+                        <p class="text-xs text-gray-500 font-extrabold tracking-wider uppercase">Managing Director</p>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-black text-gray-900 mb-4 group-hover:text-blue-600 transition-colors line-clamp-2">"Scaling with Soul: Integrating Deep ESG Mandates into Enterprise Operations."</h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-8">Pallavi discusses the operational complexities of transitioning multinational warehousing and digital infrastructure into net-zero compliant ecosystems without sacrificing profit margins.</p>
+                <a href="#" class="text-xs font-bold text-gray-900 uppercase tracking-widest border-b-2 border-blue-500 pb-1 hover:text-blue-600 transition-colors">Read Article</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CORPORATE CALENDAR -->
+<section class="py-24 bg-white border-t border-gray-100 relative z-10">
+    <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-black text-gray-900 tracking-tight">Corporate Calendar</h2>
+            <p class="text-gray-500 mt-2 font-medium">Upcoming investor relations, summits, and key announcements.</p>
+        </div>
+
+        <div class="space-y-4">
+            <!-- Event 1 -->
+            <div class="event-row flex flex-col md:flex-row md:items-center justify-between p-6 rounded-2xl shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="0">
+                <div class="flex items-center gap-6 mb-4 md:mb-0">
+                    <div class="text-center min-w-[70px] bg-purple-50 rounded-xl py-2 px-4 border border-purple-100">
+                        <p class="text-[10px] font-black text-purple-600 uppercase tracking-widest">May</p>
+                        <p class="text-3xl font-black text-gray-900">12</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-900">Q1 2026 Shareholder Briefing</h4>
+                        <p class="text-sm font-medium text-gray-500">Virtual Webcast / Global Access</p>
+                    </div>
+                </div>
+                <button class="px-6 py-2.5 rounded-full border-2 border-gray-200 text-gray-700 text-[11px] font-bold uppercase tracking-wider hover:bg-gray-900 hover:text-white hover:border-gray-900 transition self-start md:self-auto shadow-sm">Add to Calendar</button>
+            </div>
+
+            <!-- Event 2 -->
+            <div class="event-row flex flex-col md:flex-row md:items-center justify-between p-6 rounded-2xl shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex items-center gap-6 mb-4 md:mb-0">
+                    <div class="text-center min-w-[70px] bg-blue-50 rounded-xl py-2 px-4 border border-blue-100">
+                        <p class="text-[10px] font-black text-blue-600 uppercase tracking-widest">Jun</p>
+                        <p class="text-3xl font-black text-gray-900">08</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-900">Arshith InfoTech: Cloud Security Summit</h4>
+                        <p class="text-sm font-medium text-gray-500">Bengaluru, India / Live Stream</p>
+                    </div>
+                </div>
+                <button class="px-6 py-2.5 rounded-full border-2 border-gray-200 text-gray-700 text-[11px] font-bold uppercase tracking-wider hover:bg-gray-900 hover:text-white hover:border-gray-900 transition self-start md:self-auto shadow-sm">Register</button>
+            </div>
+
+            <!-- Event 3 -->
+            <div class="event-row flex flex-col md:flex-row md:items-center justify-between p-6 rounded-2xl shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex items-center gap-6 mb-4 md:mb-0">
+                    <div class="text-center min-w-[70px] bg-emerald-50 rounded-xl py-2 px-4 border border-emerald-100">
+                        <p class="text-[10px] font-black text-emerald-600 uppercase tracking-widest">Sep</p>
+                        <p class="text-3xl font-black text-gray-900">24</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-900">Annual Global Franchising Expo</h4>
+                        <p class="text-sm font-medium text-gray-500">Dubai, UAE / Convention Center</p>
+                    </div>
+                </div>
+                <button class="px-6 py-2.5 rounded-full border-2 border-gray-200 text-gray-700 text-[11px] font-bold uppercase tracking-wider hover:bg-gray-900 hover:text-white hover:border-gray-900 transition self-start md:self-auto shadow-sm">View Details</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BRAND RESOURCES & PRESS KITS -->
+<section class="py-24 bg-[#f8fafc] border-t border-gray-200 relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-black text-gray-900 tracking-tight">Brand Resources & Press Kits</h2>
+            <p class="text-gray-500 mt-2 font-medium">Official assets for journalists, media partners, and franchise networks.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Asset 1 -->
+            <div class="asset-card rounded-3xl p-10 text-center group" data-aos="fade-up" data-aos-delay="0">
+                <div class="w-20 h-20 mx-auto rounded-full bg-blue-50 flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors border border-blue-100">
+                    <i class="fa-regular fa-image text-3xl text-blue-500"></i>
+                </div>
+                <h4 class="text-xl font-bold text-gray-900 mb-3">Corporate Logos</h4>
+                <p class="text-sm text-gray-600 mb-8 px-2">High-resolution vector logos (.SVG, .PNG) and strict brand identity guidelines.</p>
+                <a href="#" class="inline-block px-8 py-3 rounded-full bg-gray-100 text-gray-800 text-[11px] font-bold uppercase tracking-widest hover:bg-blue-600 hover:text-white transition shadow-sm">Download ZIP</a>
+            </div>
+
+            <!-- Asset 2 -->
+            <div class="asset-card rounded-3xl p-10 text-center group" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-20 h-20 mx-auto rounded-full bg-purple-50 flex items-center justify-center mb-6 group-hover:bg-purple-100 transition-colors border border-purple-100">
+                    <i class="fa-solid fa-user-tie text-3xl text-purple-500"></i>
+                </div>
+                <h4 class="text-xl font-bold text-gray-900 mb-3">Executive Bios</h4>
+                <p class="text-sm text-gray-600 mb-8 px-2">Approved media headshots and detailed professional biographies of our board.</p>
+                <a href="#" class="inline-block px-8 py-3 rounded-full bg-gray-100 text-gray-800 text-[11px] font-bold uppercase tracking-widest hover:bg-purple-600 hover:text-white transition shadow-sm">Download ZIP</a>
+            </div>
+
+            <!-- Asset 3 -->
+            <div class="asset-card rounded-3xl p-10 text-center group" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-20 h-20 mx-auto rounded-full bg-emerald-50 flex items-center justify-center mb-6 group-hover:bg-emerald-100 transition-colors border border-emerald-100">
+                    <i class="fa-solid fa-video text-3xl text-emerald-500"></i>
+                </div>
+                <h4 class="text-xl font-bold text-gray-900 mb-3">B-Roll Footage</h4>
+                <p class="text-sm text-gray-600 mb-8 px-2">4K corporate facility tours, agricultural operations, and technology hubs.</p>
+                <a href="#" class="inline-block px-8 py-3 rounded-full bg-gray-100 text-gray-800 text-[11px] font-bold uppercase tracking-widest hover:bg-emerald-600 hover:text-white transition shadow-sm">Access Drive</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MEDIA CONTACT BLOCK -->
+<section class="py-24 bg-white border-t border-gray-100 text-center relative z-10">
+    <div class="max-w-3xl mx-auto px-6" data-aos="zoom-in">
+        <i class="fa-solid fa-microphone-lines text-5xl text-blue-500 mb-8 drop-shadow-sm"></i>
+        <h2 class="text-4xl font-black text-gray-900 mb-5">Media & Press Inquiries</h2>
+        <p class="text-gray-600 text-lg mb-10 leading-relaxed">For journalist inquiries, interview requests, or access to our digital brand assets and executive media kits, please contact our global communications team.</p>
+        <a href="mailto:media@arshithgroup.com" class="text-gray-900 font-bold text-xl border-b-2 border-blue-500 pb-1 hover:text-blue-600 transition"></a>arshithgroup.com</a>
+    </div>
+</section>
+
+<!-- ================= PREMIUM RICH FOOTER START (Untouched from original) ================= -->
+<footer class="premium-footer">
+    <div class="footer-wrap">
+        
+        <!-- Luxury Header Editorial Row -->
+        <div class="footer-top-row">
+            <div class="brand-editorial">
+                <h2>Arshith <span>Group</span></h2>
+                <p>Fusing timeless traditional integrity with sophisticated technological intelligence to build sustainable market ecosystems.</p>
+            </div>
+            
+            <div class="lux-newsletter">
+                <p>Join the inner circle</p>
+                <div class="input-group-animated">
+                    <input type="email" id="newsletter_email" placeholder="Enter corporate email layout" aria-label="Newsletter Email">
+                    <button class="lux-submit-btn" id="newsletter_btn" onclick="executeNewsletterSubscription(event)" aria-label="Submit Email">
+                        <i class="fa-solid fa-arrow-right-long" style="pointer-events: none;"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Architecture Navigation Links -->
+        <div class="footer-main-grid">
+            <div>
+                <h3 class="grid-title">Ecosystem</h3>
+                <ul class="lux-links-list">
+                    <li><a href="https://arshithfresh.com/">Arshith Fresh Corporate</a></li>
+                    <li><a href="https://www.suntechsolutions.com/">Suntech Digital Labs</a></li>
+                    <li><a href="https://arshithfresh.com/">E-Commerce Supply Chain</a></li>
+                    <li><a href="https://arshithfresh.com/pages/contact-for-franchise">Global Franchises</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="grid-title">About Us</h3>
+                <ul class="lux-links-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="ourbusiness.html">Our Businesses</a></li>
+                    <li><a href="careers.html">Careers Portal</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="grid-title">More</h3>
+                <ul class="lux-links-list">
+                    <li><a href="internship.html">Internship</a></li>
+                    <li><a href="page.html">Apply Internship</a></li>
+                    <li><a href="newsroom.html">NewsRoom</a></li>
+                    <li><a href="contact.html">ContactUs</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="grid-title">Concierge Support</h3>
+                <div class="lux-contact-item">
+                    <div class="lux-icon-circle"><i class="fa-solid fa-phone-flip"></i></div>
+                    <div class="lux-contact-text">
+                        <span>Inquiries Line</span>
+                        <a href="tel:+918618471424">+91 86184 71424</a>
+                    </div>
+                </div>
+                <div class="lux-contact-item">
+                    <div class="lux-icon-circle"><i class="fa-solid fa-envelope-open"></i></div>
+                    <div class="lux-contact-text">
+                        <span>Electronic Mailing</span>
+                        <a href="mailto:support@arshithfresh.com">support@arshithfresh.com</a>
+                    </div>
+                </div>
+                <div class="lux-contact-item">
+                    <div class="lux-icon-circle"><i class="fa-solid fa-map-pin"></i></div>
+                    <div class="lux-contact-text">
+                        <span>Headquarters</span>
+                        <p>Bengaluru, India</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fine Print & Social Media Section -->
+        <div class="footer-bottom-meta">
+            <div class="legal-lux-links">
+                <a href="https://arshithfresh.com/policies/privacy-policy">Privacy Charter</a>
+                <a href="https://arshithfresh.com/policies/refund-policy">Return & Refund</a>
+                <a href="https://arshithfresh.com/policies/terms-of-service">Accessibility Compliance</a>
+            </div>
+
+            <div class="lux-social-container">
+                <div class="lux-social-wrapper"><a href="https://www.linkedin.com/company/arshith-fresh-india-pvt-ltd/?originalSubdomain=in" class="lux-social-link"><i class="fa-brands fa-linkedin-in"></i></a></div>
+                <div class="lux-social-wrapper"><a href="https://www.instagram.com/arshith_fresh/" class="lux-social-link"><i class="fa-brands fa-instagram"></i></a></div>
+            </div>
+
+            <div class="copyright-lux">
+                &copy; 2026 The Arshith Group. Crafted to perfection.
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- ================= PREMIUM RICH FOOTER END ================= -->
+
+<button id="toTop" class="fixed bottom-10 right-10 z-[150] bg-gray-900 text-white p-4 rounded-full shadow-2xl opacity-0 transition-all duration-500 hover:bg-blue-600 hover:-translate-y-1">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+</button>
+
+<!-- SCRIPTS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- Lenis Smooth Scroll -->
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+
+<script>
+    
+    // 2. Initialize AOS Animations
+    AOS.init({ duration: 1200, once: true, offset: 50, easing: 'ease-out-cubic' });
+
+    // 3. Navbar Mobile Menu
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+    const closeIcon = document.getElementById('closeIcon');
+    let isMenuOpen = false;
+
+    mobileMenuBtn.addEventListener('click', () => {
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen) {
+            mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+            mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+            menuIcon.classList.add('hidden');
+            closeIcon.classList.remove('hidden');
+            lenis.stop(); // Stop smooth scroll when menu is open
+        } else {
+            mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+            mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+            lenis.start(); // Resume scroll
+        }
+    });
+
+    // 4. Navbar Transform on Scroll
+    window.addEventListener('scroll', () => {
+        const nav = document.getElementById('navbar');
+        if (window.scrollY > 100) {
+            nav.classList.add('glass-nav', 'py-4');
+            nav.classList.remove('py-5');
+        } else {
+            nav.classList.remove('glass-nav', 'py-4');
+            nav.classList.add('py-5');
+        }
+    });
+
+    // 5. Back to top button
+    const toTop = document.getElementById('toTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 600) {
+            toTop.classList.remove('opacity-0', 'translate-y-4');
+        } else {
+            toTop.classList.add('opacity-0', 'translate-y-4');
+        }
+    });
+    toTop.addEventListener('click', () => {
+        lenis.scrollTo(0, { duration: 1.5 });
+    });
+
+    // 6. Swiper Config
+    const newsSwiper = new Swiper(".modernNewsSlider", {
+        loop:true,
+        centeredSlides:true,
+        slidesPerView:"auto",
+        speed:2000,
+        spaceBetween:0,
+        grabCursor:true,
+        effect:"coverflow",
+        autoplay:{ delay:2500, disableOnInteraction:false, },
+        coverflowEffect:{ rotate:0, stretch:-40, depth:400, modifier:1, scale:0.9, slideShadows:false, },
+        breakpoints:{
+            320:{ stretch:0, },
+            768:{ stretch:-20, },
+            1024:{ stretch:-40, }
+        }
+    });
+
+    // 7. Newsletter Function
+    function executeNewsletterSubscription(event) {
+        if (event) event.preventDefault();
+        const emailInput = document.getElementById('newsletter_email');
+        const registerBtn = document.getElementById('newsletter_btn');
+        if (!emailInput) return;
+        const emailData = emailInput.value.trim();
+        if (!emailData || !emailData.includes('@')) {
+            alert("Please enter a valid corporate email layout.");
+            return;
+        }
+        if (registerBtn) registerBtn.disabled = true;
+        fetch('process_new.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: emailData })
+        })
+        .then(response => {
+            if (!response.ok) throw new Error("Network response failure");
+            return response.json();
+        })
+        .then(payload => {
+            if (payload.success) {
+                alert("Welcome to the inner circle. Your email has been successfully cataloged.");
+                emailInput.value = ''; 
+            } else {
+                alert("Database System Message: " + payload.message);
+            }
+        })
+        .catch(err => {
+            console.error('Network Transaction Failure:', err);
+            alert("Communication Error: Could not link up to process_new.php.");
+        })
+        .finally(() => {
+            if (registerBtn) registerBtn.disabled = false;
+        });
+    }
+</script>
+</body>
+</html>
