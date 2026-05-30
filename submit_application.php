@@ -4,13 +4,15 @@ header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
 
 // 2. Database Credentials (Pulled from Railway Environment Variables)
+// 2. Database Credentials
 $servername = getenv('DB_HOST');
 $username = getenv('DB_USER');
 $password = getenv('DB_PASSWORD');
 $dbname = getenv('DB_NAME');
+$port = 13624; // Railway's public external port
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
+// ADD $port AS THE 5TH ITEM HERE:
+$conn = new mysqli($servername, $username, $password, $dbname, $port);
 
 if ($conn->connect_error) {
     die(json_encode([

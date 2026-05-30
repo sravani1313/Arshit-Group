@@ -5,19 +5,21 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST");
 
 // 2. Database Credentials
-// 2. Database Credentials (Pulled from Railway Environment Variables)
+// 2. Database Credentials
 $servername = getenv('DB_HOST');
 $username = getenv('DB_USER');
 $password = getenv('DB_PASSWORD');
 $dbname = getenv('DB_NAME');
+$port = 13624; // Railway's public external port
 
-// 3. Connect to Database
-$conn = new mysqli($servername, $username, $password, $dbname);
+// ADD $port AS THE 5TH ITEM HERE:
+$conn = new mysqli($servername, $username, $password, $dbname, $port);
 
-// Check Connection
 if ($conn->connect_error) {
-    echo json_encode(["success" => false, "message" => "Database connection failed."]);
-    exit();
+    die(json_encode([
+        "success" => false,
+        "message" => "Database connection failed: " . $conn->connect_error
+    ]));
 }
 
 // 4. Retrieve Raw JSON Input data from Fetch API
