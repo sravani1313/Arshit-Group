@@ -562,7 +562,7 @@
             if (payload.success) { alert("Welcome to the inner circle. Your email has been successfully cataloged."); emailInput.value = ''; } 
             else { alert("Database System Message: " + payload.message); }
         })
-        .catch(err => { console.error(err); alert("Communication Error: Could not link up to process_new.php."); })
+        .catch(err => { console.error(err); alert("Communication Error: Could not link up to /process_new.php."); })
         .finally(() => { if (registerBtn) registerBtn.disabled = false; });
     }
 </script>

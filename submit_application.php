@@ -9,12 +9,16 @@ $username = getenv('DB_USER');
 $password = getenv('DB_PASSWORD');
 $dbname = getenv('DB_NAME');
 
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+
 if ($conn->connect_error) {
     die(json_encode([
         "success" => false,
-        "message" => "Database connection failed"
+        "message" => "Database connection failed: " . $conn->connect_error
     ]));
 }
+
 
 $data = json_decode(file_get_contents("php://input"), true);
 
