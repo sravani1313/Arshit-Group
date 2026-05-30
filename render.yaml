@@ -1,0 +1,5 @@
+services:
+  - type: web
+    name: arshith-group-website
+    env: php
+    startCommand: "php -S 0.0.0.0:$PORT"
