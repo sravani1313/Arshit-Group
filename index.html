@@ -144,6 +144,18 @@
         </div>
     </nav>
 
+    <div id="mobileMenu" class="fixed inset-0 z-40 bg-white/98 backdrop-blur-xl flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-500 lg:hidden">
+    <div class="flex flex-col text-center space-y-8 text-sm font-bold uppercase tracking-[0.2em] text-brand-blue">
+        <a href="index.html" class="hover:text-brand-green transition-colors">Home</a>
+        <a href="about.html" class="hover:text-brand-green transition-colors">About</a>
+        <a href="ourbusiness.html" class="hover:text-brand-green transition-colors">Our Businesses</a>
+        <a href="careers.html" class="hover:text-brand-green transition-colors">Careers</a>
+        <a href="newsroom.html" class="hover:text-brand-green transition-colors">NewsRoom</a>
+        <a href="contact.html" class="hover:text-brand-green transition-colors">Contact</a>
+    </div>
+</div>
+
+
     <section class="relative h-screen w-full bg-black overflow-hidden" id="hero-wrapper">
         <div class="hero-slide absolute inset-0 opacity-100 z-10 img-parallax-container">
             <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2940&auto=format&fit=crop" class="img-parallax hero-bg-img" alt="Infrastructure">
@@ -705,6 +717,39 @@
                 delay: i * 0.1
             });
         });
+
+        // --- Mobile Menu Interaction ---
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+    const closeIcon = document.getElementById('closeIcon');
+    let isMenuOpen = false;
+
+    mobileMenuBtn.addEventListener('click', () => {
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen) {
+            mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+            mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+            menuIcon.classList.add('hidden');
+            closeIcon.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            
+            document.getElementById('navbar').classList.remove('text-white');
+            document.getElementById('navbar').classList.add('text-brand-blue');
+        } else {
+            mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+            mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            
+            if(window.scrollY <= 50) {
+                document.getElementById('navbar').classList.add('text-white');
+                document.getElementById('navbar').classList.remove('text-brand-blue');
+            }
+        }
+    });
+
     </script>
 </body>
 </html>
