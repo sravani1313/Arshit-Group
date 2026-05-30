@@ -1208,7 +1208,7 @@ function executeNewsletterSubscription(event) {
     if (registerBtn) registerBtn.disabled = true;
     
     // 4. Ship data packet to backend
-    fetch('process_new.php', {
+    fetch('/process_new.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: emailData })
