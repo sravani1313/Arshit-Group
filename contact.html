@@ -129,7 +129,7 @@
 <body class="antialiased">
 
 <nav id="navbar" class="fixed w-full z-50 py-6 px-8 flex justify-between items-center transition-all duration-500 text-white border-b border-white/10">
-    <div class="text-2xl font-extrabold tracking-tighter z-50 relative">ARSHITH <span class="font-light opacity-70">GROUP</span></div>
+    <div id="nav-logo-text" class="text-2xl font-extrabold tracking-tighter z-50 relative transition-colors duration-300">ARSHITH <span class="font-light opacity-70">GROUP</span></div>
     
     <div class="hidden lg:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.2em]">
         <a href="index.html" class="hover:text-blue-500 border-b border-transparent hover:border-blue-500 pb-1 transition-all">Home</a>
@@ -142,10 +142,10 @@
     </div>
 
     <div class="flex items-center space-x-4 relative z-50">
-        <button id="searchBtn" class="w-10 h-10 rounded-full border border-current flex items-center justify-center bg-brand-blue hover:border-brand-blue hover:text-white transition duration-500">
+        <button id="searchBtn" class="w-10 h-10 rounded-full border border-current flex items-center justify-center bg-brand-navy hover:border-brand-green hover:text-white transition duration-500">
             <i class="fa-solid fa-magnifying-glass text-sm"></i>
         </button> 
-        <button id="mobileMenuBtn" class="lg:hidden w-10 h-10 rounded-full border border-current flex items-center justify-center bg-brand-blue hover:border-brand-blue hover:text-white transition duration-500">
+        <button id="mobileMenuBtn" class="lg:hidden w-10 h-10 rounded-full border border-current flex items-center justify-center bg-brand-navy hover:border-brand-green hover:text-white transition duration-500">
             <i id="menuIcon" class="fa-solid fa-bars text-sm"></i>
             <i id="closeIcon" class="fa-solid fa-xmark text-sm hidden"></i>
         </button>
@@ -251,7 +251,6 @@
         </div>
     </div>
 </section>
-
 
 <section id="contact" class="py-32 px-8 lg:px-16 bg-brand-navy text-white relative border-t border-white/10">
     <div class="absolute top-0 right-0 w-96 h-96 bg-brand-blue/20 blur-[100px] rounded-full pointer-events-none"></div>
@@ -393,6 +392,7 @@
 
     </div>
 </footer>
+
 <button id="toTop" class="fixed bottom-10 right-10 z-[150] bg-brand-blue text-white p-4 rounded-full shadow-2xl opacity-0 translate-y-10 transition-all duration-500 hover:bg-brand-navy hover:scale-110 pointer-events-none">
     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
 </button>
@@ -446,6 +446,8 @@
             menuIcon.classList.add('hidden');
             closeIcon.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
+            
+            navbar.classList.remove('text-white');
             navbar.classList.add('text-brand-blue');
         } else {
             mobileMenu.classList.add('opacity-0', 'pointer-events-none');
@@ -453,7 +455,11 @@
             menuIcon.classList.remove('hidden');
             closeIcon.classList.add('hidden');
             document.body.style.overflow = 'auto';
-            if (window.scrollY <= 50) navbar.classList.remove('text-brand-blue');
+            
+            if (window.scrollY <= 50) {
+                navbar.classList.add('text-white');
+                navbar.classList.remove('text-brand-blue');
+            }
         }
     });
 
