@@ -5,13 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arshith Group | Media & Insights</title>
 
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
-    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -21,7 +18,7 @@
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background: #f8fafc; /* Premium clean slate background */
+            background: #f8fafc;
             overflow-x: hidden;
             color: #0f172a;
         }
@@ -35,7 +32,7 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.03);
         }
 
-        /* FLOATING BLOBS (Adapted for Light Theme) */
+        /* FLOATING BLOBS */
         @keyframes blob {
             0% { transform: translate(0px, 0px) scale(1); }
             33% { transform: translate(30px, -50px) scale(1.1); }
@@ -71,7 +68,7 @@
         }
         .section-title h2 span { color: #6366f1; }
 
-        /* PREMIUM CINEMATIC SLIDER (Light Theme Base) */
+        /* PREMIUM CINEMATIC SLIDER */
         .modernNewsSlider { width: 100%; overflow: visible; padding: 40px 0 80px; }
         .modernNewsSlider .swiper-wrapper { align-items: center; }
         .modernNewsSlider .swiper-slide {
@@ -239,6 +236,7 @@
         .legal-lux-links a { font-size: 12px; color: var(--lux-muted); text-decoration: none; transition: color 0.3s ease; }
         .legal-lux-links a:hover { color: var(--lux-gold); }
 
+        /* Custom Mobile Breakpoints */
         @media(max-width:768px){
             .section-title h2 { font-size: 2.5rem; }
             .modernNewsSlider .swiper-slide { width: 85%; }
@@ -256,8 +254,7 @@
 
 <body>
 
-<!-- 1. ADANI-STYLE NAVIGATION (Adapted to Light Theme) -->
-<nav id="navbar" class="fixed w-full z-50 py-5 px-8 flex justify-between items-center transition-all duration-500 text-gray-900">
+<nav id="navbar" class="fixed w-full z-50 py-5 px-6 lg:px-8 flex justify-between items-center transition-all duration-500 text-gray-900">
     <div class="text-2xl font-extrabold tracking-tighter z-50 relative">ARSHITH <span class="font-light opacity-70">GROUP</span></div>
     
     <div class="hidden lg:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.2em]">
@@ -288,7 +285,6 @@
     </div>
 </nav>
 
-<!-- MOBILE MENU OVERLAY -->
 <div id="mobileMenu" class="fixed inset-0 z-40 bg-white/98 backdrop-blur-xl flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-500 lg:hidden">
     <div class="flex flex-col text-center space-y-8 text-sm font-bold uppercase tracking-[0.2em] text-gray-900">
         <a href="index.html" class="hover:text-blue-600 transition-colors">Home</a>
@@ -301,21 +297,19 @@
     </div>
 </div>
 
-<!-- HERO SECTION (Light Theme) -->
-<section class="relative min-h-[75vh] flex items-center justify-center overflow-hidden bg-[#f8fafc]">
-    <!-- High quality corporate video, kept subtle -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#f8fafc] pt-24 md:pt-0">
     <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0 opacity-[0.15] mix-blend-luminosity">
         <source src="https://media.istockphoto.com/id/1359071314/video/creative-architect-holds-meeting-presentation-of-a-new-housing-project-for-a-team-of-real.mp4?s=mp4-640x640-is&k=20&c=NgxyvB9FLQmpagTYFP6QudeSbkOlQMjKLJ0W6gyp6oI=" type="video/mp4">
     </video>
     
-    <div class="absolute inset-0 bg-gradient-to-b from-white/95 via-white/80 to-[#f8fafc]"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-white/95 via-white/80 to-[#f8fafc] z-0"></div>
 
     <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-purple-300/40 rounded-full mix-blend-multiply filter blur-[100px] animate-blob"></div>
         <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-300/40 rounded-full mix-blend-multiply filter blur-[100px] animate-blob animation-delay-2000"></div>
     </div>
 
-    <div class="relative z-10 max-w-5xl mx-auto text-center px-6 mt-20" data-aos="fade-up" data-aos-duration="1200">
+    <div class="relative z-10 max-w-5xl mx-auto text-center px-6" data-aos="fade-up" data-aos-duration="1200">
         <p class="text-[10px] md:text-[12px] uppercase tracking-[0.4em] text-blue-600 font-extrabold mb-4">Official Press & Insights</p>
         <h1 class="text-5xl md:text-7xl lg:text-[6.5rem] font-black tracking-tighter leading-[0.9] text-gray-900 mb-6 drop-shadow-sm">
             The <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">Newsroom</span>
@@ -333,7 +327,6 @@
     </div>
 </section>
 
-<!-- FEATURED SWIPER SECTION (Light Background) -->
 <section class="pt-20 pb-16 relative z-10 bg-[#f8fafc]">
     <div class="section-title" data-aos="fade-up">
         <p>LATEST UPDATES</p>
@@ -401,11 +394,9 @@
     </div>
 </section>
 
-<!-- MNC STYLE COMPREHENSIVE NEWS ARCHIVE -->
 <section class="py-24 bg-white border-t border-gray-100 relative z-10">
     <div class="max-w-7xl mx-auto px-6">
         
-        <!-- Filter Header -->
         <div class="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-gray-100 pb-8" data-aos="fade-up">
             <div>
                 <h3 class="text-3xl md:text-4xl font-black text-gray-900 tracking-tight">Press Releases & Media</h3>
@@ -420,9 +411,7 @@
             </div>
         </div>
 
-        <!-- News Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Grid Item 1 -->
             <div class="news-grid-card group" data-aos="fade-up" data-aos-delay="0">
                 <div class="news-grid-image">
                     <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200" alt="Earnings">
@@ -438,7 +427,6 @@
                 </div>
             </div>
 
-            <!-- Grid Item 2 -->
             <div class="news-grid-card group" data-aos="fade-up" data-aos-delay="100">
                 <div class="news-grid-image">
                     <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200" alt="Partnership">
@@ -454,7 +442,6 @@
                 </div>
             </div>
 
-            <!-- Grid Item 3 -->
             <div class="news-grid-card group" data-aos="fade-up" data-aos-delay="200">
                 <div class="news-grid-image">
                     <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200" alt="Tech">
@@ -470,7 +457,6 @@
                 </div>
             </div>
 
-            <!-- Grid Item 4 -->
             <div class="news-grid-card group" data-aos="fade-up" data-aos-delay="0">
                 <div class="news-grid-image">
                     <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1200" alt="Agri">
@@ -486,7 +472,6 @@
                 </div>
             </div>
 
-            <!-- Grid Item 5 -->
             <div class="news-grid-card group" data-aos="fade-up" data-aos-delay="100">
                 <div class="news-grid-image">
                     <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=1200" alt="Sustainability">
@@ -502,7 +487,6 @@
                 </div>
             </div>
 
-            <!-- Grid Item 6 -->
             <div class="news-grid-card group" data-aos="fade-up" data-aos-delay="200">
                 <div class="news-grid-image">
                     <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200" alt="Award">
@@ -519,7 +503,6 @@
             </div>
         </div>
 
-        <!-- Load More -->
         <div class="mt-16 text-center" data-aos="fade-up">
             <button class="px-10 py-4 rounded-full bg-white border-2 border-gray-300 text-gray-900 font-bold tracking-widest text-xs uppercase shadow-sm hover:bg-gray-900 hover:text-white hover:border-gray-900 transition duration-300">
                 Load More Articles
@@ -528,7 +511,6 @@
     </div>
 </section>
 
-<!-- EXECUTIVE PERSPECTIVES (THOUGHT LEADERSHIP) -->
 <section class="py-24 bg-[#f8fafc] border-t border-gray-200 relative z-10">
     <div class="max-w-7xl mx-auto px-6">
         <div class="flex flex-col md:flex-row items-center justify-between mb-16" data-aos="fade-up">
@@ -542,7 +524,6 @@
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            <!-- Perspective 1 -->
             <div class="bg-white border border-gray-200 rounded-3xl p-8 md:p-10 shadow-sm hover:shadow-xl hover:border-purple-300 transition-all duration-500 group" data-aos="fade-up" data-aos-delay="0">
                 <div class="flex items-center gap-6 mb-8">
                     <img src="https://arshithgroup.com/logos/sir(1)(1).png" alt="Farook N." class="w-20 h-20 rounded-full object-cover border-2 border-purple-100">
@@ -556,7 +537,6 @@
                 <a href="#" class="text-xs font-bold text-gray-900 uppercase tracking-widest border-b-2 border-purple-500 pb-1 hover:text-purple-600 transition-colors">Read Article</a>
             </div>
 
-            <!-- Perspective 2 -->
             <div class="bg-white border border-gray-200 rounded-3xl p-8 md:p-10 shadow-sm hover:shadow-xl hover:border-blue-300 transition-all duration-500 group" data-aos="fade-up" data-aos-delay="100">
                 <div class="flex items-center gap-6 mb-8">
                     <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800" alt="Pallavi N." class="w-20 h-20 rounded-full object-cover border-2 border-blue-100">
@@ -573,7 +553,6 @@
     </div>
 </section>
 
-<!-- CORPORATE CALENDAR -->
 <section class="py-24 bg-white border-t border-gray-100 relative z-10">
     <div class="max-w-5xl mx-auto px-6">
         <div class="text-center mb-16" data-aos="fade-up">
@@ -582,7 +561,6 @@
         </div>
 
         <div class="space-y-4">
-            <!-- Event 1 -->
             <div class="event-row flex flex-col md:flex-row md:items-center justify-between p-6 rounded-2xl shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="0">
                 <div class="flex items-center gap-6 mb-4 md:mb-0">
                     <div class="text-center min-w-[70px] bg-purple-50 rounded-xl py-2 px-4 border border-purple-100">
@@ -597,7 +575,6 @@
                 <button class="px-6 py-2.5 rounded-full border-2 border-gray-200 text-gray-700 text-[11px] font-bold uppercase tracking-wider hover:bg-gray-900 hover:text-white hover:border-gray-900 transition self-start md:self-auto shadow-sm">Add to Calendar</button>
             </div>
 
-            <!-- Event 2 -->
             <div class="event-row flex flex-col md:flex-row md:items-center justify-between p-6 rounded-2xl shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="100">
                 <div class="flex items-center gap-6 mb-4 md:mb-0">
                     <div class="text-center min-w-[70px] bg-blue-50 rounded-xl py-2 px-4 border border-blue-100">
@@ -612,7 +589,6 @@
                 <button class="px-6 py-2.5 rounded-full border-2 border-gray-200 text-gray-700 text-[11px] font-bold uppercase tracking-wider hover:bg-gray-900 hover:text-white hover:border-gray-900 transition self-start md:self-auto shadow-sm">Register</button>
             </div>
 
-            <!-- Event 3 -->
             <div class="event-row flex flex-col md:flex-row md:items-center justify-between p-6 rounded-2xl shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="200">
                 <div class="flex items-center gap-6 mb-4 md:mb-0">
                     <div class="text-center min-w-[70px] bg-emerald-50 rounded-xl py-2 px-4 border border-emerald-100">
@@ -630,7 +606,6 @@
     </div>
 </section>
 
-<!-- BRAND RESOURCES & PRESS KITS -->
 <section class="py-24 bg-[#f8fafc] border-t border-gray-200 relative z-10">
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16" data-aos="fade-up">
@@ -639,7 +614,6 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Asset 1 -->
             <div class="asset-card rounded-3xl p-10 text-center group" data-aos="fade-up" data-aos-delay="0">
                 <div class="w-20 h-20 mx-auto rounded-full bg-blue-50 flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors border border-blue-100">
                     <i class="fa-regular fa-image text-3xl text-blue-500"></i>
@@ -649,7 +623,6 @@
                 <a href="#" class="inline-block px-8 py-3 rounded-full bg-gray-100 text-gray-800 text-[11px] font-bold uppercase tracking-widest hover:bg-blue-600 hover:text-white transition shadow-sm">Download ZIP</a>
             </div>
 
-            <!-- Asset 2 -->
             <div class="asset-card rounded-3xl p-10 text-center group" data-aos="fade-up" data-aos-delay="100">
                 <div class="w-20 h-20 mx-auto rounded-full bg-purple-50 flex items-center justify-center mb-6 group-hover:bg-purple-100 transition-colors border border-purple-100">
                     <i class="fa-solid fa-user-tie text-3xl text-purple-500"></i>
@@ -659,7 +632,6 @@
                 <a href="#" class="inline-block px-8 py-3 rounded-full bg-gray-100 text-gray-800 text-[11px] font-bold uppercase tracking-widest hover:bg-purple-600 hover:text-white transition shadow-sm">Download ZIP</a>
             </div>
 
-            <!-- Asset 3 -->
             <div class="asset-card rounded-3xl p-10 text-center group" data-aos="fade-up" data-aos-delay="200">
                 <div class="w-20 h-20 mx-auto rounded-full bg-emerald-50 flex items-center justify-center mb-6 group-hover:bg-emerald-100 transition-colors border border-emerald-100">
                     <i class="fa-solid fa-video text-3xl text-emerald-500"></i>
@@ -672,7 +644,6 @@
     </div>
 </section>
 
-<!-- MEDIA CONTACT BLOCK -->
 <section class="py-24 bg-white border-t border-gray-100 text-center relative z-10">
     <div class="max-w-3xl mx-auto px-6" data-aos="zoom-in">
         <i class="fa-solid fa-microphone-lines text-5xl text-blue-500 mb-8 drop-shadow-sm"></i>
@@ -682,11 +653,9 @@
     </div>
 </section>
 
-<!-- ================= PREMIUM RICH FOOTER START (Untouched from original) ================= -->
 <footer class="premium-footer">
     <div class="footer-wrap">
         
-        <!-- Luxury Header Editorial Row -->
         <div class="footer-top-row">
             <div class="brand-editorial">
                 <h2>Arshith <span>Group</span></h2>
@@ -704,7 +673,6 @@
             </div>
         </div>
 
-        <!-- Main Architecture Navigation Links -->
         <div class="footer-main-grid">
             <div>
                 <h3 class="grid-title">Ecosystem</h3>
@@ -762,7 +730,6 @@
             </div>
         </div>
 
-        <!-- Fine Print & Social Media Section -->
         <div class="footer-bottom-meta">
             <div class="legal-lux-links">
                 <a href="https://arshithfresh.com/policies/privacy-policy">Privacy Charter</a>
@@ -781,20 +748,16 @@
         </div>
     </div>
 </footer>
-<!-- ================= PREMIUM RICH FOOTER END ================= -->
-
 <button id="toTop" class="fixed bottom-10 right-10 z-[150] bg-gray-900 text-white p-4 rounded-full shadow-2xl opacity-0 transition-all duration-500 hover:bg-blue-600 hover:-translate-y-1">
     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
 </button>
 
-<!-- SCRIPTS -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<!-- Lenis Smooth Scroll -->
 <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
 
 <script>
-    // 1. Initialize Lenis Smooth Scroll (FIX FOR MOBILE MENU ERROR)
+    // 1. Initialize Lenis Smooth Scroll
     const lenis = new Lenis();
     function raf(time) {
         lenis.raf(time);
@@ -819,15 +782,15 @@
             mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
             menuIcon.classList.add('hidden');
             closeIcon.classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // Force stop scrolling natively
-            if (typeof lenis !== 'undefined') lenis.stop(); // Stop smooth scroll safely
+            document.body.style.overflow = 'hidden'; 
+            if (typeof lenis !== 'undefined') lenis.stop(); 
         } else {
             mobileMenu.classList.add('opacity-0', 'pointer-events-none');
             mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
             menuIcon.classList.remove('hidden');
             closeIcon.classList.add('hidden');
-            document.body.style.overflow = 'auto'; // Restore scroll
-            if (typeof lenis !== 'undefined') lenis.start(); // Resume smooth scroll safely
+            document.body.style.overflow = 'auto'; 
+            if (typeof lenis !== 'undefined') lenis.start(); 
         }
     });
 
