@@ -722,7 +722,7 @@
         const emailData = emailInput.value.trim();
         if (!emailData || !emailData.includes('@')) { alert("Please enter a valid corporate email layout."); return; }
         if (registerBtn) registerBtn.disabled = true;
-        fetch('/process_new.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: emailData }) })
+        fetch('https://arshit-group.onrender.com/process_new.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: emailData }) })
         .then(response => { if (!response.ok) throw new Error("Network response failure"); return response.json(); })
         .then(payload => {
             if (payload.success) { alert("Welcome to the inner circle. Your email has been successfully cataloged."); emailInput.value = ''; } 
