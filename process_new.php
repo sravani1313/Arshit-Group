@@ -1,10 +1,17 @@
 <?php
+// 1. Setup CORS and Headers so Vercel is allowed to talk to it
 header("Content-Type: application/json");
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: POST");
+header("Access-Control-Allow-Methods: POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
+
+// Handle preflight requests from the browser
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}
 
 // 2. Database Credentials (Pulled from Railway Environment Variables)
-// 2. Database Credentials
 $servername = getenv('DB_HOST');
 $username = getenv('DB_USER');
 $password = getenv('DB_PASSWORD');
