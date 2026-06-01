@@ -2,8 +2,17 @@
 // 1. Set Response Headers for JSON API format
 header("Content-Type: application/json");
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: POST");
+header("Access-Control-Allow-Methods: POST, OPTIONS"); // Added OPTIONS
+header("Access-Control-Allow-Headers: Content-Type"); // Added Headers
 
+// Handle preflight requests from the browser
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}
+
+// 2. Database Credentials
+// ... the rest of your code stays exactly the same
 // 2. Database Credentials
 // 2. Database Credentials
 $servername = getenv('DB_HOST');
