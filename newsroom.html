@@ -2,13 +2,16 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Arshith Group | Media & Insights</title>
 
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
+    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -16,10 +19,15 @@
     <style>
         * { margin:0; padding:0; box-sizing:border-box; }
 
+        /* STRICT MOBILE WIDTH LOCK */
+        html, body {
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background: #f8fafc;
-            overflow-x: hidden;
+            background: #f8fafc; /* Premium clean slate background */
             color: #0f172a;
         }
 
@@ -236,7 +244,7 @@
         .legal-lux-links a { font-size: 12px; color: var(--lux-muted); text-decoration: none; transition: color 0.3s ease; }
         .legal-lux-links a:hover { color: var(--lux-gold); }
 
-        /* Custom Mobile Breakpoints */
+        /* Custom Breakpoints for Mobile Constraints */
         @media(max-width:768px){
             .section-title h2 { font-size: 2.5rem; }
             .modernNewsSlider .swiper-slide { width: 85%; }
@@ -254,7 +262,8 @@
 
 <body>
 
-<nav id="navbar" class="fixed w-full z-50 py-5 px-6 lg:px-8 flex justify-between items-center transition-all duration-500 text-gray-900">
+<!-- 1. NAVBAR - Adjusted mobile padding (px-5) -->
+<nav id="navbar" class="fixed w-full z-50 py-5 px-5 lg:px-10 flex justify-between items-center transition-all duration-500 text-gray-900">
     <div class="text-2xl font-extrabold tracking-tighter z-50 relative">ARSHITH <span class="font-light opacity-70">GROUP</span></div>
     
     <div class="hidden lg:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.2em]">
@@ -285,6 +294,7 @@
     </div>
 </nav>
 
+<!-- MOBILE MENU OVERLAY -->
 <div id="mobileMenu" class="fixed inset-0 z-40 bg-white/98 backdrop-blur-xl flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-500 lg:hidden">
     <div class="flex flex-col text-center space-y-8 text-sm font-bold uppercase tracking-[0.2em] text-gray-900">
         <a href="index.html" class="hover:text-blue-600 transition-colors">Home</a>
@@ -297,19 +307,20 @@
     </div>
 </div>
 
-<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#f8fafc] pt-24 md:pt-0">
+<!-- HERO SECTION -->
+<section class="relative min-h-[75vh] flex items-center justify-center overflow-hidden bg-[#f8fafc]">
     <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0 opacity-[0.15] mix-blend-luminosity">
         <source src="https://media.istockphoto.com/id/1359071314/video/creative-architect-holds-meeting-presentation-of-a-new-housing-project-for-a-team-of-real.mp4?s=mp4-640x640-is&k=20&c=NgxyvB9FLQmpagTYFP6QudeSbkOlQMjKLJ0W6gyp6oI=" type="video/mp4">
     </video>
     
-    <div class="absolute inset-0 bg-gradient-to-b from-white/95 via-white/80 to-[#f8fafc] z-0"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-white/95 via-white/80 to-[#f8fafc]"></div>
 
     <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-purple-300/40 rounded-full mix-blend-multiply filter blur-[100px] animate-blob"></div>
         <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-300/40 rounded-full mix-blend-multiply filter blur-[100px] animate-blob animation-delay-2000"></div>
     </div>
 
-    <div class="relative z-10 max-w-5xl mx-auto text-center px-6" data-aos="fade-up" data-aos-duration="1200">
+    <div class="relative z-10 max-w-5xl mx-auto text-center px-6 mt-20" data-aos="fade-up" data-aos-duration="1200">
         <p class="text-[10px] md:text-[12px] uppercase tracking-[0.4em] text-blue-600 font-extrabold mb-4">Official Press & Insights</p>
         <h1 class="text-5xl md:text-7xl lg:text-[6.5rem] font-black tracking-tighter leading-[0.9] text-gray-900 mb-6 drop-shadow-sm">
             The <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">Newsroom</span>
@@ -327,7 +338,8 @@
     </div>
 </section>
 
-<section class="pt-20 pb-16 relative z-10 bg-[#f8fafc]">
+<!-- FEATURED SWIPER SECTION (Added overflow-hidden) -->
+<section class="pt-20 pb-16 relative z-10 bg-[#f8fafc] overflow-hidden">
     <div class="section-title" data-aos="fade-up">
         <p>LATEST UPDATES</p>
         <h2>Featured <span>News</span></h2>
@@ -394,6 +406,7 @@
     </div>
 </section>
 
+<!-- MNC STYLE COMPREHENSIVE NEWS ARCHIVE -->
 <section class="py-24 bg-white border-t border-gray-100 relative z-10">
     <div class="max-w-7xl mx-auto px-6">
         
@@ -511,6 +524,7 @@
     </div>
 </section>
 
+<!-- EXECUTIVE PERSPECTIVES -->
 <section class="py-24 bg-[#f8fafc] border-t border-gray-200 relative z-10">
     <div class="max-w-7xl mx-auto px-6">
         <div class="flex flex-col md:flex-row items-center justify-between mb-16" data-aos="fade-up">
@@ -553,6 +567,7 @@
     </div>
 </section>
 
+<!-- CORPORATE CALENDAR -->
 <section class="py-24 bg-white border-t border-gray-100 relative z-10">
     <div class="max-w-5xl mx-auto px-6">
         <div class="text-center mb-16" data-aos="fade-up">
@@ -606,6 +621,7 @@
     </div>
 </section>
 
+<!-- BRAND RESOURCES & PRESS KITS -->
 <section class="py-24 bg-[#f8fafc] border-t border-gray-200 relative z-10">
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16" data-aos="fade-up">
@@ -644,6 +660,7 @@
     </div>
 </section>
 
+<!-- MEDIA CONTACT BLOCK -->
 <section class="py-24 bg-white border-t border-gray-100 text-center relative z-10">
     <div class="max-w-3xl mx-auto px-6" data-aos="zoom-in">
         <i class="fa-solid fa-microphone-lines text-5xl text-blue-500 mb-8 drop-shadow-sm"></i>
@@ -653,6 +670,7 @@
     </div>
 </section>
 
+<!-- ================= PREMIUM RICH FOOTER START ================= -->
 <footer class="premium-footer">
     <div class="footer-wrap">
         
@@ -748,10 +766,13 @@
         </div>
     </div>
 </footer>
+<!-- ================= PREMIUM RICH FOOTER END ================= -->
+
 <button id="toTop" class="fixed bottom-10 right-10 z-[150] bg-gray-900 text-white p-4 rounded-full shadow-2xl opacity-0 transition-all duration-500 hover:bg-blue-600 hover:-translate-y-1">
     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
 </button>
 
+<!-- SCRIPTS -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
