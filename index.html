@@ -129,10 +129,9 @@
             <a href="newsroom.html" class="hover:text-brand-blue border-b-2 border-transparent hover:border-brand-blue pb-1 transition-colors">NewsRoom</a>
             <a href="contact.html" class="hover:text-brand-blue border-b-2 border-transparent hover:border-brand-blue pb-1 transition-colors">Contact</a>
         </div>
-        <div class="flex items-center space-x-4 relative">
+        
 
-    <!-- Search Icon -->
-     <div class="flex items-center space-x-4 relative z-50">
+        <div class="flex items-center space-x-4 relative z-50">
             <button class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-brand-blue hover:text-white transition duration-300 text-gray-600">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z"/>
@@ -161,49 +160,8 @@
         <a href="contact.html" class="hover:text-brand-green transition-colors">Contact</a>
     </div>
 </div>
+</nav>
 
-
-<script>
-    const searchBtn = document.getElementById('searchBtn');
-    const searchBox = document.getElementById('searchBox');
-
-    searchBtn.addEventListener('click', () => {
-        searchBox.classList.toggle('hidden');
-    });
-
-    // --- Mobile Menu Interaction ---
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const menuIcon = document.getElementById('menuIcon');
-    const closeIcon = document.getElementById('closeIcon');
-    let isMenuOpen = false;
-
-    mobileMenuBtn.addEventListener('click', () => {
-        isMenuOpen = !isMenuOpen;
-        if (isMenuOpen) {
-            mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
-            mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
-            menuIcon.classList.add('hidden');
-            closeIcon.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-            
-            document.getElementById('navbar').classList.remove('text-white');
-            document.getElementById('navbar').classList.add('text-brand-blue');
-        } else {
-            mobileMenu.classList.add('opacity-0', 'pointer-events-none');
-            mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
-            menuIcon.classList.remove('hidden');
-            closeIcon.classList.add('hidden');
-            document.body.style.overflow = 'auto';
-            
-            if(window.scrollY <= 50) {
-                document.getElementById('navbar').classList.add('text-white');
-                document.getElementById('navbar').classList.remove('text-brand-blue');
-            }
-        }
-    });
-
-</script>
 
     <section class="relative h-screen w-full bg-black overflow-hidden" id="hero-wrapper">
         <div class="hero-slide absolute inset-0 opacity-100 z-10 img-parallax-container">
