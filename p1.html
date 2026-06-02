@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Arshith Group | Growth with Goodness</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#004A8F', 
+                            navy: '#0a192f',
+                            green: '#008543',
+                            slate: '#1e293b',
+                            gold: '#c5a880'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* Base & Scrollbar */
+        html, body { width: 100%; overflow-x: hidden; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #ffffff; color: #1e293b; }
+        ::selection { background: #004A8F; color: #ffffff; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #004A8F; border-radius: 10px; }
+
+        /* Cinematic Hero Effects */
+        .hero-overlay { background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.2) 100%); }
+        .clip-text { clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); padding-bottom: 5px; }
+        .reveal-word { display: inline-block; transform: translateY(110%); opacity: 0; }
+        
+        /* Navbar Scroll State */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.98) !important;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            color: #0a0a0a !important;
+        }
+
+        /* Image Zoom Containers */
+        .image-zoom-container { overflow: hidden; position: relative; }
+        .image-zoom-container img, .image-zoom-container video { transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .image-zoom-container:hover img, .image-zoom-container:hover video { transform: scale(1.08); }
+
+        /* Infinite Marquee */
+        @keyframes scrollText { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .animate-marquee { display: flex; width: 200%; animation: scrollText 30s linear infinite; }
+        .animate-marquee:hover { animation-play-state: paused; }
+
+        /* GSAP Utility */
+        .reveal-up { opacity: 0; transform: translateY(40px); }
+
+        /* --- PRESERVED FOOTER LUXURY VARIABLES --- */
+        :root {
+            --lux-bg: #fbfbfc;
+            --lux-card: #ffffff;
+            --lux-dark: #111612;
+            --lux-muted: #68706c;
+            --lux-gold: #c5a880;
+            --lux-emerald: #1b4d3e;
+            --lux-mint: #f4f7f5;
+            --bezier-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .premium-footer { background-color: var(--lux-bg); border-top: 1px solid rgba(0, 0, 0, 0.05); padding: 50px 0 25px 0; position: relative; color: var(--lux-dark); overflow: hidden; }
+        .premium-footer::before { content: ''; position: absolute; top: -10%; left: 50%; transform: translateX(-50%); width: 80%; height: 60%; background: radial-gradient(circle, rgba(197, 168, 128, 0.04) 0%, rgba(27, 77, 62, 0.02) 50%, transparent 100%); z-index: 1; pointer-events: none; }
+        .footer-wrap { max-width: 1200px; margin: 0 auto; padding: 0 25px; position: relative; z-index: 2; }
+        .footer-top-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0, 0, 0, 0.05); padding-bottom: 25px; margin-bottom: 35px; }
+        .brand-editorial h2 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 500; color: var(--lux-dark); line-height: 1.1; letter-spacing: -0.3px; }
+        .brand-editorial h2 span { font-family: 'Playfair Display', serif; font-style: italic; color: var(--lux-emerald); font-weight: 400; }
+        .brand-editorial p { color: var(--lux-muted); font-size: 13px; margin-top: 6px; max-width: 380px; line-height: 1.5; }
+        .lux-newsletter { width: 320px; }
+        .lux-newsletter p { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; color: var(--lux-muted); margin-bottom: 8px; }
+        .input-group-animated { position: relative; display: flex; align-items: center; border-bottom: 1.5px solid rgba(0, 0, 0, 0.1); padding-bottom: 5px; transition: all 0.4s var(--bezier-luxury); }
+        .input-group-animated input { width: 100%; border: none; outline: none; background: transparent; font-size: 14px; color: var(--lux-dark); padding-right: 30px; }
+        .input-group-animated input::placeholder { color: #a0aec0; font-weight: 300; }
+        .input-group-animated::after { content: ''; position: absolute; bottom: -1.5px; left: 0; width: 0; height: 1.5px; background: var(--lux-emerald); transition: all 0.6s var(--bezier-luxury); }
+        .input-group-animated:focus-within::after { width: 100%; }
+        .lux-submit-btn { position: absolute; right: 0; background: none; border: none; cursor: pointer; font-size: 15px; color: var(--lux-dark); transition: all 0.4s var(--bezier-luxury); }
+        .lux-submit-btn:hover { color: var(--lux-gold); transform: translateX(3px); }
+        .footer-main-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1.1fr; gap: 30px; margin-bottom: 45px; }
+        .grid-title { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; color: var(--lux-dark); margin-bottom: 16px; }
+        .lux-links-list { list-style: none; padding:0; margin:0; }
+        .lux-links-list li { margin-bottom: 10px; }
+        .lux-links-list a { text-decoration: none; color: var(--lux-muted); font-size: 13.5px; font-weight: 400; display: inline-block; position: relative; padding-bottom: 1px; transition: color 0.3s ease; }
+        .lux-links-list a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background-color: var(--lux-gold); transition: width 0.4s var(--bezier-luxury); }
+        .lux-links-list a:hover { color: var(--lux-dark); }
+        .lux-links-list a:hover::after { width: 100%; }
+        .lux-contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .lux-icon-circle { width: 28px; height: 28px; border-radius: 50%; background-color: var(--lux-mint); display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--lux-emerald); transition: all 0.4s var(--bezier-luxury); }
+        .lux-contact-item:hover .lux-icon-circle { background-color: var(--lux-emerald); color: #ffffff; transform: scale(1.05); }
+        .lux-contact-text span { display: block; font-size: 10px; text-transform: uppercase; color: var(--lux-muted); letter-spacing: 0.3px; }
+        .lux-contact-text a, .lux-contact-text p { font-size: 13.5px; color: var(--lux-dark); text-decoration: none; font-weight: 500; margin:0; }
+        .footer-bottom-meta { border-top: 1px solid rgba(0, 0, 0, 0.05); padding-top: 25px; display: flex; justify-content: space-between; align-items: center; }
+        .copyright-lux { font-size: 12px; color: var(--lux-muted); }
+        .lux-social-container { display: flex; gap: 10px; }
+        .lux-social-wrapper { position: relative; }
+        .lux-social-link { width: 34px; height: 34px; border-radius: 50%; background: var(--lux-card); border: 1px solid rgba(0, 0, 0, 0.05); color: var(--lux-dark); display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 13px; transition: all 0.4s var(--bezier-luxury); position: relative; z-index: 2; }
+        .lux-social-link::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; background: var(--lux-emerald); transform: scale(0); transition: transform 0.4s var(--bezier-luxury); z-index: -1; }
+        .lux-social-link:hover { color: #ffffff; border-color: var(--lux-emerald); transform: translateY(-3px); box-shadow: 0 6px 15px rgba(27, 77, 62, 0.1); }
+        .lux-social-link:hover::before { transform: scale(1); }
+        .legal-lux-links { display: flex; gap: 20px; }
+        .legal-lux-links a { font-size: 12px; color: var(--lux-muted); text-decoration: none; transition: color 0.3s ease; }
+        .legal-lux-links a:hover { color: var(--lux-gold); }
+        
+        /* Mobile overrides for Footer */
+        @media (max-width: 1024px) { .footer-main-grid { grid-template-columns: 1fr 1fr; gap: 30px; } .footer-top-row { flex-direction: column; align-items: flex-start; gap: 20px; } .lux-newsletter { width: 100%; } }
+        @media (max-width: 768px) { .premium-footer { padding: 35px 0 20px 0; } .footer-wrap { padding: 0 16px; } .brand-editorial h2 { font-size: 24px; } .footer-main-grid { grid-template-columns: 1fr; gap: 25px; margin-bottom: 35px; } .footer-bottom-meta { flex-direction: column; gap: 15px; text-align: center; } .legal-lux-links { justify-content: center; order: 2; flex-wrap: wrap; } .lux-social-container { justify-content: center; order: 1; } .copyright-lux { order: 3; } }
+    </style>
+</head>
+<body class="antialiased">
+
+<nav id="navbar" class="fixed w-full z-50 py-4 md:py-5 px-5 lg:px-10 flex justify-between items-center transition-all duration-500 text-gray-900">
+    <div class="text-xl md:text-2xl font-extrabold tracking-tighter z-50 relative">ARSHITH <span class="font-light opacity-70">GROUP</span></div>
+    
+    
+    
+    <div class="hidden lg:flex space-x-10 text-[14px] font-semibold tracking-wide">
+        <a href="index.html" class="nav-link hover:text-gray-300 transition-colors">Home</a>
+        <a href="about.html" class="nav-link hover:text-gray-300 transition-colors">About </a>
+        <a href="ourbusiness.html" class="nav-link hover:text-gray-300 transition-colors">Our Businesses</a>
+        <a href="careers.html" class="nav-link border-b-2 border-white pb-1">Careers</a>
+        <a href="internship.html" class="nav-link hover:text-gray-300 transition-colors">Internship</a>
+        <a href="newsroom.html" class="nav-link hover:text-gray-300 transition-colors">NewsRoom</a>
+        <a href="contact.html" class="nav-link hover:text-gray-300 transition-colors">Contact</a>
+    </div>
+
+    <div class="flex items-center space-x-4 relative z-50">
+        <button class="nav-icon w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center hover:bg-white hover:text-brand-blue transition duration-300">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <button id="mobileMenuBtn" class="lg:hidden nav-icon text-white">
+            <i id="menuIcon" class="fa-solid fa-bars text-xl"></i>
+            <i id="closeIcon" class="fa-solid fa-xmark text-xl hidden"></i>
+        </button>
+    </div>
+</nav>
+
+<div id="mobileMenu" class="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-500 lg:hidden">
+    <div class="flex flex-col text-center space-y-8 text-sm font-bold uppercase tracking-[0.2em] text-brand-black">
+        <a href="index.html" class="hover:text-brand-green transition-colors">Home</a>
+        <a href="about.html" class="hover:text-brand-green transition-colors">About</a>
+        <a href="ourbusiness.html" class="hover:text-brand-green transition-colors">Our Businesses</a>
+        <a href="careers.html" class="hover:text-brand-green transition-colors">Careers</a>
+        <a href="internship.html" class="hover:text-brand-green transition-colors">Internship</a>
+        <a href="newsroom.html" class="hover:text-brand-green transition-colors">NewsRoom</a>
+        <a href="contact.html" class="text-brand-green transition-colors">Contact</a>
+    </div>
+</div>
+
+<main id="main-content">
+
+<!-- Adjusted to min-h-[100svh] for mobile browsers -->
+<section class="relative min-h-[100svh] w-full flex items-center justify-center md:justify-start overflow-hidden bg-black">
+    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0 opacity-80 scale-105">
+        <source src="https://videos.pexels.com/video-files/3129957/3129957-uhd_2560_1440_25fps.mp4" type="video/mp4">
+    </video>
+    
+    <div class="absolute inset-0 hero-overlay z-10"></div>
+    
+    <div class="relative z-20 max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-16 w-full pt-20">
+        <div class="max-w-4xl text-white">
+            <div class="clip-text mb-4 md:mb-6">
+                <div class="hero-tag inline-block px-3 py-1 md:px-4 md:py-1 border border-white/20 rounded-sm text-[9px] md:text-[10px] tracking-[0.3em] uppercase font-bold backdrop-blur-md bg-white/5">Inside Arshith Group</div>
+            </div>
+            <!-- Scaled typography for mobile -->
+            <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-[6rem] font-black tracking-tighter mb-4 md:mb-6 leading-[1.1] md:leading-[1.05]">
+                <div class="clip-text"><span class="reveal-word">We Don't Just</span></div>
+                <div class="clip-text"><span class="reveal-word">Predict The Future.</span></div>
+                <div class="clip-text"><span class="reveal-word text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">We Build It.</span></div>
+            </h1>
+            <div class="clip-text">
+                <p class="hero-subtext text-gray-300 text-base md:text-xl font-light leading-relaxed max-w-2xl border-l-2 border-blue-500 pl-4 md:pl-6 opacity-0 transform translate-y-10">
+                    Experience a culture where radical ideas meet global scale. Watch how our teams reshape industries from the ground up.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 md:gap-3 z-20 opacity-70 animate-bounce">
+        <span class="text-[8px] md:text-[9px] uppercase tracking-[0.3em] text-white font-bold">Discover</span>
+        <div class="w-[1px] h-8 md:h-12 bg-gradient-to-b from-white to-transparent"></div>
+    </div>
+</section>
+
+<section class="py-8 md:py-10 bg-white overflow-hidden border-b border-gray-100">
+    <div class="text-center mb-4 md:mb-6 reveal-up">
+        <span class="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-gray-400">Powered by Enterprise Technologies</span>
+    </div>
+    <div class="relative w-full overflow-hidden flex items-center reveal-up">
+        <div class="absolute left-0 top-0 w-16 md:w-32 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute right-0 top-0 w-16 md:w-32 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+        
+        <div class="animate-marquee flex gap-8 md:gap-16 items-center px-4 md:px-8 text-gray-200 text-2xl md:text-4xl font-black uppercase tracking-widest">
+            <span class="hover:text-brand-blue transition-colors duration-300 cursor-pointer">React.JS</span> <span class="text-gray-100">•</span>
+            <span class="hover:text-brand-blue transition-colors duration-300 cursor-pointer">Python</span> <span class="text-gray-100">•</span>
+            <span class="hover:text-brand-blue transition-colors duration-300 cursor-pointer">AWS Cloud</span> <span class="text-gray-100">•</span>
+            <span class="hover:text-brand-blue transition-colors duration-300 cursor-pointer">TensorFlow</span> <span class="text-gray-100">•</span>
+            <span class="hover:text-brand-blue transition-colors duration-300 cursor-pointer">Kubernetes</span> <span class="text-gray-100">•</span>
+            <span class="hover:text-brand-blue transition-colors duration-300 cursor-pointer">Snowflake</span> <span class="text-gray-100">•</span>
+            <span class="hover:text-brand-blue transition-colors duration-300 cursor-pointer">React.JS</span> <span class="text-gray-100">•</span>
+            <span class="hover:text-brand-blue transition-colors duration-300 cursor-pointer">Python</span> <span class="text-gray-100">•</span>
+            <span class="hover:text-brand-blue transition-colors duration-300 cursor-pointer">AWS Cloud</span> <span class="text-gray-100">•</span>
+            <span class="hover:text-brand-blue transition-colors duration-300 cursor-pointer">TensorFlow</span>
+        </div>
+    </div>
+</section>
+
+<!-- Adjusted padding and grid for mobile -->
+<section class="py-16 md:py-32 px-5 sm:px-8 lg:px-16 bg-white relative z-10">
+    <div class="max-w-[1500px] mx-auto flex flex-col lg:flex-row justify-between items-center gap-10 md:gap-16">
+        <div class="lg:w-1/2 reveal-up">
+            <h2 class="text-3xl md:text-6xl font-black tracking-tighter leading-[1.1] mb-6 md:mb-8 text-gray-900">
+                Transforming India's <br> <span class="text-brand-blue">Economic Landscape.</span>
+            </h2>
+            <p class="text-gray-500 text-base md:text-lg font-light leading-relaxed max-w-xl">
+                Arshith Group is a global integrated player with businesses in critical industry sectors. We create sustainable value for all stakeholders through engineering excellence, radical innovation, and deep strategic foresight.
+            </p>
+        </div>
+        
+        <div class="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8 reveal-up w-full">
+            <div class="p-6 md:p-8 border-l-4 border-gray-100 hover:border-brand-blue transition-colors bg-gray-50 rounded-r-xl">
+                <h3 class="text-4xl md:text-5xl font-black text-gray-900 mb-1 md:mb-2"><span class="counter" data-target="500">0</span>+</h3>
+                <p class="text-[9px] md:text-[10px] uppercase tracking-widest text-gray-500 font-bold">Projects Completed</p>
+            </div>
+            <div class="p-6 md:p-8 border-l-4 border-gray-100 hover:border-brand-green transition-colors bg-gray-50 rounded-r-xl">
+                <h3 class="text-4xl md:text-5xl font-black text-gray-900 mb-1 md:mb-2"><span class="counter" data-target="40">0</span>+</h3>
+                <p class="text-[9px] md:text-[10px] uppercase tracking-widest text-gray-500 font-bold">Global Offices</p>
+            </div>
+            <div class="p-6 md:p-8 border-l-4 border-gray-100 hover:border-purple-500 transition-colors bg-gray-50 rounded-r-xl">
+                <h3 class="text-4xl md:text-5xl font-black text-gray-900 mb-1 md:mb-2"><span class="counter" data-target="20">0</span>k</h3>
+                <p class="text-[9px] md:text-[10px] uppercase tracking-widest text-gray-500 font-bold">Talented Minds</p>
+            </div>
+            <div class="p-6 md:p-8 border-l-4 border-gray-100 hover:border-brand-gold transition-colors bg-gray-50 rounded-r-xl">
+                <h3 class="text-4xl md:text-5xl font-black text-gray-900 mb-1 md:mb-2"><span class="counter" data-target="100">0</span>%</h3>
+                <p class="text-[9px] md:text-[10px] uppercase tracking-widest text-gray-500 font-bold">Sustainability Focus</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Adjusted padding and stack for contact section -->
+<section id="contact" class="py-16 md:py-32 px-5 sm:px-8 lg:px-16 bg-brand-navy text-white relative border-t border-white/10">
+    <div class="absolute top-0 right-0 w-64 md:w-96 h-64 md:h-96 bg-brand-blue/20 blur-[100px] rounded-full pointer-events-none"></div>
+
+    <div class="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-10 lg:gap-20 relative z-10">
+        <div class="lg:w-1/3 reveal-up">
+            <span class="text-brand-gold font-bold uppercase tracking-[0.2em] text-[10px] md:text-xs mb-3 md:mb-4 block">Get In Touch</span>
+            <h2 class="text-4xl md:text-5xl font-black mb-6 md:mb-8 leading-tight">Connect with <br><span class="text-brand-blue">Arshith Group</span></h2>
+            <p class="text-gray-400 mb-8 md:mb-12 font-light text-base md:text-lg">Whether you are an investor, a job seeker, or a strategic partner, our global team is ready to connect.</p>
+            
+            <div class="space-y-4 md:space-y-6 text-sm font-light text-gray-300">
+                <p class="flex items-center space-x-4"><i class="fa-solid fa-map-pin text-brand-gold text-lg"></i> <span>Bangalore, India Headquarters</span></p>
+                <p class="flex items-center space-x-4"><i class="fa-regular fa-envelope text-brand-gold text-lg"></i> <span class="break-all">corporate@arshith.com</span></p>
+                <p class="flex items-center space-x-4"><i class="fa-solid fa-phone text-brand-gold text-lg"></i> <span>+91 86184 71424</span></p>
+            </div>
+        </div>
+
+        <div class="lg:w-2/3 bg-white/5 p-6 md:p-10 rounded-2xl backdrop-blur-sm border border-white/10 reveal-up">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                <input type="text" id="contact_name" placeholder="YOUR NAME" class="bg-transparent border-b border-gray-600 pb-3 md:pb-4 focus:border-brand-gold outline-none transition text-sm tracking-widest text-white placeholder-gray-500">
+                <input type="email" id="contact_email" placeholder="EMAIL ADDRESS" class="bg-transparent border-b border-gray-600 pb-3 md:pb-4 focus:border-brand-gold outline-none transition text-sm tracking-widest text-white placeholder-gray-500">
+                <input type="text" id="contact_org" placeholder="ORGANIZATION" class="bg-transparent border-b border-gray-600 pb-3 md:pb-4 focus:border-brand-gold outline-none transition text-sm tracking-widest text-white placeholder-gray-500">
+                
+                <select id="contact_purpose" class="bg-transparent border-b border-gray-600 pb-3 md:pb-4 focus:border-brand-gold outline-none transition text-sm tracking-widest text-gray-500 appearance-none cursor-pointer">
+                    <option value="PURPOSE OF INQUIRY" class="bg-brand-navy text-white">PURPOSE OF INQUIRY</option>
+                    <option value="INVESTORS" class="bg-brand-navy text-white">INVESTORS</option>
+                    <option value="CAREERS" class="bg-brand-navy text-white">CAREERS</option>
+                    <option value="MEDIA" class="bg-brand-navy text-white">MEDIA</option>
+                </select>
+                
+                <textarea id="contact_message" placeholder="HOW CAN WE HELP YOU?" class="col-span-1 md:col-span-2 bg-transparent border-b border-gray-600 pb-4 h-24 focus:border-brand-gold outline-none transition text-sm tracking-widest text-white placeholder-gray-500 resize-none mt-2 md:mt-4"></textarea>
+                
+                <!-- Full width button on mobile -->
+                <div class="col-span-1 md:col-span-2 text-center md:text-right mt-2 md:mt-4">
+                    <button id="sendInquiryBtn" class="w-full md:w-auto bg-brand-blue px-10 py-4 font-bold text-xs uppercase tracking-[0.2em] hover:bg-brand-gold hover:text-black transition-all duration-300 text-white rounded-sm">Send Inquiry</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+
+<footer class="premium-footer">
+    <div class="footer-wrap">
+        
+        <div class="footer-top-row">
+            <div class="brand-editorial">
+                <h2>Arshith <span>Group</span></h2>
+                <p>Fusing timeless traditional integrity with sophisticated technological intelligence to build sustainable market ecosystems.</p>
+            </div>
+            
+            <div class="lux-newsletter mt-6 md:mt-0">
+                <p>Join the inner circle</p>
+                <div class="input-group-animated">
+                    <input type="email" id="newsletter_email" placeholder="Enter corporate email layout" aria-label="Newsletter Email">
+                    <button class="lux-submit-btn" id="newsletter_btn" onclick="executeNewsletterSubscription(event)" aria-label="Submit Email">
+                        <i class="fa-solid fa-arrow-right-long" style="pointer-events: none;"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-main-grid">
+            <div>
+                <h3 class="grid-title">Ecosystem</h3>
+                <ul class="lux-links-list">
+                    <li><a href="https://arshithfresh.com/">Arshith Fresh Corporate</a></li>
+                    <li><a href="https://www.suntechsolutions.com/">Suntech Digital Labs</a></li>
+                    <li><a href="https://arshithfresh.com/">E-Commerce Supply Chain</a></li>
+                    <li><a href="https://arshithfresh.com/pages/contact-for-franchise">Global Franchises</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="grid-title">About Us</h3>
+                <ul class="lux-links-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="ourbusiness.html">Our Businesses</a></li>
+                    <li><a href="careers.html">Careers Portal</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="grid-title">More</h3>
+                <ul class="lux-links-list">
+                    <li><a href="internship.html">Internship</a></li>
+                    <li><a href="page.html">Apply Internship</a></li>
+                    <li><a href="newsroom.html">NewsRoom</a></li>
+                    <li><a href="contact.html">ContactUs</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="grid-title">Concierge Support</h3>
+                
+                <div class="lux-contact-item">
+                    <div class="lux-icon-circle"><i class="fa-solid fa-phone-flip"></i></div>
+                    <div class="lux-contact-text">
+                        <span>Inquiries Line</span>
+                        <a href="tel:+918618471424">+91 86184 71424</a>
+                    </div>
+                </div>
+
+                <div class="lux-contact-item">
+                    <div class="lux-icon-circle"><i class="fa-solid fa-envelope-open"></i></div>
+                    <div class="lux-contact-text">
+                        <span>Electronic Mailing</span>
+                        <a href="mailto:support@arshithfresh.com">support@arshithfresh.com</a>
+                    </div>
+                </div>
+
+                <div class="lux-contact-item">
+                    <div class="lux-icon-circle"><i class="fa-solid fa-map-pin"></i></div>
+                    <div class="lux-contact-text">
+                        <span>Headquarters</span>
+                        <p>Bengaluru, India</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom-meta">
+            <div class="legal-lux-links">
+                <a href="https://arshithfresh.com/policies/privacy-policy">Privacy Charter</a>
+                <a href="https://arshithfresh.com/policies/refund-policy">Return & Refund</a>
+                <a href="https://arshithfresh.com/policies/terms-of-service">Accessibility</a>
+            </div>
+
+            <div class="lux-social-container">
+                <div class="lux-social-wrapper"><a href="https://www.linkedin.com/company/arshith-fresh-india-pvt-ltd/?originalSubdomain=in" class="lux-social-link"><i class="fa-brands fa-linkedin-in"></i></a></div>
+                <div class="lux-social-wrapper"><a href="https://www.instagram.com/arshith_fresh/" class="lux-social-link"><i class="fa-brands fa-instagram"></i></a></div>
+            </div>
+
+            <div class="copyright-lux">
+                &copy; 2026 The Arshith Group. Crafted to perfection.
+            </div>
+        </div>
+
+    </div>
+</footer>
+
+<button id="toTop" class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[150] bg-brand-blue text-white p-3 md:p-4 rounded-full shadow-2xl opacity-0 translate-y-10 transition-all duration-500 hover:bg-brand-navy hover:scale-110 pointer-events-none">
+    <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+</button>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+    // --- Initialize AOS ---
+    AOS.init({ duration: 1200, once: true, offset: 50 });
+
+    // --- Navbar & Mobile Menu Logic ---
+    const navbar = document.getElementById('navbar');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+    const closeIcon = document.getElementById('closeIcon');
+    
+    // Select the parent wrapper for desktop links and mobile text correctly
+    const navText = navbar.querySelector('.tracking-tighter'); 
+    const navLinks = document.querySelectorAll('.hidden.lg\\:flex a');
+    
+    let isMenuOpen = false;
+
+    // Scroll Effect
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('glass-nav', 'py-3');
+            navbar.classList.remove('py-4', 'md:py-5', 'text-white');
+            navText.classList.add('text-brand-blue');
+            navLinks.forEach(l => l.classList.replace('text-white', 'text-gray-900'));
+        } else {
+            navbar.classList.remove('glass-nav', 'py-3');
+            navbar.classList.add('py-4', 'md:py-5', 'text-white');
+            navText.classList.remove('text-brand-blue');
+            navLinks.forEach(l => {
+                if (l.classList.contains('text-gray-900')) {
+                    l.classList.replace('text-gray-900', 'text-white');
+                }
+            });
+        }
+
+        // Back to top button visibility
+        const toTopBtn = document.getElementById('toTop');
+        if (window.scrollY > 500) {
+            toTopBtn.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
+        } else {
+            toTopBtn.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
+        }
+    });
+
+    // Mobile Menu Toggle
+    mobileMenuBtn.addEventListener('click', () => {
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen) {
+            mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+            mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+            menuIcon.classList.add('hidden');
+            closeIcon.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            
+            navbar.classList.remove('text-white');
+            navbar.classList.add('text-brand-blue');
+        } else {
+            mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+            mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            
+            if (window.scrollY <= 50) {
+                navbar.classList.add('text-white');
+                navbar.classList.remove('text-brand-blue');
+            }
+        }
+    });
+
+    document.getElementById('toTop').addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // --- GSAP Animations ---
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero Timeline
+    const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+    tl.fromTo(".hero-tag", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, delay: 0.2 })
+      .to(".reveal-word", { y: "0%", opacity: 1, duration: 1.2, stagger: 0.15 }, "-=0.5")
+      .to(".hero-subtext", { opacity: 1, y: 0, duration: 1 }, "-=0.8");
+
+    // Standard Reveals
+    gsap.utils.toArray('.reveal-up').forEach(elem => {
+        gsap.to(elem, {
+            scrollTrigger: {
+                trigger: elem,
+                start: "top 85%",
+            },
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            ease: "power3.out"
+        });
+    });
+
+    // Counters
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+        ScrollTrigger.create({
+            trigger: counter,
+            start: "top 90%",
+            once: true,
+            onEnter: () => {
+                const target = +counter.getAttribute('data-target');
+                gsap.to(counter, {
+                    innerHTML: target,
+                    duration: 2.5,
+                    snap: { innerHTML: 1 },
+                    ease: "power2.out"
+                });
+            }
+        });
+    });
+
+    // --- Contact Form Logic ---
+    document.getElementById('sendInquiryBtn').addEventListener('click', function() {
+        const btn = this;
+        const originalText = btn.innerText;
+
+        const formData = {
+            name: document.getElementById('contact_name').value.trim(),
+            email: document.getElementById('contact_email').value.trim(),
+            organization: document.getElementById('contact_org').value.trim(),
+            purpose: document.getElementById('contact_purpose').value,
+            message: document.getElementById('contact_message').value.trim()
+        };
+
+        if (!formData.name || !formData.email || !formData.message) {
+            alert("Please fill in your Name, Email, and Message.");
+            return;
+        }
+
+        btn.innerText = "SENDING...";
+        btn.disabled = true;
+
+        fetch('https://arshit-group.onrender.com/process_contact.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert("Thank you! Your inquiry has been submitted successfully.");
+                ['contact_name', 'contact_email', 'contact_org', 'contact_message'].forEach(id => document.getElementById(id).value = '');
+            } else {
+                alert("Error: " + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert("An error occurred. Please check your console.");
+        })
+        .finally(() => {
+            btn.innerText = originalText;
+            btn.disabled = false;
+        });
+    });
+
+    // --- Footer Newsletter Logic ---
+    function executeNewsletterSubscription(event) {
+        if (event) event.preventDefault();
+        const emailInput = document.getElementById('newsletter_email');
+        const registerBtn = document.getElementById('newsletter_btn');
+        if (!emailInput) { alert("Configuration Error: Input field missing."); return; }
+        const emailData = emailInput.value.trim();
+        if (!emailData || !emailData.includes('@')) { alert("Please enter a valid corporate email layout."); return; }
+        if (registerBtn) registerBtn.disabled = true;
+        fetch('https://arshit-group.onrender.com/process_new.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: emailData }) })
+        .then(response => { if (!response.ok) throw new Error("Network response failure"); return response.json(); })
+        .then(payload => {
+            if (payload.success) { alert("Welcome to the inner circle. Your email has been successfully cataloged."); emailInput.value = ''; } 
+            else { alert("Database System Message: " + payload.message); }
+        })
+        .catch(err => { console.error(err); alert("Communication Error: Could not link up to /process_new.php."); })
+        .finally(() => { if (registerBtn) registerBtn.disabled = false; });
+    }
+</script>
+
+</body>
+</html>
