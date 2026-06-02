@@ -157,7 +157,7 @@
 
 <body>
 
-    <nav id="navbar" class="fixed w-full z-50 py-5 px-8 flex justify-between items-center transition-all duration-500 text-gray-900 bg-white/80 backdrop-blur-md border-b border-transparent shadow-sm">
+    <nav id="navbar" class="fixed w-full z-50 py-4 px-8 flex justify-between items-center transition-all duration-500 text-gray-900 bg-white/80 backdrop-blur-md border-b border-transparent shadow-sm">
         <div class="text-2xl font-extrabold tracking-tighter z-50 relative cursor-pointer">
             ARSHITH <span class="font-light opacity-70">GROUP</span>
         </div>
@@ -192,8 +192,9 @@
 
     <div id="mobileMenu" class="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-500 lg:hidden">
         <div class="flex flex-col text-center space-y-8 text-sm font-bold uppercase tracking-[0.2em] text-gray-900">
+            <a href="index.html" class="text-emerald-600 transition-colors">Home</a>
             <a href="index.html" class="hover:text-emerald-600 transition-colors">Home</a>
-            <a href="about.html" class="text-emerald-700 transition-colors">About</a>
+            <a href="about.html" class="hover:text-emerald-700 transition-colors">About</a>
             <a href="ourbusiness.html" class="hover:text-emerald-600 transition-colors">Our Businesses</a>
             <a href="careers.html" class="hover:text-emerald-600 transition-colors">Careers</a>
             <a href="internship.html" class="hover:text-emerald-600 transition-colors">Internship</a>
@@ -215,7 +216,7 @@
                 <span class="text-[10px] uppercase tracking-[0.3em] font-bold text-gray-200">Global Enterprise Network</span>
             </div>
 
-            <h1 class="text-5xl md:text-7xl lg:text-[7.5rem] font-black tracking-tighter leading-[0.9] mb-8 uppercase text-white">
+            <h1 class="text-4xl md:text-5xl lg:text-[7.5rem] font-black tracking-tighter leading-[0.9] mb-8 uppercase text-white">
                 <div class="gsap-line"><span>Architecting</span></div>
                 <div class="gsap-line"><span>The <span style="color: var(--lux-gold);">Future.</span></span></div>
             </h1>
@@ -418,31 +419,35 @@
 
     <!-- 2. VISUAL IMPACT GALLERY -->
     <section class="py-20 bg-gray-900 overflow-hidden">
-        <div class="max-w-[1600px] mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
-                <div data-aos="fade-right">
-                    <span class="text-arshith-gold font-bold uppercase tracking-[0.4em] text-[10px] pb-4 block">Visual Impact</span>
-                    <h2 class="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter">Inside the <br>Ecosystem</h2>
-                </div>
-                <p class="text-gray-400 max-w-md text-sm md:text-base mt-6 md:mt-0" data-aos="fade-left">A glimpse into the daily operations, agricultural partnerships, and high-tech command centers.</p>
+    <div class="max-w-[1600px] mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+            <div data-aos="fade-right">
+                <span class="text-arshith-gold font-bold uppercase tracking-[0.4em] text-[10px] pb-4 block">Visual Impact</span>
+                <h2 class="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter">Inside the <br>Ecosystem</h2>
             </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                <div class="col-span-2 row-span-2 overflow-hidden rounded-2xl group parallax-section" data-aos="zoom-in">
-                    <img src="https://arshithgroup.com/logos/news3.jpeg" alt="Supply Chain" class="w-full h-full object-cover min-h-[400px] parallax-img img-corporate">
-                </div>
-                <div class="overflow-hidden rounded-2xl group parallax-section" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="https://arshithgroup.com/logos/news5.jpeg" alt="Tech Hub" class="w-full h-full object-cover min-h-[200px] parallax-img img-corporate">
-                </div>
-                <div class="overflow-hidden rounded-2xl group parallax-section" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="https://arshithgroup.com/logos/news4.jpeg" alt="Agriculture" class="w-full h-full object-cover min-h-[200px] parallax-img img-corporate">
-                </div>
-                <div class="col-span-2 md:col-span-2 overflow-hidden rounded-2xl group parallax-section" data-aos="zoom-in" data-aos-delay="300">
-                    <img src="https://arshithgroup.com/logos/students.jpeg" alt="Corporate Boardroom" class="w-full h-full object-cover min-h-[200px] parallax-img img-corporate">
-                </div>
+            <p class="text-gray-400 max-w-md text-sm md:text-base mt-6 md:mt-0" data-aos="fade-left">A glimpse into the daily operations, agricultural partnerships, and high-tech command centers.</p>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            <!-- Image 1 -->
+            <div class="col-span-2 row-span-2 overflow-hidden rounded-2xl group parallax-section" data-aos="zoom-in">
+                <img src="https://arshithgroup.com/logos/news3.jpeg" alt="Supply Chain" class="w-full h-full object-cover min-h-[400px] parallax-img transition-all duration-500 group-hover:scale-105">
+            </div>
+            <!-- Image 2 -->
+            <div class="overflow-hidden rounded-2xl group parallax-section" data-aos="zoom-in" data-aos-delay="100">
+                <img src="https://arshithgroup.com/logos/news5.jpeg" alt="Tech Hub" class="w-full h-full object-cover min-h-[200px] parallax-img transition-all duration-500 group-hover:scale-105">
+            </div>
+            <!-- Image 3 -->
+            <div class="overflow-hidden rounded-2xl group parallax-section" data-aos="zoom-in" data-aos-delay="200">
+                <img src="https://arshithgroup.com/logos/news4.jpeg" alt="Agriculture" class="w-full h-full object-cover min-h-[200px] parallax-img transition-all duration-500 group-hover:scale-105">
+            </div>
+            <!-- Image 4 -->
+            <div class="col-span-2 md:col-span-2 overflow-hidden rounded-2xl group parallax-section" data-aos="zoom-in" data-aos-delay="300">
+                <img src="https://arshithgroup.com/logos/students.jpeg" alt="Corporate Boardroom" class="w-full h-full object-cover min-h-[200px] parallax-img transition-all duration-500 group-hover:scale-105">
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- 3. EVOLUTION TIMELINE SECTION -->
     <section id="evolution" class="py-20 bg-gray-50 border-b border-gray-200">
@@ -500,7 +505,7 @@
             </div>
 
             <!-- Profile 1 -->
-            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 mb-32 group" data-aos="fade-up">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 mb-32 group" data-aos="">
                 <div class="w-full lg:w-5/12 relative">
                     <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl relative z-10 hover-3d-lift">
                         <img src="https://arshithgroup.com/logos/sir(1)(1).png" alt="Farook Nurubasha" class="w-full h-full object-cover img-corporate">
@@ -569,12 +574,12 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         // 1. Initialize AOS Animations
-        AOS.init({
-            duration: 1000, 
-            once: true, 
-            offset: 100,
-            easing: 'ease-out-cubic'
-        });
+AOS.init({
+    duration: 1000, 
+    once: true, 
+    
+    disable: false       // CRITICAL: Forces AOS to run on mobile viewports and ignores default mobile blocks
+});
 
         // 2. GSAP Parallax Effect Initialization
         gsap.registerPlugin(ScrollTrigger);

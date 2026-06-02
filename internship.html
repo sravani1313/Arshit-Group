@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Arshit Group – Internship 2026</title>
   
-  <!-- Premium Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,500;1,400&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
@@ -51,7 +50,7 @@
     /* --- Loader --- */
     #loader { position: fixed; inset: 0; background: var(--white); z-index: 9000; display: flex; align-items: center; justify-content: center; flex-direction: column; transition: opacity 0.7s, visibility 0.7s; }
     #loader.done { opacity: 0; visibility: hidden; }
-    .loader-logo { font-family: 'Bebas Neue', sans-serif; font-size: 65px; letter-spacing: 10px; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .loader-logo { font-family: 'Bebas Neue', sans-serif; font-size: 65px; letter-spacing: 10px; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-align: center; }
     .loader-bar { width: 180px; height: 3px; background: var(--border); border-radius: 10px; margin-top: 20px; overflow: hidden; }
     .loader-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent2)); animation: loadFill 1.6s ease forwards; }
     @keyframes loadFill { from{width:0} to{width:100%} }
@@ -72,7 +71,7 @@
     #mobileMenuBtn svg { width: 28px; height: 28px; }
     .hidden { display: none !important; }
     
-    /* Mobile Menu Overlay - Full White Minimalist Style */
+    /* Mobile Menu Overlay */
     #mobileMenu { position: fixed; inset: 0; background: #ffffff; z-index: 90; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: all 0.5s ease; }
     #mobileMenu.open { opacity: 1; pointer-events: auto; }
     .mobile-links { display: flex; flex-direction: column; gap: 32px; text-align: center; list-style: none; }
@@ -87,11 +86,11 @@
 
     /* --- Hero Section --- */
     #hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; padding: 120px 60px 80px; text-align: center; }
-    .hero-content { max-width: 860px; position: relative; z-index: 2; }
+    .hero-content { max-width: 860px; position: relative; z-index: 2; width: 100%; }
     .hero-badge { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, rgba(108,60,247,0.09), rgba(255,92,138,0.09)); border: 1.5px solid rgba(108,60,247,0.2); color: var(--accent); font-size: 12px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; padding: 8px 22px; border-radius: 50px; margin-bottom: 32px; animation: fadeUp 0.7s 0.2s both; }
     .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent2); animation: pulsed 1.4s infinite; }
     @keyframes pulsed { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.5);opacity:0.5} }
-    .hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(64px, 11vw, 140px); line-height: 0.92; letter-spacing: 1px; }
+    .hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(42px, 11vw, 140px); line-height: 0.92; letter-spacing: 1px; }
     .hero-title .line1 { display: block; color: var(--text); animation: fadeUp 0.7s 0.35s both; }
     .hero-title .line2 { display: block; background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3), var(--accent)); background-size: 300%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: gradShift 5s infinite linear, fadeUp 0.7s 0.5s both; }
     @keyframes gradShift { 0%{background-position:0%} 100%{background-position:300%} }
@@ -108,10 +107,10 @@
 
     /* Floaters */
     .hero-floaters { display: flex; justify-content: center; gap: 16px; margin-top: 60px; flex-wrap: wrap; animation: fadeUp 0.7s 1s both; }
-    .floater { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 16px 22px; display: flex; align-items: center; gap: 12px; box-shadow: var(--shadow); font-size: 14px; font-weight: 600; animation: floatA 4s ease-in-out infinite; }
+    .floater { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 16px 22px; display: flex; align-items: center; gap: 12px; box-shadow: var(--shadow); font-size: 14px; font-weight: 600; animation: floatA 4s ease-in-out infinite; text-align: left; }
     .floater:nth-child(2) { animation-delay: -1.5s; }
     .floater:nth-child(3) { animation-delay: -3s; }
-    .f-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+    .f-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
     @keyframes floatA { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
     @keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
 
@@ -125,14 +124,14 @@
     /* --- Global Section Styles --- */
     .section-label { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
     .section-label::before { content: ''; display: block; width: 32px; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2)); border-radius: 2px; }
-    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(44px, 6vw, 76px); line-height: 1; color: var(--text); margin-bottom: 60px; }
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(38px, 6vw, 76px); line-height: 1; color: var(--text); margin-bottom: 60px; }
     .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* --- Companies Section --- */
     #companies { padding: 120px 60px; position: relative; z-index: 2; }
-    .companies-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
-    .company-card { background: var(--white); border: 1px solid var(--border); border-radius: 24px; padding: 44px 38px; position: relative; overflow: hidden; transition: transform 0.35s, box-shadow 0.35s; box-shadow: 0 4px 20px rgba(108,60,247,0.06); }
+    .companies-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .company-card { background: var(--white); border: 1px solid var(--border); border-radius: 24px; padding: 44px 38px; position: relative; overflow: hidden; transition: transform 0.35s, box-shadow 0.35s; box-shadow: 0 4px 20px rgba(108,60,247,0.06); display: flex; flex-direction: column; }
     .company-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
     .company-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; border-radius: 24px 24px 0 0; }
     .company-card:nth-child(1)::before { background: linear-gradient(90deg, var(--accent4), #66e8cb); }
@@ -143,13 +142,13 @@
     .company-card:nth-child(1) .company-icon { background: #e0faf4; }
     .company-card:nth-child(2) .company-icon { background: #ede9fe; }
     .company-card:nth-child(3) .company-icon { background: #fff3e0; }
-    .company-name { font-family: 'Bebas Neue', sans-serif; font-size: 30px; letter-spacing: 1px; color: var(--text); margin-bottom: 6px; }
-    .company-type { font-size: 11px; font-family: 'Space Mono', monospace; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
+    .company-name { font-family: 'Bebas Neue', sans-serif; font-size: 30px; letter-spacing: 1px; color: var(--text); margin-bottom: 6px; position: relative; z-index: 10; }
+    .company-type { font-size: 11px; font-family: 'Space Mono', monospace; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; position: relative; z-index: 10; }
     .company-card:nth-child(1) .company-type { color: var(--accent4); }
     .company-card:nth-child(2) .company-type { color: var(--accent); }
     .company-card:nth-child(3) .company-type { color: var(--accent3); }
-    .company-desc { font-size: 14px; line-height: 1.8; color: var(--muted); }
-    .company-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .company-desc { font-size: 14px; line-height: 1.8; color: var(--muted); flex-grow: 1; position: relative; z-index: 10; }
+    .company-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; position: relative; z-index: 10; }
     .tag { padding: 5px 13px; font-size: 11px; font-family: 'Space Mono', monospace; letter-spacing: 1px; border-radius: 50px; }
     .tag-teal { background: #e0faf4; color: #009b7d; border: 1px solid #b3eedf; }
     .tag-purple { background: #ede9fe; color: var(--accent); border: 1px solid #d4c7fd; }
@@ -262,7 +261,7 @@
     .legal-lux-links a { font-size: 12px; color: var(--lux-muted); text-decoration: none; transition: color 0.3s ease; }
     .legal-lux-links a:hover { color: var(--lux-gold); }
 
-    /* ================= MOBILE RESPONSIVENESS ================= */
+    /* ================= MOBILE RESPONSIVENESS OVERRIDES ================= */
     @media (max-width: 1024px) {
       .footer-main-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
       .footer-top-row { flex-direction: column; align-items: flex-start; gap: 20px; }
@@ -270,22 +269,53 @@
     }
     
     @media (max-width: 768px) {
-      /* Content padding */
-      #hero, #companies, #openings, #stats { padding-left: 20px; padding-right: 20px; }
-      .stats-grid { grid-template-columns: repeat(2,1fr); }
-      .form-row { grid-template-columns: 1fr; }
-      .modal { padding: 28px 20px; }
-      .job-card { grid-template-columns: 1fr; }
+      /* Padding & Layout Fixes */
+      #hero, #companies, #openings, #stats { padding-left: 20px; padding-right: 20px; padding-top: 80px; padding-bottom: 80px; }
+      #hero { padding-top: 120px; }
+      
+      /* Typography Scaling */
+      .section-title { font-size: 40px; margin-bottom: 40px; }
+      .hero-sub { font-size: 15px; margin-bottom: 30px; }
+      
+      /* Hero Floaters */
+      .hero-floaters { gap: 12px; margin-top: 40px; }
+      .floater { width: 100%; justify-content: flex-start; padding: 14px 20px; }
+
+      /* Companies Section */
+      .companies-grid { grid-template-columns: 1fr; }
+      .company-card { padding: 30px 24px; }
+      .company-num { font-size: 60px; right: 16px; top: 12px; }
+
+      /* Openings Section */
+      .openings-header { flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 30px; }
+      .job-card { grid-template-columns: 1fr; gap: 16px; padding: 24px 20px; align-items: flex-start; }
+      .apply-btn { width: 100%; text-align: center; }
+
+      /* Stats Section */
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .stat-card { padding: 24px 16px; }
+      .stat-num { font-size: 44px; }
+
+      /* Forms / Modals */
+      .form-row { grid-template-columns: 1fr; gap: 10px; }
+      .modal { padding: 35px 20px; }
+      .modal-close { top: 15px; right: 15px; }
       
       /* Footer */
-      .premium-footer { padding: 35px 0 20px 0; }
-      .footer-wrap { padding: 0 16px; }
+      .premium-footer { padding: 40px 0 20px 0; }
+      .footer-wrap { padding: 0 20px; }
       .brand-editorial h2 { font-size: 24px; }
       .footer-main-grid { grid-template-columns: 1fr; gap: 25px; margin-bottom: 35px; }
       .footer-bottom-meta { flex-direction: column; gap: 15px; text-align: center; }
       .legal-lux-links { justify-content: center; order: 2; flex-wrap: wrap; }
       .lux-social-container { justify-content: center; order: 1; }
       .copyright-lux { order: 3; }
+    }
+
+    @media (max-width: 480px) {
+      .stats-grid { grid-template-columns: 1fr; }
+      .hero-badge { font-size: 10px; padding: 6px 16px; }
+      .btn-primary, .btn-outline { width: 100%; text-align: center; }
     }
     
     ::-webkit-scrollbar { width: 5px; }
@@ -306,7 +336,6 @@
   <div class="loader-bar"><div class="loader-fill"></div></div>
 </div>
 
-<!-- ================= NAVIGATION ================= -->
 <nav id="navbar">
   <div class="logo">ARSHITH GROUP</div>
   <ul class="nav-links">
@@ -324,7 +353,6 @@
       <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
     </button>
     
-    <!-- Mobile Hamburger Button -->
     <button id="mobileMenuBtn">
         <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
@@ -336,7 +364,6 @@
   </div>
 </nav>
 
-<!-- Mobile Menu Overlay -->
 <div id="mobileMenu">
     <ul class="mobile-links">
         <li><a href="index.html">Home</a></li>
@@ -349,7 +376,6 @@
     </ul>
 </div>
 
-<!-- ================= HERO ================= -->
 <section id="hero">
   <div class="hero-content">
     <div class="hero-badge"><span class="pulse-dot"></span> ⚡ Internship Program 2026 — Applications Open</div>
@@ -388,7 +414,6 @@
   </div>
 </section>
 
-<!-- ================= MARQUEE ================= -->
 <div class="marquee-wrap">
   <div class="marquee-track">
     <div class="marquee-item"><span class="mdot"></span>Arshith Fresh</div>
@@ -406,53 +431,79 @@
   </div>
 </div>
 
-<!-- ================= ECOSYSTEM ================= -->
-<section id="companies">
-  <div class="section-label">Our Ecosystem</div>
-  <h2 class="section-title reveal">THREE COMPANIES.<br>ONE VISION.</h2>
-  <div class="companies-grid">
-    <div class="company-card reveal">
-      <div class="company-num">01</div>
-      <div class="company-icon">🌿</div>
-      <div class="company-name">Arshith Fresh</div>
-      <div class="company-type">Agriculture & Food Tech</div>
-      <p class="company-desc">Pioneering farm-to-table innovation with smart supply chain solutions, quality assurance, and sustainable practices that redefine freshness at scale.</p>
-      <div class="company-tags">
-        <span class="tag tag-teal">Supply Chain</span>
-        <span class="tag tag-teal">Food Tech</span>
-        <span class="tag tag-teal">Sustainability</span>
-      </div>
+<section id="companies" class="bg-slate-50 relative">
+  <div class="max-w-7xl mx-auto">
+    
+    <div class="text-center mb-16 md:mb-20">
+      <div class="section-label uppercase text-blue-600 tracking-[0.2em] md:tracking-[0.3em] text-xs md:text-sm font-bold mb-4 justify-center">Our Ecosystem</div>
+      <h2 class="section-title reveal font-serif font-bold text-slate-900 leading-tight">
+        THREE COMPANIES.<br>ONE VISION.
+      </h2>
+      <div class="w-16 md:w-24 h-1 bg-gradient-to-r from-blue-600 to-cyan-400 mx-auto mt-6"></div>
     </div>
-    <div class="company-card reveal">
-      <div class="company-num">02</div>
-      <div class="company-icon">💻</div>
-      <div class="company-name">Arshith InfoTech</div>
-      <div class="company-type">Software & IT Services</div>
-      <p class="company-desc">Building next-gen software products, enterprise solutions, and digital transformation services that power businesses across industries worldwide.</p>
-      <div class="company-tags">
-        <span class="tag tag-purple">Development</span>
-        <span class="tag tag-purple">Cloud</span>
-        <span class="tag tag-purple">AI / ML</span>
+
+    <div class="companies-grid">
+      
+      <div class="company-card reveal">
+        <div class="company-num">01</div>
+        
+        <div class="company-icon">🌿</div>
+        <div class="company-name">Arshith Fresh</div>
+        <div class="company-type">Agriculture & Food Tech</div>
+        
+        <p class="company-desc">
+          Pioneering farm-to-table innovation with smart supply chain solutions, quality assurance, and sustainable practices that redefine freshness at scale.
+        </p>
+        
+        <div class="company-tags">
+          <span class="tag tag-teal">Supply Chain</span>
+          <span class="tag tag-teal">Food Tech</span>
+          <span class="tag tag-teal">Sustainability</span>
+        </div>
       </div>
-    </div>
-    <div class="company-card reveal">
-      <div class="company-num">03</div>
-      <div class="company-icon">☀️</div>
-      <div class="company-name">Suntech Solutions</div>
-      <div class="company-type">Technology Consulting</div>
-      <p class="company-desc">Delivering cutting-edge tech consulting, system integrations, and smart automation strategies that help enterprises evolve faster than the market.</p>
-      <div class="company-tags">
-        <span class="tag tag-orange">Consulting</span>
-        <span class="tag tag-orange">Automation</span>
-        <span class="tag tag-orange">Integration</span>
+
+      <div class="company-card reveal">
+        <div class="company-num">02</div>
+        
+        <div class="company-icon">💻</div>
+        <div class="company-name">Arshith InfoTech</div>
+        <div class="company-type">Software & IT Services</div>
+        
+        <p class="company-desc">
+          Building next-gen software products, enterprise solutions, and digital transformation services that power businesses across industries worldwide.
+        </p>
+        
+        <div class="company-tags">
+          <span class="tag tag-purple">Development</span>
+          <span class="tag tag-purple">Cloud</span>
+          <span class="tag tag-purple">AI / ML</span>
+        </div>
       </div>
+
+      <div class="company-card reveal">
+        <div class="company-num">03</div>
+        
+        <div class="company-icon">☀️</div>
+        <div class="company-name">Suntech Solutions</div>
+        <div class="company-type">Technology Consulting</div>
+        
+        <p class="company-desc">
+          Delivering cutting-edge tech consulting, system integrations, and smart automation strategies that help enterprises evolve faster than the market.
+        </p>
+        
+        <div class="company-tags">
+          <span class="tag tag-orange">Consulting</span>
+          <span class="tag tag-orange">Automation</span>
+          <span class="tag tag-orange">Integration</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ================= OPENINGS ================= -->
 <section id="openings">
-  <div class="openings-header reveal">
+  <div class="openings-header reveal max-w-7xl mx-auto">
     <div>
       <div class="section-label">Live Openings</div>
       <h2 class="section-title" style="margin-bottom:0">FIND YOUR<br>ROLE</h2>
@@ -465,8 +516,7 @@
     </div>
   </div>
   
-  <div class="jobs-list" id="jobsList">
-    <!-- Fresh -->
+  <div class="jobs-list max-w-7xl mx-auto" id="jobsList">
     <div class="job-card reveal" data-company="fresh">
       <div>
         <div class="job-company-badge"><span class="badge-dot badge-fresh"></span><span class="badge-text fresh">Arshith Fresh</span></div>
@@ -491,7 +541,6 @@
       <button class="apply-btn" onclick="openModal('Marketing & Brand Intern','Arshith Fresh')">Apply →</button>
     </div>
     
-    <!-- InfoTech -->
     <div class="job-card reveal" data-company="info">
       <div>
         <div class="job-company-badge"><span class="badge-dot badge-info"></span><span class="badge-text info">Arshith InfoTech</span></div>
@@ -528,7 +577,6 @@
       <button class="apply-btn" onclick="openModal('Data Science & ML Intern','Arshith InfoTech')">Apply →</button>
     </div>
     
-    <!-- Suntech -->
     <div class="job-card reveal" data-company="sun">
       <div>
         <div class="job-company-badge"><span class="badge-dot badge-sun"></span><span class="badge-text sun">Suntech Solutions</span></div>
@@ -555,18 +603,18 @@
   </div>
 </section>
 
-<!-- ================= STATS ================= -->
 <section id="stats">
-  <div class="section-label reveal">By The Numbers</div>
-  <div class="stats-grid">
-    <div class="stat-card reveal"><div class="stat-num" data-target="500">0</div><div class="stat-label">Interns Placed</div></div>
-    <div class="stat-card reveal"><div class="stat-num" data-target="3">0</div><div class="stat-label">Companies</div></div>
-    <div class="stat-card reveal"><div class="stat-num" data-target="92">0</div><div class="stat-label">% Offer Rate</div></div>
-    <div class="stat-card reveal"><div class="stat-num" data-target="7">0</div><div class="stat-label">Open Roles</div></div>
+  <div class="max-w-7xl mx-auto">
+    <div class="section-label reveal justify-center">By The Numbers</div>
+    <div class="stats-grid">
+      <div class="stat-card reveal"><div class="stat-num" data-target="500">0</div><div class="stat-label">Interns Placed</div></div>
+      <div class="stat-card reveal"><div class="stat-num" data-target="3">0</div><div class="stat-label">Companies</div></div>
+      <div class="stat-card reveal"><div class="stat-num" data-target="92">0</div><div class="stat-label">% Offer Rate</div></div>
+      <div class="stat-card reveal"><div class="stat-num" data-target="7">0</div><div class="stat-label">Open Roles</div></div>
+    </div>
   </div>
 </section>
 
-<!-- ================= APPLICATION MODAL ================= -->
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
     <button class="modal-close" onclick="closeModal()">✕</button>
@@ -617,7 +665,6 @@
   </div>
 </div>
 
-<!-- ================= LUXURY PREMIUM FOOTER ================= -->
 <footer class="premium-footer">
     <div class="footer-wrap">
         
@@ -718,7 +765,6 @@
     </div>
 </footer>
 
-<!-- ================= SCRIPTS ================= -->
 <script>
   // 1. Loader & Animation Observers
   window.addEventListener('load', () => setTimeout(() => document.getElementById('loader').classList.add('done'), 1700));
@@ -751,6 +797,9 @@
     chip.classList.add('active');
     document.querySelectorAll('.job-card').forEach(card => {
       card.style.display = (company === 'all' || card.dataset.company === company) ? 'grid' : 'none';
+      if(window.innerWidth <= 768 && card.style.display === 'grid') {
+          card.style.display = 'flex';
+      }
     });
   }
 

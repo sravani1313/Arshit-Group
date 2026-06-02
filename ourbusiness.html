@@ -243,47 +243,48 @@
 <main id="main-content">
     
     <!-- ================== TCS-STYLE AUTOMATIC IMAGE SLIDER HERO ================== -->
-    <section class="relative h-screen w-full overflow-hidden bg-slate-900">
+    <section class="relative h-[100svh] min-h-[600px] w-full overflow-hidden bg-slate-900">
         
         <div id="slider-container" class="relative w-full h-full">
             
             <!-- Slide 1: Global Corporate -->
             <div class="hero-slide active absolute inset-0 w-full h-full">
                 <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920" alt="Corporate Edge" class="w-full h-full object-cover">
-                <!-- TCS Style Light Overlay (Fades from dark left to clear right to make text pop) -->
-                <div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/60 to-transparent"></div>
-                <div class="absolute inset-0 flex flex-col justify-center px-8 md:px-16 lg:px-24 max-w-[1400px] mx-auto w-full z-20">
-                    <span class="text-white tracking-[0.3em] uppercase text-xs md:text-sm font-bold mb-6 border-l-4 border-blue-500 pl-4">Shaping The Future</span>
-                    <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] font-serif font-bold text-white leading-[1.1] tracking-tight mb-8">
+                <!-- Mobile: Bottom Gradient | Desktop: Left Gradient -->
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent md:bg-gradient-to-r md:from-slate-900/90 md:via-slate-900/60 md:to-transparent"></div>
+                <!-- Mobile: Bottom Aligned | Desktop: Center Aligned -->
+                <div class="absolute inset-0 flex flex-col justify-end pb-28 md:pb-0 md:justify-center px-6 sm:px-8 md:px-16 lg:px-24 max-w-[1400px] mx-auto w-full z-20">
+                    <span class="text-white tracking-[0.2em] md:tracking-[0.3em] uppercase text-xs md:text-sm font-bold mb-4 md:mb-6 border-l-4 border-blue-500 pl-3 md:pl-4">Shaping The Future</span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-[5.5rem] font-serif font-bold text-white leading-[1.1] tracking-tight mb-4 md:mb-8">
                         Global Vision.<br>Local <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Impact.</span>
                     </h1>
-                    <p class="text-slate-200 text-lg md:text-xl font-light max-w-2xl mb-10">We are a diversified conglomerate committed to building sustainable value across agriculture, enterprise technology, and digital innovation.</p>
+                    <p class="text-slate-200 text-base md:text-xl font-light max-w-2xl mb-2 md:mb-10">We are a diversified conglomerate committed to building sustainable value across agriculture, enterprise technology, and digital innovation.</p>
                 </div>
             </div>
 
             <!-- Slide 2: Arshith Fresh (Agriculture) -->
             <div class="hero-slide inactive absolute inset-0 w-full h-full">
                 <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1920" alt="Sustainable Agriculture" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-r from-emerald-900/90 via-slate-900/60 to-transparent"></div>
-                <div class="absolute inset-0 flex flex-col justify-center px-8 md:px-16 lg:px-24 max-w-[1400px] mx-auto w-full z-20">
-                    <span class="text-white tracking-[0.3em] uppercase text-xs md:text-sm font-bold mb-6 border-l-4 border-emerald-500 pl-4">Arshith Fresh</span>
-                    <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] font-serif font-bold text-white leading-[1.1] tracking-tight mb-8">
+                <div class="absolute inset-0 bg-gradient-to-t from-emerald-900 via-slate-900/80 to-transparent md:bg-gradient-to-r md:from-emerald-900/90 md:via-slate-900/60 md:to-transparent"></div>
+                <div class="absolute inset-0 flex flex-col justify-end pb-28 md:pb-0 md:justify-center px-6 sm:px-8 md:px-16 lg:px-24 max-w-[1400px] mx-auto w-full z-20">
+                    <span class="text-white tracking-[0.2em] md:tracking-[0.3em] uppercase text-xs md:text-sm font-bold mb-4 md:mb-6 border-l-4 border-emerald-500 pl-3 md:pl-4">Arshith Fresh</span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-[5.5rem] font-serif font-bold text-white leading-[1.1] tracking-tight mb-4 md:mb-8">
                         Rooted in Nature.<br>Grown with <span class="text-emerald-400">Care.</span>
                     </h1>
-                    <p class="text-slate-200 text-lg md:text-xl font-light max-w-2xl mb-10">Revolutionizing the organic supply chain by connecting local artisans and farmers directly to conscious consumers globally.</p>
+                    <p class="text-slate-200 text-base md:text-xl font-light max-w-2xl mb-2 md:mb-10">Revolutionizing the organic supply chain by connecting local artisans and farmers directly to conscious consumers globally.</p>
                 </div>
             </div>
 
             <!-- Slide 3: Technology & Solutions -->
             <div class="hero-slide inactive absolute inset-0 w-full h-full">
                 <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1920" alt="Digital Innovation" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-r from-indigo-900/90 via-slate-900/60 to-transparent"></div>
-                <div class="absolute inset-0 flex flex-col justify-center px-8 md:px-16 lg:px-24 max-w-[1400px] mx-auto w-full z-20">
-                    <span class="text-white tracking-[0.3em] uppercase text-xs md:text-sm font-bold mb-6 border-l-4 border-purple-500 pl-4">Digital Transformation</span>
-                    <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] font-serif font-bold text-white leading-[1.1] tracking-tight mb-8">
+                <div class="absolute inset-0 bg-gradient-to-t from-indigo-900 via-slate-900/80 to-transparent md:bg-gradient-to-r md:from-indigo-900/90 md:via-slate-900/60 md:to-transparent"></div>
+                <div class="absolute inset-0 flex flex-col justify-end pb-28 md:pb-0 md:justify-center px-6 sm:px-8 md:px-16 lg:px-24 max-w-[1400px] mx-auto w-full z-20">
+                    <span class="text-white tracking-[0.2em] md:tracking-[0.3em] uppercase text-xs md:text-sm font-bold mb-4 md:mb-6 border-l-4 border-purple-500 pl-3 md:pl-4">Digital Transformation</span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-[5.5rem] font-serif font-bold text-white leading-[1.1] tracking-tight mb-4 md:mb-8">
                         Engineering<br>Next-Gen <span class="text-purple-400">Scale.</span>
                     </h1>
-                    <p class="text-slate-200 text-lg md:text-xl font-light max-w-2xl mb-10">From cloud infrastructure to automated GST compliance, we build the robust digital architectures that power modern enterprises.</p>
+                    <p class="text-slate-200 text-base md:text-xl font-light max-w-2xl mb-2 md:mb-10">From cloud infrastructure to automated GST compliance, we build the robust digital architectures that power modern enterprises.</p>
                 </div>
             </div>
 
@@ -294,14 +295,53 @@
             <div id="slide-progress" class="h-full bg-blue-500 w-0"></div>
         </div>
 
-        <!-- Slider Controls -->
-        <div class="absolute bottom-10 right-10 flex space-x-4 z-30">
-            <button onclick="prevSlide()" class="w-12 h-12 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-white hover:text-black transition-all">
+        <!-- Slider Controls (Adjusted for mobile spacing) -->
+        <div class="absolute bottom-8 right-6 md:bottom-10 md:right-10 flex space-x-3 md:space-x-4 z-30">
+            <button onclick="prevSlide()" class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-white hover:text-black transition-all backdrop-blur-sm">
                 <i class="fa-solid fa-chevron-left"></i>
             </button>
-            <button onclick="nextSlide()" class="w-12 h-12 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-white hover:text-black transition-all">
+            <button onclick="nextSlide()" class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-white hover:text-black transition-all backdrop-blur-sm">
                 <i class="fa-solid fa-chevron-right"></i>
             </button>
+        </div>
+    </section>
+
+    <!-- ================== EXPANDED CORPORATE CONTENT ================== -->
+    <!-- Content left identical as it already responds well -->
+    <section class="py-16 md:py-24 px-6 md:px-8 bg-slate-50 border-b border-gray-200 relative">
+        <div class="max-w-7xl mx-auto text-center mb-12 md:mb-16" data-aos="fade-up">
+            <p class="uppercase text-blue-600 tracking-[0.3em] text-xs md:text-sm font-bold mb-4">Enterprise Excellence</p>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-slate-900 mb-6">A Network of Innovation</h2>
+            <p class="text-slate-600 text-base md:text-lg max-w-3xl mx-auto font-light leading-relaxed">
+                Arshith Group represents a holistic ecosystem. We don’t just build businesses; we create interconnected value chains. By bridging the gap between natural wellness, scalable software, and robust financial solutions, we drive progress across multiple sectors simultaneously.
+            </p>
+        </div>
+        
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 md:gap-10">
+            <!-- Feature 1 -->
+            <div class="bg-white p-8 md:p-10 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-shadow duration-500 text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-14 h-14 md:w-16 md:h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-xl md:text-2xl">
+                    <i class="fa-solid fa-globe"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3 md:mb-4">Global Reach</h3>
+                <p class="text-slate-600 font-light text-sm leading-relaxed">Delivering world-class products and solutions that meet international standards of quality, security, and scalability.</p>
+            </div>
+            <!-- Feature 2 -->
+            <div class="bg-white p-8 md:p-10 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-shadow duration-500 text-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-14 h-14 md:w-16 md:h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6 text-xl md:text-2xl">
+                    <i class="fa-solid fa-seedling"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3 md:mb-4">Sustainable Impact</h3>
+                <p class="text-slate-600 font-light text-sm leading-relaxed">Pioneering eco-friendly practices in our agriculture wings while developing green-tech solutions in our IT infrastructure.</p>
+            </div>
+            <!-- Feature 3 -->
+            <div class="bg-white p-8 md:p-10 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-shadow duration-500 text-center" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-14 h-14 md:w-16 md:h-16 bg-purple-50 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 text-xl md:text-2xl">
+                    <i class="fa-solid fa-layer-group"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3 md:mb-4">Integrated Ecosystem</h3>
+                <p class="text-slate-600 font-light text-sm leading-relaxed">Creating seamless synergies between our verticals—using Arshith Infotech's logic to scale Arshith Fresh's logistics.</p>
+            </div>
         </div>
     </section>
 
@@ -344,132 +384,134 @@
     </section>
 
     <!-- ================== REDESIGNED "OUR BUSINESSES" SHOWCASE (LIGHT THEME) ================== -->
-    <section id="businesses" class="py-32 bg-white relative overflow-hidden">
+    <section id="businesses" class="py-16 lg:py-32 bg-white relative overflow-hidden">
         
-        <div class="max-w-7xl mx-auto px-8 relative z-10">
-            
-            <!-- Section Header -->
-            <div class="mb-32 flex flex-col items-center text-center" data-aos="fade-up">
-                <p class="uppercase text-blue-600 tracking-[0.4em] text-sm font-bold mb-4">Strategic Portfolio</p>
-                <h2 class="text-5xl md:text-7xl font-serif font-bold text-slate-900 leading-tight">
-                    Our Core Businesses.
-                </h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-cyan-400 mt-8"></div>
-            </div>
-
-            <div class="space-y-40">
-                
-                <!-- BUSINESS 01: ARSHITH FRESH -->
-                <div class="business-row relative flex flex-col lg:flex-row items-center gap-16 group">
-                    <div class="w-full lg:w-1/2 relative z-10" data-aos="fade-right" data-aos-duration="1200">
-                        <div class="absolute inset-0 bg-emerald-100 translate-x-4 translate-y-4 rounded-2xl -z-10 transition-transform duration-700 group-hover:translate-x-8 group-hover:translate-y-8"></div>
-                        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1200" class="w-full h-[500px] object-cover rounded-2xl image-glow-emerald hover-lift relative z-10 border border-slate-100">
-                        
-                        <div class="absolute -bottom-8 -right-8 bg-white p-6 rounded-xl border border-slate-100 z-20 shadow-2xl hidden md:block" data-aos="fade-up" data-aos-delay="300">
-                            <p class="text-4xl font-black text-emerald-600 mb-1">100%</p>
-                            <p class="text-xs text-slate-500 uppercase tracking-widest font-bold">Organic Sourced</p>
-                        </div>
-                    </div>
-                    
-                    <div class="w-full lg:w-1/2 relative z-10 lg:pl-10" data-aos="fade-left" data-aos-duration="1200">
-                        <div class="business-number">01</div>
-                        <div class="relative z-10">
-                            <p class="text-emerald-600 font-bold tracking-[0.3em] uppercase text-[11px] mb-4 flex items-center">
-                                <i class="fa-solid fa-leaf mr-3 text-sm"></i> Agriculture & Wellness
-                            </p>
-                            <h3 class="text-4xl md:text-5xl font-serif text-slate-900 font-bold mb-6">Arshith Fresh</h3>
-                            <p class="text-slate-600 text-lg font-light leading-relaxed mb-8">
-                                Rooted in nature and grown with care. We operate a highly optimized e-commerce supply chain, delivering preservative-free organic products directly from artisan producers to conscious consumers.
-                            </p>
-                            <ul class="space-y-4 mb-10">
-                                <li class="flex items-center text-slate-700 font-medium"><i class="fa-solid fa-check text-emerald-500 mr-4"></i> Premium Organic Ghee & Honey</li>
-                                <li class="flex items-center text-slate-700 font-medium"><i class="fa-solid fa-check text-emerald-500 mr-4"></i> Traditional Cold-Pressed Oils</li>
-                                <li class="flex items-center text-slate-700 font-medium"><i class="fa-solid fa-check text-emerald-500 mr-4"></i> Direct-to-Consumer Supply Chain</li>
-                            </ul>
-                            <a href="https://arshithfresh.com/" target="_blank" class="inline-block px-10 py-4 bg-emerald-50 text-emerald-700 hover:bg-emerald-600 hover:text-white transition-all duration-300 rounded-full text-xs uppercase tracking-[0.2em] font-bold shadow-sm hover:shadow-lg">
-                                Visit Platform
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- BUSINESS 02: SUNTECH SOLUTIONS (Reversed Layout) -->
-                <div class="business-row relative flex flex-col lg:flex-row-reverse items-center gap-16 group">
-                    <div class="w-full lg:w-1/2 relative z-10" data-aos="fade-left" data-aos-duration="1200">
-                        <div class="absolute inset-0 bg-blue-100 -translate-x-4 translate-y-4 rounded-2xl -z-10 transition-transform duration-700 group-hover:-translate-x-8 group-hover:translate-y-8"></div>
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200" class="w-full h-[500px] object-cover rounded-2xl image-glow-blue hover-lift relative z-10 border border-slate-100">
-                        
-                        <div class="absolute -top-8 -left-8 bg-white p-6 rounded-xl border border-slate-100 z-20 shadow-2xl hidden md:block" data-aos="fade-down" data-aos-delay="300">
-                            <p class="text-4xl font-black text-blue-600 mb-1">24/7</p>
-                            <p class="text-xs text-slate-500 uppercase tracking-widest font-bold">Cloud Uptime</p>
-                        </div>
-                    </div>
-                    
-                    <div class="w-full lg:w-1/2 relative z-10 lg:pr-10" data-aos="fade-right" data-aos-duration="1200">
-                        <div class="business-number" style="left: auto; right: -1rem;">02</div>
-                        <div class="relative z-10">
-                            <p class="text-blue-600 font-bold tracking-[0.3em] uppercase text-[11px] mb-4 flex items-center">
-                                <i class="fa-solid fa-chart-line mr-3 text-sm"></i> Enterprise Solutions
-                            </p>
-                            <h3 class="text-4xl md:text-5xl font-serif text-slate-900 font-bold mb-6">Suntech Solutions</h3>
-                            <p class="text-slate-600 text-lg font-light leading-relaxed mb-8">
-                                Empowering modern businesses with robust enterprise architectures. We integrate smart accounting, compliance automation, and highly secure operational networks tailored for scale.
-                            </p>
-                            <ul class="space-y-4 mb-10">
-                                <li class="flex items-center text-slate-700 font-medium"><i class="fa-solid fa-check text-blue-500 mr-4"></i> TallyPrime Ecosystem Integration</li>
-                                <li class="flex items-center text-slate-700 font-medium"><i class="fa-solid fa-check text-blue-500 mr-4"></i> Automated GST & Tax Compliance</li>
-                                <li class="flex items-center text-slate-700 font-medium"><i class="fa-solid fa-check text-blue-500 mr-4"></i> Advanced Inventory Management</li>
-                            </ul>
-                            <a href="https://suntechorganization.pythonanywhere.com/" target="_blank" class="inline-block px-10 py-4 bg-blue-50 text-blue-700 hover:bg-blue-600 hover:text-white transition-all duration-300 rounded-full text-xs uppercase tracking-[0.2em] font-bold shadow-sm hover:shadow-lg">
-                                Explore Services
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- BUSINESS 03: ARSHITH INFOTECH -->
-                <div class="business-row relative flex flex-col lg:flex-row items-center gap-16 group">
-                    <div class="w-full lg:w-1/2 relative z-10" data-aos="fade-right" data-aos-duration="1200">
-                        <div class="absolute inset-0 bg-purple-100 translate-x-4 translate-y-4 rounded-2xl -z-10 transition-transform duration-700 group-hover:translate-x-8 group-hover:translate-y-8"></div>
-                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1200" class="w-full h-[500px] object-cover rounded-2xl image-glow-purple hover-lift relative z-10 border border-slate-100">
-                        
-                        <div class="absolute -bottom-8 -right-8 bg-white p-6 rounded-xl border border-slate-100 z-20 shadow-2xl hidden md:block" data-aos="fade-up" data-aos-delay="300">
-                            <p class="text-4xl font-black text-purple-600 mb-1">API</p>
-                            <p class="text-xs text-slate-500 uppercase tracking-widest font-bold">Modern Architectures</p>
-                        </div>
-                    </div>
-                    
-                    <div class="w-full lg:w-1/2 relative z-10 lg:pl-10" data-aos="fade-left" data-aos-duration="1200">
-                        <div class="business-number">03</div>
-                        <div class="relative z-10">
-                            <p class="text-purple-600 font-bold tracking-[0.3em] uppercase text-[11px] mb-4 flex items-center">
-                                <i class="fa-solid fa-microchip mr-3 text-sm"></i> Digital Innovation
-                            </p>
-                            <h3 class="text-4xl md:text-5xl font-serif text-slate-900 font-bold mb-6">Arshith Infotech</h3>
-                            <p class="text-slate-600 text-lg font-light leading-relaxed mb-8">
-                                Building industry-ready digital solutions. We architect modern software, cloud systems, and data-driven infrastructure that guide massive enterprises through their digital transformation.
-                            </p>
-                            <ul class="space-y-4 mb-10">
-                                <li class="flex items-center text-slate-700 font-medium"><i class="fa-solid fa-check text-purple-500 mr-4"></i> Scalable Cloud Infrastructure</li>
-                                <li class="flex items-center text-slate-700 font-medium"><i class="fa-solid fa-check text-purple-500 mr-4"></i> Full-Stack App Development</li>
-                                <li class="flex items-center text-slate-700 font-medium"><i class="fa-solid fa-check text-purple-500 mr-4"></i> Data Analytics & Strategy</li>
-                            </ul>
-                            <a href="https://arshithgroup.com/infotech.html" target="_blank" class="inline-block px-10 py-4 bg-purple-50 text-purple-700 hover:bg-purple-600 hover:text-white transition-all duration-300 rounded-full text-xs uppercase tracking-[0.2em] font-bold shadow-sm hover:shadow-lg">
-                                Discover More
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
+        
+        <!-- Section Header -->
+        <div class="mb-16 lg:mb-32 flex flex-col items-center text-center" data-aos="fade-up">
+            <p class="uppercase text-blue-600 tracking-[0.2em] lg:tracking-[0.4em] text-xs sm:text-sm font-bold mb-3 lg:mb-4">Strategic Portfolio</p>
+            <h2 class="text-4xl md:text-5xl lg:text-7xl font-serif font-bold text-slate-900 leading-tight">
+                Our Core Businesses.
+            </h2>
+            <div class="w-16 lg:w-24 h-1 bg-gradient-to-r from-blue-600 to-cyan-400 mt-6 lg:mt-8"></div>
         </div>
-    </section>
+
+        <div class="space-y-20 lg:space-y-40">
+            
+            <!-- BUSINESS 01: ARSHITH FRESH -->
+            <div class="business-row relative flex flex-col lg:flex-row items-center gap-8 lg:gap-16 group">
+                <div class="w-full lg:w-1/2 relative z-10" data-aos="fade-right" data-aos-duration="1200">
+                    <div class="absolute inset-0 bg-emerald-100 translate-x-3 translate-y-3 lg:translate-x-4 lg:translate-y-4 rounded-2xl -z-10 transition-transform duration-700 group-hover:translate-x-6 group-hover:translate-y-6 lg:group-hover:translate-x-8 lg:group-hover:translate-y-8"></div>
+                    <!-- Responsive image height -->
+                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1200" class="w-full h-72 sm:h-96 lg:h-[500px] object-cover rounded-2xl image-glow-emerald hover-lift relative z-10 border border-slate-100">
+                    
+                    <div class="absolute -bottom-6 -right-6 lg:-bottom-8 lg:-right-8 bg-white p-4 lg:p-6 rounded-xl border border-slate-100 z-20 shadow-2xl hidden md:block" data-aos="fade-up" data-aos-delay="300">
+                        <p class="text-3xl lg:text-4xl font-black text-emerald-600 mb-1">100%</p>
+                        <p class="text-[10px] lg:text-xs text-slate-500 uppercase tracking-widest font-bold">Organic Sourced</p>
+                    </div>
+                </div>
+                
+                <div class="w-full lg:w-1/2 relative z-10 lg:pl-10" data-aos="fade-left" data-aos-duration="1200">
+                    <div class="business-number hidden md:block">01</div>
+                    <div class="relative z-10 mt-4 lg:mt-0">
+                        <p class="text-emerald-600 font-bold tracking-[0.2em] lg:tracking-[0.3em] uppercase text-[10px] lg:text-[11px] mb-3 lg:mb-4 flex items-center">
+                            <i class="fa-solid fa-leaf mr-2 lg:mr-3 text-sm"></i> Agriculture & Wellness
+                        </p>
+                        <h3 class="text-3xl md:text-4xl lg:text-5xl font-serif text-slate-900 font-bold mb-4 lg:mb-6">Arshith Fresh</h3>
+                        <p class="text-slate-600 text-base lg:text-lg font-light leading-relaxed mb-6 lg:mb-8">
+                            Rooted in nature and grown with care. We operate a highly optimized e-commerce supply chain, delivering preservative-free organic products directly from artisan producers to conscious consumers.
+                        </p>
+                        <ul class="space-y-3 lg:space-y-4 mb-8 lg:mb-10 text-sm lg:text-base">
+                            <li class="flex items-center text-slate-700 font-medium"><i class="fa-solid fa-check text-emerald-500 mr-3 lg:mr-4"></i> Premium Organic Ghee & Honey</li>
+                            <li class="flex items-center text-slate-700 font-medium"><i class="fa-solid fa-check text-emerald-500 mr-3 lg:mr-4"></i> Traditional Cold-Pressed Oils</li>
+                            <li class="flex items-center text-slate-700 font-medium"><i class="fa-solid fa-check text-emerald-500 mr-3 lg:mr-4"></i> Direct-to-Consumer Supply Chain</li>
+                        </ul>
+                        <a href="https://arshithfresh.com/" target="_blank" class="inline-block px-8 py-3 lg:px-10 lg:py-4 bg-emerald-50 text-emerald-700 hover:bg-emerald-600 hover:text-white transition-all duration-300 rounded-full text-[10px] lg:text-xs uppercase tracking-[0.2em] font-bold shadow-sm hover:shadow-lg">
+                            Visit Platform
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BUSINESS 02: SUNTECH SOLUTIONS (Reversed Layout on Desktop only) -->
+            <div class="business-row relative flex flex-col lg:flex-row-reverse items-center gap-8 lg:gap-16 group">
+                <div class="w-full lg:w-1/2 relative z-10" data-aos="fade-left" data-aos-duration="1200">
+                    <div class="absolute inset-0 bg-blue-100 -translate-x-3 translate-y-3 lg:-translate-x-4 lg:translate-y-4 rounded-2xl -z-10 transition-transform duration-700 group-hover:-translate-x-6 group-hover:translate-y-6 lg:group-hover:-translate-x-8 lg:group-hover:translate-y-8"></div>
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200" class="w-full h-72 sm:h-96 lg:h-[500px] object-cover rounded-2xl image-glow-blue hover-lift relative z-10 border border-slate-100">
+                    
+                    <div class="absolute -top-6 -left-6 lg:-top-8 lg:-left-8 bg-white p-4 lg:p-6 rounded-xl border border-slate-100 z-20 shadow-2xl hidden md:block" data-aos="fade-down" data-aos-delay="300">
+                        <p class="text-3xl lg:text-4xl font-black text-blue-600 mb-1">24/7</p>
+                        <p class="text-[10px] lg:text-xs text-slate-500 uppercase tracking-widest font-bold">Cloud Uptime</p>
+                    </div>
+                </div>
+                
+                <div class="w-full lg:w-1/2 relative z-10 lg:pr-10" data-aos="fade-right" data-aos-duration="1200">
+                    <!-- Removed inline style that was breaking mobile horizontal scroll -->
+                    <div class="business-number hidden md:block absolute right-0 lg:-right-4">02</div>
+                    <div class="relative z-10 mt-4 lg:mt-0">
+                        <p class="text-blue-600 font-bold tracking-[0.2em] lg:tracking-[0.3em] uppercase text-[10px] lg:text-[11px] mb-3 lg:mb-4 flex items-center">
+                            <i class="fa-solid fa-chart-line mr-2 lg:mr-3 text-sm"></i> Enterprise Solutions
+                        </p>
+                        <h3 class="text-3xl md:text-4xl lg:text-5xl font-serif text-slate-900 font-bold mb-4 lg:mb-6">Suntech Solutions</h3>
+                        <p class="text-slate-600 text-base lg:text-lg font-light leading-relaxed mb-6 lg:mb-8">
+                            Empowering modern businesses with robust enterprise architectures. We integrate smart accounting, compliance automation, and highly secure operational networks tailored for scale.
+                        </p>
+                        <ul class="space-y-3 lg:space-y-4 mb-8 lg:mb-10 text-sm lg:text-base">
+                            <li class="flex items-center text-slate-700 font-medium"><i class="fa-solid fa-check text-blue-500 mr-3 lg:mr-4"></i> TallyPrime Ecosystem Integration</li>
+                            <li class="flex items-center text-slate-700 font-medium"><i class="fa-solid fa-check text-blue-500 mr-3 lg:mr-4"></i> Automated GST & Tax Compliance</li>
+                            <li class="flex items-center text-slate-700 font-medium"><i class="fa-solid fa-check text-blue-500 mr-3 lg:mr-4"></i> Advanced Inventory Management</li>
+                        </ul>
+                        <a href="https://suntechorganization.pythonanywhere.com/" target="_blank" class="inline-block px-8 py-3 lg:px-10 lg:py-4 bg-blue-50 text-blue-700 hover:bg-blue-600 hover:text-white transition-all duration-300 rounded-full text-[10px] lg:text-xs uppercase tracking-[0.2em] font-bold shadow-sm hover:shadow-lg">
+                            Explore Services
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BUSINESS 03: ARSHITH INFOTECH -->
+            <div class="business-row relative flex flex-col lg:flex-row items-center gap-8 lg:gap-16 group">
+                <div class="w-full lg:w-1/2 relative z-10" data-aos="fade-right" data-aos-duration="1200">
+                    <div class="absolute inset-0 bg-purple-100 translate-x-3 translate-y-3 lg:translate-x-4 lg:translate-y-4 rounded-2xl -z-10 transition-transform duration-700 group-hover:translate-x-6 group-hover:translate-y-6 lg:group-hover:translate-x-8 lg:group-hover:translate-y-8"></div>
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1200" class="w-full h-72 sm:h-96 lg:h-[500px] object-cover rounded-2xl image-glow-purple hover-lift relative z-10 border border-slate-100">
+                    
+                    <div class="absolute -bottom-6 -right-6 lg:-bottom-8 lg:-right-8 bg-white p-4 lg:p-6 rounded-xl border border-slate-100 z-20 shadow-2xl hidden md:block" data-aos="fade-up" data-aos-delay="300">
+                        <p class="text-3xl lg:text-4xl font-black text-purple-600 mb-1">API</p>
+                        <p class="text-[10px] lg:text-xs text-slate-500 uppercase tracking-widest font-bold">Modern Architectures</p>
+                    </div>
+                </div>
+                
+                <div class="w-full lg:w-1/2 relative z-10 lg:pl-10" data-aos="fade-left" data-aos-duration="1200">
+                    <div class="business-number hidden md:block">03</div>
+                    <div class="relative z-10 mt-4 lg:mt-0">
+                        <p class="text-purple-600 font-bold tracking-[0.2em] lg:tracking-[0.3em] uppercase text-[10px] lg:text-[11px] mb-3 lg:mb-4 flex items-center">
+                            <i class="fa-solid fa-microchip mr-2 lg:mr-3 text-sm"></i> Digital Innovation
+                        </p>
+                        <h3 class="text-3xl md:text-4xl lg:text-5xl font-serif text-slate-900 font-bold mb-4 lg:mb-6">Arshith Infotech</h3>
+                        <p class="text-slate-600 text-base lg:text-lg font-light leading-relaxed mb-6 lg:mb-8">
+                            Building industry-ready digital solutions. We architect modern software, cloud systems, and data-driven infrastructure that guide massive enterprises through their digital transformation.
+                        </p>
+                        <ul class="space-y-3 lg:space-y-4 mb-8 lg:mb-10 text-sm lg:text-base">
+                            <li class="flex items-center text-slate-700 font-medium"><i class="fa-solid fa-check text-purple-500 mr-3 lg:mr-4"></i> Scalable Cloud Infrastructure</li>
+                            <li class="flex items-center text-slate-700 font-medium"><i class="fa-solid fa-check text-purple-500 mr-3 lg:mr-4"></i> Full-Stack App Development</li>
+                            <li class="flex items-center text-slate-700 font-medium"><i class="fa-solid fa-check text-purple-500 mr-3 lg:mr-4"></i> Data Analytics & Strategy</li>
+                        </ul>
+                        <a href="https://arshithgroup.com/infotech.html" target="_blank" class="inline-block px-8 py-3 lg:px-10 lg:py-4 bg-purple-50 text-purple-700 hover:bg-purple-600 hover:text-white transition-all duration-300 rounded-full text-[10px] lg:text-xs uppercase tracking-[0.2em] font-bold shadow-sm hover:shadow-lg">
+                            Discover More
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 
     <!-- 5. MNC SCALE CTA SECTION (Light Theme Update) -->
     <section class="py-32 px-8 bg-slate-900 text-center text-white relative overflow-hidden">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.05),transparent_50%)] pointer-events-none"></div>
         <div class="max-w-4xl mx-auto relative z-10" data-aos="zoom-in" data-aos-duration="1500">
-            <h2 class="text-5xl md:text-7xl font-serif font-bold leading-tight mb-8">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold leading-tight mb-8">
                 Ready to Accelerate<br>Your Transformation?
             </h2>
             <p class="text-slate-300 text-xl font-light leading-relaxed mb-12 max-w-2xl mx-auto">
