@@ -4,29 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Internship Program | Arshith Fresh & Suntech Solutions</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         brand: {
-                            50: '#faf5ff',
-                            100: '#f3e8ff',
-                            200: '#e9d5ff',
-                            300: '#d8b4fe',
-                            400: '#c084fc',
-                            500: '#a855f7',
-                            600: '#9333ea',
-                            700: '#7e22ce',
-                            800: '#6b21a8',
-                            900: '#581c87',
+                            50: '#faf5ff', 100: '#f3e8ff', 200: '#e9d5ff', 300: '#d8b4fe',
+                            400: '#c084fc', 500: '#a855f7', 600: '#9333ea', 700: '#7e22ce',
+                            800: '#6b21a8', 900: '#581c87',
                         }
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                        jakarta: ['Plus Jakarta Sans', 'sans-serif'],
                     },
                     animation: {
                         'blob': 'blob 7s infinite',
@@ -37,20 +34,13 @@
                     },
                     keyframes: {
                         blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '0%, 100%': { transform: 'translate(0px, 0px) scale(1)' },
                             '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
                             '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
                         },
                         'gradient-x': {
-                            '0%, 100%': {
-                                'background-size': '200% 200%',
-                                'background-position': 'left center'
-                            },
-                            '50%': {
-                                'background-size': '200% 200%',
-                                'background-position': 'right center'
-                            },
+                            '0%, 100%': { 'background-size': '200% 200%', 'background-position': 'left center' },
+                            '50%': { 'background-size': '200% 200%', 'background-position': 'right center' },
                         },
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
@@ -66,13 +56,24 @@
         }
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #faf5ff;
-            color: #4b5563;
-            overflow-x: hidden;
+        :root {
+            /* Luxury Footer Variables */
+            --lux-bg: #fbfbfc;
+            --lux-card: #ffffff;
+            --lux-dark: #111612;
+            --lux-muted: #68706c;
+            --lux-gold: #c5a880;
+            --lux-emerald: #1b4d3e;
+            --lux-mint: #f4f7f5;
+            --bezier-luxury: cubic-bezier(0.16, 1, 0.3, 1);
         }
+        
+        html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+        
         .glass-card {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(12px);
@@ -90,119 +91,140 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        /* Custom Timeline CSS */
+
+        /* Responsive Timeline CSS */
         .timeline-container::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 24px;
-            height: 100%;
+            bottom: 0;
+            left: 16px; /* Left aligned for mobile */
             width: 4px;
             background: linear-gradient(to bottom, #d8b4fe, #9333ea, #d8b4fe);
             border-radius: 4px;
         }
         @media (min-width: 768px) {
-            .timeline-container::before { left: 50%; transform: translateX(-50%); }
+            .timeline-container::before { 
+                left: 50%; 
+                transform: translateX(-50%); 
+            }
+        }
+
+        /* --- Luxury Footer Styles --- */
+        .premium-footer {
+            background-color: var(--lux-bg);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 50px 0 25px 0;
+            position: relative;
+            color: var(--lux-dark);
+            overflow: hidden;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .premium-footer::before {
+            content: ''; position: absolute; top: -10%; left: 50%; transform: translateX(-50%);
+            width: 80%; height: 60%;
+            background: radial-gradient(circle, rgba(197, 168, 128, 0.04) 0%, rgba(27, 77, 62, 0.02) 50%, transparent 100%);
+            z-index: 1; pointer-events: none;
+        }
+        .footer-wrap { max-width: 1200px; margin: 0 auto; padding: 0 25px; position: relative; z-index: 2; }
+        .footer-top-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0, 0, 0, 0.05); padding-bottom: 25px; margin-bottom: 35px; }
+        .brand-editorial h2 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 500; color: var(--lux-dark); line-height: 1.1; letter-spacing: -0.3px; }
+        .brand-editorial h2 span { font-family: 'Playfair Display', serif; font-style: italic; color: var(--lux-emerald); font-weight: 400; }
+        .brand-editorial p { color: var(--lux-muted); font-size: 13px; margin-top: 6px; max-width: 380px; line-height: 1.5; }
+        .lux-newsletter { width: 320px; }
+        .lux-newsletter p { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; color: var(--lux-muted); margin-bottom: 8px; }
+        .input-group-animated { position: relative; display: flex; align-items: center; border-bottom: 1.5px solid rgba(0, 0, 0, 0.1); padding-bottom: 5px; transition: all 0.4s var(--bezier-luxury); }
+        .input-group-animated input { width: 100%; border: none; outline: none; background: transparent; font-size: 14px; color: var(--lux-dark); padding-right: 30px; }
+        .input-group-animated input::placeholder { color: #a0aec0; font-weight: 300; }
+        .input-group-animated::after { content: ''; position: absolute; bottom: -1.5px; left: 0; width: 0; height: 1.5px; background: var(--lux-emerald); transition: all 0.6s var(--bezier-luxury); }
+        .input-group-animated:focus-within::after { width: 100%; }
+        .lux-submit-btn { position: absolute; right: 0; background: none; border: none; cursor: pointer; font-size: 15px; color: var(--lux-dark); transition: all 0.4s var(--bezier-luxury); }
+        .lux-submit-btn:hover { color: var(--lux-gold); transform: translateX(3px); }
+        .footer-main-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1.1fr; gap: 30px; margin-bottom: 45px; }
+        .grid-title { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; color: var(--lux-dark); margin-bottom: 16px; }
+        .lux-links-list { list-style: none; }
+        .lux-links-list li { margin-bottom: 10px; }
+        .lux-links-list a { text-decoration: none; color: var(--lux-muted); font-size: 13.5px; font-weight: 400; display: inline-block; position: relative; padding-bottom: 1px; transition: color 0.3s ease; }
+        .lux-links-list a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background-color: var(--lux-gold); transition: width 0.4s var(--bezier-luxury); }
+        .lux-links-list a:hover { color: var(--lux-dark); }
+        .lux-links-list a:hover::after { width: 100%; }
+        .lux-contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .lux-icon-circle { width: 28px; height: 28px; border-radius: 50%; background-color: var(--lux-mint); display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--lux-emerald); transition: all 0.4s var(--bezier-luxury); }
+        .lux-contact-item:hover .lux-icon-circle { background-color: var(--lux-emerald); color: #ffffff; transform: scale(1.05); }
+        .lux-contact-text span { display: block; font-size: 10px; text-transform: uppercase; color: var(--lux-muted); letter-spacing: 0.3px; }
+        .lux-contact-text a, .lux-contact-text p { font-size: 13.5px; color: var(--lux-dark); text-decoration: none; font-weight: 500; }
+        .footer-bottom-meta { border-top: 1px solid rgba(0, 0, 0, 0.05); padding-top: 25px; display: flex; justify-content: space-between; align-items: center; }
+        .copyright-lux { font-size: 12px; color: var(--lux-muted); }
+        .lux-social-container { display: flex; gap: 10px; }
+        .lux-social-wrapper { position: relative; }
+        .lux-social-link { width: 34px; height: 34px; border-radius: 50%; background: var(--lux-card); border: 1px solid rgba(0, 0, 0, 0.05); color: var(--lux-dark); display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 13px; transition: all 0.4s var(--bezier-luxury); position: relative; z-index: 2; }
+        .lux-social-link::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; background: var(--lux-emerald); transform: scale(0); transition: transform 0.4s var(--bezier-luxury); z-index: -1; }
+        .lux-social-link:hover { color: #ffffff; border-color: var(--lux-emerald); transform: translateY(-3px); box-shadow: 0 6px 15px rgba(27, 77, 62, 0.1); }
+        .lux-social-link:hover::before { transform: scale(1); }
+        .legal-lux-links { display: flex; gap: 20px; }
+        .legal-lux-links a { font-size: 12px; color: var(--lux-muted); text-decoration: none; transition: color 0.3s ease; }
+        .legal-lux-links a:hover { color: var(--lux-gold); }
+
+        @media (max-width: 1024px) {
+            .footer-main-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+            .footer-top-row { flex-direction: column; align-items: flex-start; gap: 20px; }
+            .lux-newsletter { width: 100%; }
+        }
+        @media (max-width: 768px) {
+            .premium-footer { padding: 35px 0 20px 0; }
+            .footer-wrap { padding: 0 16px; }
+            .brand-editorial h2 { font-size: 24px; }
+            .footer-main-grid { grid-template-columns: 1fr; gap: 25px; margin-bottom: 35px; }
+            .footer-bottom-meta { flex-direction: column; gap: 15px; text-align: center; }
+            .legal-lux-links { justify-content: center; order: 2; }
+            .lux-social-container { justify-content: center; order: 1; }
+            .copyright-lux { order: 3; }
         }
     </style>
 </head>
-<body class="antialiased selection:bg-brand-300 selection:text-brand-900">
-
-    <!-- 1. ADANI-STYLE NAVIGATION -->
-    <nav class="fixed w-full z-50 py-5 px-8 flex justify-between items-center transition-all duration-500">
-        <div class="text-2xl font-extrabold tracking-tighter">ARSHITH <span class="font-light opacity-70">GROUP</span></div>
-        <div class="hidden lg:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.2em]">
-            <a href="index.html" class="hover:text-blue-400 border-b border-transparent hover:border-blue-400 pb-1"">Home</a>
-            <a href="about.html" class="hover:text-blue-400 border-b border-transparent hover:border-blue-400 pb-1">About</a>
-            <a href="ourbusiness.html" class="hover:text-blue-400 border-b border-transparent hover:border-blue-400 pb-1">Our Businesses</a>
-            <a href="careers.html" class="hover:text-blue-400 border-b border-transparent hover:border-blue-400 pb-1">Careers</a>
-            <a href="internship.html" class="hover:text-blue-400 border-b border-transparent hover:border-blue-400 pb-1">Internship</a>
-            <a href="newsroom.html" class="hover:text-blue-400 border-b border-transparent hover:border-blue-400 pb-1">NewsRoom</a>
-            <a href="contact.html" class="hover:text-blue-400 border-b border-transparent hover:border-blue-400 pb-1">Contact</a>
+<nav id="navbar" class="fixed w-full z-50 py-5 px-4 sm:px-6 lg:px-8 flex justify-between items-center transition-all duration-500">
+    <div class="text-xl sm:text-2xl font-extrabold tracking-tighter text-gray-900">ARSHITH <span class="font-light opacity-70">GROUP</span></div>
+        
+        <div class="hidden lg:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.2em] text-gray-800">
+            <a href="index.html" class="hover:text-brand-600 border-b border-transparent hover:border-brand-600 pb-1">Home</a>
+            <a href="about.html" class="hover:text-brand-600 border-b border-transparent hover:border-brand-600 pb-1">About</a>
+            <a href="ourbusiness.html" class="hover:text-brand-600 border-b border-transparent hover:border-brand-600 pb-1">Our Businesses</a>
+            <a href="careers.html" class="hover:text-brand-600 border-b border-transparent hover:border-brand-600 pb-1">Careers</a>
+            <a href="internship.html" class="hover:text-brand-600 border-b border-transparent hover:border-brand-600 pb-1">Internship</a>
+            <a href="newsroom.html" class="hover:text-brand-600 border-b border-transparent hover:border-brand-600 pb-1">NewsRoom</a>
+            <a href="contact.html" class="hover:text-brand-600 border-b border-transparent hover:border-brand-600 pb-1">Contact</a>
         </div>
-        <div class="flex items-center space-x-4 relative">
-
-    <!-- Search Icon -->
-     <div class="flex items-center space-x-4 relative z-50">
-            <button class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-brand-blue hover:text-white transition duration-300 text-gray-600">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                </svg>
-            </button>
-            <button id="mobileMenuBtn" class="lg:hidden text-gray-800">
-                <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
-                <svg id="closeIcon" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 hidden text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-        </div>
-    </nav>
-
-    <div id="mobileMenu" class="fixed inset-0 z-40 bg-white  flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-500 lg:hidden">
-    <div class="flex flex-col text-center space-y-8 text-sm font-bold uppercase tracking-[0.2em] text-brand-black">
-        <a href="index.html" class="hover:text-brand-green transition-colors">Home</a>
-        <a href="about.html" class="hover:text-brand-green transition-colors">About</a>
-        <a href="ourbusiness.html" class="hover:text-brand-green transition-colors">Our Businesses</a>
-        <a href="careers.html" class="hover:text-brand-green transition-colors">Careers</a>
-        <a href="internship.html" class="hover:text-brand-green transition-colors">Internship</a>
-
-        <a href="newsroom.html" class="hover:text-brand-green transition-colors">NewsRoom</a>
-        <a href="contact.html" class="hover:text-brand-green transition-colors">Contact</a>
+        <div class="flex items-center space-x-2 sm:space-x-4 relative z-50">
+        <button class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white shadow-sm flex items-center justify-center hover:bg-brand-600 hover:text-white transition duration-300 text-gray-600">
+            <i class="fa-solid fa-magnifying-glass text-xs sm:text-sm"></i>
+        </button>
+        <button id="mobileMenuBtn" class="lg:hidden text-gray-800">
+            <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 sm:w-7 sm:h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="closeIcon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 sm:w-7 sm:h-7 hidden text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
     </div>
-</div>
+</nav>
 
+    <div id="mobileMenu" class="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-500 lg:hidden">
+        <div class="flex flex-col text-center space-y-8 text-sm font-bold uppercase tracking-[0.2em] text-gray-900">
+            <a href="index.html" class="hover:text-brand-600 transition-colors">Home</a>
+            <a href="about.html" class="hover:text-brand-600 transition-colors">About</a>
+            <a href="ourbusiness.html" class="hover:text-brand-600 transition-colors">Our Businesses</a>
+            <a href="careers.html" class="hover:text-brand-600 transition-colors">Careers</a>
+            <a href="internship.html" class="hover:text-brand-600 transition-colors">Internship</a>
+            <a href="newsroom.html" class="hover:text-brand-600 transition-colors">NewsRoom</a>
+            <a href="contact.html" class="hover:text-brand-600 transition-colors">Contact</a>
+        </div>
+    </div>
 
-
-<script>
-    const searchBtn = document.getElementById('searchBtn');
-    const searchBox = document.getElementById('searchBox');
-
-    searchBtn.addEventListener('click', () => {
-        searchBox.classList.toggle('hidden');
-    });
-
-    // --- Mobile Menu Interaction ---
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const menuIcon = document.getElementById('menuIcon');
-    const closeIcon = document.getElementById('closeIcon');
-    let isMenuOpen = false;
-
-    mobileMenuBtn.addEventListener('click', () => {
-        isMenuOpen = !isMenuOpen;
-        if (isMenuOpen) {
-            mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
-            mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
-            menuIcon.classList.add('hidden');
-            closeIcon.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-            
-            document.getElementById('navbar').classList.remove('text-white');
-            document.getElementById('navbar').classList.add('text-brand-blue');
-        } else {
-            mobileMenu.classList.add('opacity-0', 'pointer-events-none');
-            mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
-            menuIcon.classList.remove('hidden');
-            closeIcon.classList.add('hidden');
-            document.body.style.overflow = 'auto';
-            
-            if(window.scrollY <= 50) {
-                document.getElementById('navbar').classList.add('text-white');
-                document.getElementById('navbar').classList.remove('text-brand-blue');
-            }
-        }
-    });
-
-</script>
-
-    <!-- Hero Section -->
-    <header class="hero-pattern relative pt-32 pb-32 lg:pt-48 lg:pb-40 overflow-hidden">
-        <!-- Animated Background Blobs -->
+    <header class="hero-pattern relative pt-32 pb-24 lg:pt-48 lg:pb-40 overflow-hidden">
         <div class="absolute top-0 -left-4 w-72 h-72 bg-brand-300 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-blob"></div>
-        <div class="absolute top-0 -right-4 w-72 h-72 bg-brand-400 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-blob animation-delay-2000"></div>
-        <div class="absolute -bottom-8 left-20 w-72 h-72 bg-brand-200 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-blob animation-delay-4000"></div>
+        <div class="absolute top-0 -right-4 w-72 h-72 bg-brand-400 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-blob" style="animation-delay: 2s;"></div>
+        <div class="absolute -bottom-8 left-20 w-72 h-72 bg-brand-200 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-blob" style="animation-delay: 4s;"></div>
 
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
             <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 border border-brand-200 shadow-sm mb-8 animate-float-slow" data-aos="zoom-in">
@@ -210,67 +232,65 @@
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
                   <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-600"></span>
                 </span>
-                <span class="text-sm font-semibold text-brand-800">Admissions Open for 2026</span>
+                <span class="text-xs md:text-sm font-semibold text-brand-800">Admissions Open for 2026</span>
             </div>
             
-            <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 mb-6 leading-tight tracking-tight" data-aos="fade-up" data-aos-duration="1000">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 mb-6 leading-tight tracking-tight" data-aos="fade-up" data-aos-duration="1000">
                 Transform Your Skills into <br class="hidden md:block" />
                 <span class="bg-gradient-to-r from-brand-600 via-brand-400 to-brand-600 animate-gradient-x text-gradient pb-2">Industry Expertise</span>
             </h1>
             
-            <p class="text-lg md:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto font-light leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+            <p class="text-base sm:text-lg md:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto font-light leading-relaxed px-4" data-aos="fade-up" data-aos-delay="200">
                 A rigorous 6-month hands-on internship in Web Development, UI/UX, and Cloud Technologies by Arshith Fresh India Pvt. Ltd. & Suntech Solutions.
             </p>
             
-            <div class="flex flex-col sm:flex-row justify-center gap-6" data-aos="fade-up" data-aos-delay="400">
-                <a href="#apply" class="group relative px-8 py-4 rounded-full bg-brand-600 text-white font-bold text-lg overflow-hidden shadow-xl shadow-brand-500/30 transition-all hover:scale-105">
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 px-4" data-aos="fade-up" data-aos-delay="400">
+                <a href="#apply" class="w-full sm:w-auto group relative px-8 py-4 rounded-full bg-brand-600 text-white font-bold text-base md:text-lg overflow-hidden shadow-xl shadow-brand-500/30 transition-all hover:scale-105">
                     <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-brand-500 to-brand-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                    <span class="relative flex items-center justify-center gap-2">Apply Now <i class=" group-hover:translate-x-1 transition-transform"></i></span>
+                    <span class="relative flex items-center justify-center gap-2">Apply Now <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i></span>
                 </a>
-                <a href="internship.html" class="px-8 py-4 rounded-full bg-white text-brand-700 font-bold text-lg border-2 border-brand-200 hover:border-brand-600 hover:bg-brand-50 transition-all shadow-md hover:shadow-lg hover:-translate-y-1">
+                <a href="internship.html" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-brand-700 font-bold text-base md:text-lg border-2 border-brand-200 hover:border-brand-600 hover:bg-brand-50 transition-all shadow-md hover:shadow-lg hover:-translate-y-1">
                     Back To Internship Page
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- About Section (New Matter) -->
-    <section id="about" class="py-24 bg-white relative overflow-hidden">
+    <section id="about" class="py-16 md:py-24 bg-white relative overflow-hidden">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div class="relative" data-aos="fade-right" data-aos-duration="1200">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div class="relative order-2 lg:order-1" data-aos="fade-right" data-aos-duration="1200">
                     <div class="absolute inset-0 bg-gradient-to-tr from-brand-200 to-brand-50 transform rotate-3 rounded-3xl animate-pulse-glow"></div>
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Team Working" class="relative rounded-3xl shadow-2xl transform -rotate-3 transition-transform hover:rotate-0 duration-500 w-full object-cover h-[400px]">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Team Working" class="relative rounded-3xl shadow-2xl transform -rotate-3 transition-transform hover:rotate-0 duration-500 w-full object-cover h-64 sm:h-80 md:h-[400px]">
                     
-                    <!-- Floating badge -->
-                    <div class="absolute -bottom-6 -right-6 glass-card p-6 rounded-2xl animate-float-fast">
-                        <div class="flex items-center gap-4">
-                            <div class="bg-brand-100 p-3 rounded-full text-brand-600"><i class="fa-solid fa-star text-2xl"></i></div>
+                    <div class="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-6 glass-card p-4 md:p-6 rounded-2xl animate-float-fast">
+                        <div class="flex items-center gap-3 md:gap-4">
+                            <div class="bg-brand-100 p-2 md:p-3 rounded-full text-brand-600"><i class="fa-solid fa-star text-xl md:text-2xl"></i></div>
                             <div>
-                                <p class="text-3xl font-black text-gray-900">100%</p>
-                                <p class="text-sm font-semibold text-gray-600">Practical Focus</p>
+                                <p class="text-2xl md:text-3xl font-black text-gray-900">100%</p>
+                                <p class="text-xs md:text-sm font-semibold text-gray-600">Practical Focus</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div data-aos="fade-left" data-aos-duration="1200">
-                    <h2 class="text-brand-600 font-bold tracking-widest uppercase text-sm mb-2">About The Program</h2>
-                    <h3 class="text-4xl font-extrabold text-gray-900 mb-6 leading-tight">Bridging the Gap Between <span class="text-brand-600">Campus and Corporate</span></h3>
-                    <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+                <div class="order-1 lg:order-2" data-aos="fade-left" data-aos-duration="1200">
+                    <h2 class="text-brand-600 font-bold tracking-widest uppercase text-xs md:text-sm mb-2">About The Program</h2>
+                    <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 leading-tight">Bridging the Gap Between <span class="text-brand-600">Campus and Corporate</span></h3>
+                    <p class="text-gray-600 mb-4 md:mb-6 text-base md:text-lg leading-relaxed">
                         Arshith Fresh India Pvt. Ltd. and Suntech Solutions have partnered to create an immersive environment for undergraduate students (Degree & 3rd Year B.Tech). We don't just teach theory; we build professionals.
                     </p>
-                    <p class="text-gray-600 mb-8 text-lg leading-relaxed">
+                    <p class="text-gray-600 mb-6 md:mb-8 text-base md:text-lg leading-relaxed">
                         Throughout this 6-month journey, you will be treated as an entry-level developer, given real responsibilities, actual client requirements, and guided by senior tech leads who have decades of industry experience.
                     </p>
                     
-                    <div class="grid grid-cols-2 gap-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div class="border-l-4 border-brand-500 pl-4 transform transition-all hover:translate-x-2" data-aos="fade-up" data-aos-delay="100">
-                            <h4 class="font-bold text-xl text-gray-900">Live Projects</h4>
+                            <h4 class="font-bold text-lg md:text-xl text-gray-900">Live Projects</h4>
                             <p class="text-gray-500 text-sm mt-1">Work on applications that will actually be deployed and used.</p>
                         </div>
                         <div class="border-l-4 border-brand-500 pl-4 transform transition-all hover:translate-x-2" data-aos="fade-up" data-aos-delay="200">
-                            <h4 class="font-bold text-xl text-gray-900">Corporate Exposure</h4>
+                            <h4 class="font-bold text-lg md:text-xl text-gray-900">Corporate Exposure</h4>
                             <p class="text-gray-500 text-sm mt-1">Learn SDLC, Agile methodologies, and daily stand-up routines.</p>
                         </div>
                     </div>
@@ -279,163 +299,149 @@
         </div>
     </section>
 
-    <!-- 6-Month Roadmap (Detailed Curriculum - Modernized) -->
-    <section id="curriculum" class="py-24 bg-brand-50 relative">
+    <section id="curriculum" class="py-16 md:py-24 bg-brand-50 relative">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-20" data-aos="zoom-in" data-aos-duration="1000">
-                <h2 class="text-brand-600 font-bold tracking-widest uppercase text-sm mb-2">The Journey</h2>
-                <h3 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">6-Month Transformation Roadmap</h3>
-                <p class="text-gray-600 max-w-2xl mx-auto text-lg">A highly structured curriculum designed to take you from fundamentals to full-stack mastery.</p>
+            <div class="text-center mb-16 md:mb-20" data-aos="zoom-in" data-aos-duration="1000">
+                <h2 class="text-brand-600 font-bold tracking-widest uppercase text-xs md:text-sm mb-2">The Journey</h2>
+                <h3 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">6-Month Transformation Roadmap</h3>
+                <p class="text-gray-600 max-w-2xl mx-auto text-base md:text-lg">A highly structured curriculum designed to take you from fundamentals to full-stack mastery.</p>
             </div>
 
             <div class="relative timeline-container max-w-5xl mx-auto">
-                <!-- Month 1 -->
-                <div class="relative mb-16 md:mb-24 w-full md:w-1/2 md:pr-12 group" data-aos="fade-right" data-aos-duration="1000">
-                    <div class="absolute top-0 -left-[14px] md:-right-[14px] md:left-auto w-8 h-8 rounded-full bg-brand-600 border-4 border-white shadow-[0_0_10px_rgba(147,51,234,0.2)] z-10 group-hover:scale-125 group-hover:bg-brand-500 group-hover:shadow-[0_0_20px_rgba(147,51,234,0.6)] group-hover:border-brand-100 transition-all duration-500"></div>
-                    <div class="glass-card p-8 rounded-2xl border border-white/60 transition-all duration-500 hover:-translate-y-3 hover:scale-[1.02] hover:shadow-[0_20px_40px_-15px_rgba(147,51,234,0.3)] hover:border-brand-200 relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-brand-100 to-transparent rounded-full -mr-16 -mt-16 opacity-60 transition-transform duration-700 group-hover:scale-[2]"></div>
-                        <h4 class="relative text-brand-600 font-black text-xl mb-2">Month 1: The Foundation</h4>
-                        <h5 class="relative text-2xl font-bold text-gray-900 mb-4">UI/UX & Web Basics</h5>
-                        <ul class="relative space-y-3 text-gray-600">
-                            <li class="transform transition-transform duration-300 group-hover:translate-x-1"><i class="fa-solid fa-check text-brand-500 mr-2 group-hover:scale-125 transition-transform"></i> Figma & Canva Design Principles</li>
-                            <li class="transform transition-transform duration-300 group-hover:translate-x-1 delay-75"><i class="fa-solid fa-check text-brand-500 mr-2 group-hover:scale-125 transition-transform"></i> Project Documentation (DPR, Cost Estimation)</li>
-                            <li class="transform transition-transform duration-300 group-hover:translate-x-1 delay-150"><i class="fa-solid fa-check text-brand-500 mr-2 group-hover:scale-125 transition-transform"></i> HTML5, Advanced CSS3, Responsive Design</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Month 2 -->
-                <div class="relative mb-16 md:mb-24 w-full md:w-1/2 md:ml-auto md:pl-12 group" data-aos="fade-left" data-aos-duration="1000">
-                    <div class="absolute top-0 -left-[14px] md:-left-[14px] w-8 h-8 rounded-full bg-brand-600 border-4 border-white shadow-[0_0_10px_rgba(147,51,234,0.2)] z-10 group-hover:scale-125 group-hover:bg-brand-500 group-hover:shadow-[0_0_20px_rgba(147,51,234,0.6)] group-hover:border-brand-100 transition-all duration-500"></div>
-                    <div class="glass-card p-8 rounded-2xl border border-white/60 transition-all duration-500 hover:-translate-y-3 hover:scale-[1.02] hover:shadow-[0_20px_40px_-15px_rgba(147,51,234,0.3)] hover:border-brand-200 relative overflow-hidden">
-                        <div class="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-brand-100 to-transparent rounded-full -ml-16 -mt-16 opacity-60 transition-transform duration-700 group-hover:scale-[2]"></div>
-                        <h4 class="relative text-brand-600 font-black text-xl mb-2">Month 2: Frontend Engineering</h4>
-                        <h5 class="relative text-2xl font-bold text-gray-900 mb-4">JavaScript & React.js</h5>
-                        <ul class="relative space-y-3 text-gray-600">
-                            <li class="transform transition-transform duration-300 group-hover:translate-x-1"><i class="fa-solid fa-check text-brand-500 mr-2 group-hover:scale-125 transition-transform"></i> Deep dive into ES6+ JavaScript</li>
-                            <li class="transform transition-transform duration-300 group-hover:translate-x-1 delay-75"><i class="fa-solid fa-check text-brand-500 mr-2 group-hover:scale-125 transition-transform"></i> React.js components, state, and hooks</li>
-                            <li class="transform transition-transform duration-300 group-hover:translate-x-1 delay-150"><i class="fa-solid fa-check text-brand-500 mr-2 group-hover:scale-125 transition-transform"></i> State management & API Fetching</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Month 3 -->
-                <div class="relative mb-16 md:mb-24 w-full md:w-1/2 md:pr-12 group" data-aos="fade-right" data-aos-duration="1000">
-                    <div class="absolute top-0 -left-[14px] md:-right-[14px] md:left-auto w-8 h-8 rounded-full bg-brand-600 border-4 border-white shadow-[0_0_10px_rgba(147,51,234,0.2)] z-10 group-hover:scale-125 group-hover:bg-brand-500 group-hover:shadow-[0_0_20px_rgba(147,51,234,0.6)] group-hover:border-brand-100 transition-all duration-500"></div>
-                    <div class="glass-card p-8 rounded-2xl border border-white/60 transition-all duration-500 hover:-translate-y-3 hover:scale-[1.02] hover:shadow-[0_20px_40px_-15px_rgba(147,51,234,0.3)] hover:border-brand-200 relative overflow-hidden">
-                        <div class="absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl from-brand-100 to-transparent rounded-full -mr-16 -mb-16 opacity-60 transition-transform duration-700 group-hover:scale-[2]"></div>
-                        <h4 class="relative text-brand-600 font-black text-xl mb-2">Month 3: Server Side Logic</h4>
-                        <h5 class="relative text-2xl font-bold text-gray-900 mb-4">Backend & Databases</h5>
-                        <ul class="relative space-y-3 text-gray-600">
-                            <li class="transform transition-transform duration-300 group-hover:translate-x-1"><i class="fa-solid fa-check text-brand-500 mr-2 group-hover:scale-125 transition-transform"></i> Python Core & Django/Flask Frameworks</li>
-                            <li class="transform transition-transform duration-300 group-hover:translate-x-1 delay-75"><i class="fa-solid fa-check text-brand-500 mr-2 group-hover:scale-125 transition-transform"></i> Database design with MySQL & MongoDB</li>
-                            <li class="transform transition-transform duration-300 group-hover:translate-x-1 delay-150"><i class="fa-solid fa-check text-brand-500 mr-2 group-hover:scale-125 transition-transform"></i> Building secure RESTful APIs</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Month 4 -->
-                <div class="relative mb-16 md:mb-24 w-full md:w-1/2 md:ml-auto md:pl-12 group" data-aos="fade-left" data-aos-duration="1000">
-                    <div class="absolute top-0 -left-[14px] md:-left-[14px] w-8 h-8 rounded-full bg-brand-600 border-4 border-white shadow-[0_0_10px_rgba(147,51,234,0.2)] z-10 group-hover:scale-125 group-hover:bg-brand-500 group-hover:shadow-[0_0_20px_rgba(147,51,234,0.6)] group-hover:border-brand-100 transition-all duration-500"></div>
-                    <div class="glass-card p-8 rounded-2xl border border-white/60 transition-all duration-500 hover:-translate-y-3 hover:scale-[1.02] hover:shadow-[0_20px_40px_-15px_rgba(147,51,234,0.3)] hover:border-brand-200 relative overflow-hidden">
-                        <div class="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-brand-100 to-transparent rounded-full -ml-16 -mb-16 opacity-60 transition-transform duration-700 group-hover:scale-[2]"></div>
-                        <h4 class="relative text-brand-600 font-black text-xl mb-2">Month 4: The Cloud</h4>
-                        <h5 class="relative text-2xl font-bold text-gray-900 mb-4">Deployment & E-commerce</h5>
-                        <ul class="relative space-y-3 text-gray-600">
-                            <li class="transform transition-transform duration-300 group-hover:translate-x-1"><i class="fa-solid fa-check text-brand-500 mr-2 group-hover:scale-125 transition-transform"></i> Cloud Hosting basics (AWS, PythonAnywhere)</li>
-                            <li class="transform transition-transform duration-300 group-hover:translate-x-1 delay-75"><i class="fa-solid fa-check text-brand-500 mr-2 group-hover:scale-125 transition-transform"></i> Git/GitHub Version Control Workflow</li>
-                            <li class="transform transition-transform duration-300 group-hover:translate-x-1 delay-150"><i class="fa-solid fa-check text-brand-500 mr-2 group-hover:scale-125 transition-transform"></i> Shopify integration and CMS basics</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Month 5 & 6 -->
-                <div class="relative w-full md:w-1/2 md:pr-12 group" data-aos="zoom-in-up" data-aos-duration="1200">
-                    <div class="absolute top-0 -left-[14px] md:-right-[14px] md:left-auto w-8 h-8 rounded-full bg-brand-600 border-4 border-white shadow-[0_0_10px_rgba(147,51,234,0.2)] z-10 group-hover:scale-125 group-hover:bg-brand-500 group-hover:shadow-[0_0_20px_rgba(147,51,234,0.6)] group-hover:border-brand-100 transition-all duration-500 animate-pulse"></div>
-                    <div class="glass-card p-8 rounded-2xl border border-white/60 transition-all duration-500 hover:-translate-y-3 hover:scale-[1.02] hover:shadow-[0_20px_40px_-15px_rgba(147,51,234,0.4)] hover:border-brand-300 relative overflow-hidden bg-white/90">
-                        <div class="absolute inset-0 bg-gradient-to-r from-brand-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                        <h4 class="relative text-brand-600 font-black text-xl mb-2">Months 5 & 6: Execution</h4>
-                        <h5 class="relative text-2xl font-bold text-gray-900 mb-4">Live Project & Placement Prep</h5>
-                        <ul class="relative space-y-3 text-gray-600">
-                            <li class="transform transition-transform duration-300 group-hover:translate-x-1"><i class="fa-solid fa-laptop-code text-brand-500 mr-2 group-hover:scale-125 transition-transform"></i> End-to-end development of a Live Client Project</li>
-                            <li class="transform transition-transform duration-300 group-hover:translate-x-1 delay-75"><i class="fa-solid fa-bug text-brand-500 mr-2 group-hover:scale-125 transition-transform"></i> Quality Assurance, Testing, and Debugging</li>
-                            <li class="transform transition-transform duration-300 group-hover:translate-x-1 delay-150"><i class="fa-solid fa-user-tie text-brand-500 mr-2 group-hover:scale-125 transition-transform"></i> Soft skills, resume building & mock interviews</li>
-                            <li class="transform transition-transform duration-300 group-hover:translate-x-1 delay-200"><i class="fa-solid fa-briefcase text-brand-500 mr-2 group-hover:scale-125 transition-transform"></i> <strong class="text-brand-700">Direct evaluation for internal hiring</strong></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Animated Highlights Grid -->
-    <section class="py-24 bg-white relative">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-brand-600 font-bold tracking-widest uppercase text-sm mb-2">Program Features</h2>
-                <h3 class="text-4xl font-extrabold text-gray-900 mb-4">Why Choose This Internship?</h3>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 perspective-1000">
-                <!-- Card 1 -->
-                <div class="group h-64 [perspective:1000px]" data-aos="flip-left" data-aos-delay="0">
-                    <div class="relative h-full w-full rounded-2xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                        <!-- Front -->
-                        <div class="absolute inset-0 bg-brand-50 rounded-2xl flex flex-col items-center justify-center p-6 border border-brand-100 [backface-visibility:hidden]">
-                            <div class="h-20 w-20 bg-white rounded-full flex items-center justify-center shadow-inner mb-4 group-hover:scale-110 transition-transform">
-                                <i class="fa-solid fa-chalkboard-user text-4xl text-brand-600"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-900 text-center">Expert Mentorship</h3>
-                        </div>
-                        <!-- Back -->
-                        <div class="absolute inset-0 bg-brand-600 rounded-2xl flex flex-col items-center justify-center p-6 text-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
-                            <p class="text-center font-medium">Learn directly from senior developers. Get daily code reviews, architecture guidance, and industry best practices.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="group h-64 [perspective:1000px]" data-aos="flip-left" data-aos-delay="150">
-                    <div class="relative h-full w-full rounded-2xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                        <div class="absolute inset-0 bg-brand-50 rounded-2xl flex flex-col items-center justify-center p-6 border border-brand-100 [backface-visibility:hidden]">
-                            <div class="h-20 w-20 bg-white rounded-full flex items-center justify-center shadow-inner mb-4 group-hover:scale-110 transition-transform">
-                                <i class="fa-solid fa-users text-4xl text-brand-600"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-900 text-center">Client Interaction</h3>
-                        </div>
-                        <div class="absolute inset-0 bg-brand-600 rounded-2xl flex flex-col items-center justify-center p-6 text-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
-                            <p class="text-center font-medium">Participate in client meetings, learn requirement gathering, and understand how to translate business needs to code.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="group h-64 [perspective:1000px]" data-aos="flip-left" data-aos-delay="300">
-                    <div class="relative h-full w-full rounded-2xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                        <div class="absolute inset-0 bg-brand-50 rounded-2xl flex flex-col items-center justify-center p-6 border border-brand-100 [backface-visibility:hidden]">
-                            <div class="h-20 w-20 bg-white rounded-full flex items-center justify-center shadow-inner mb-4 group-hover:scale-110 transition-transform">
-                                <i class="fa-solid fa-certificate text-4xl text-brand-600"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-900 text-center">Valid Certification</h3>
-                        </div>
-                        <div class="absolute inset-0 bg-brand-600 rounded-2xl flex flex-col items-center justify-center p-6 text-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
-                            <p class="text-center font-medium">Receive an industry-recognized experience letter and internship certificate detailing your 6-month project contributions.</p>
-                        </div>
-                    </div>
-                </div>
                 
+                <div class="relative mb-12 md:mb-24 w-full md:w-1/2 pl-12 md:pl-0 md:pr-12 group" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="absolute top-6 left-0 md:left-auto md:-right-4 w-8 h-8 rounded-full bg-brand-600 border-4 border-white shadow-[0_0_10px_rgba(147,51,234,0.2)] z-10 group-hover:scale-125 group-hover:bg-brand-500 transition-all duration-500"></div>
+                    <div class="glass-card p-6 md:p-8 rounded-2xl border border-white/60 transition-all duration-500 hover:-translate-y-2 md:hover:-translate-y-3 hover:shadow-xl relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 md:w-40 md:h-40 bg-gradient-to-bl from-brand-100 to-transparent rounded-full -mr-16 -mt-16 opacity-60"></div>
+                        <h4 class="relative text-brand-600 font-black text-lg md:text-xl mb-2">Month 1: The Foundation</h4>
+                        <h5 class="relative text-xl md:text-2xl font-bold text-gray-900 mb-4">UI/UX & Web Basics</h5>
+                        <ul class="relative space-y-2 md:space-y-3 text-sm md:text-base text-gray-600">
+                            <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> Figma & Canva Design Principles</li>
+                            <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> Project Documentation (DPR, Costing)</li>
+                            <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> HTML5, Advanced CSS3, Responsiveness</li>
+                        </ul>
+                    </div>
+                </div>
 
-                <!-- Card 4 -->
-                <div class="group h-64 [perspective:1000px]" data-aos="flip-left" data-aos-delay="450">
+                <div class="relative mb-12 md:mb-24 w-full md:w-1/2 pl-12 md:ml-auto group" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="absolute top-6 left-0 md:-left-4 w-8 h-8 rounded-full bg-brand-600 border-4 border-white shadow-[0_0_10px_rgba(147,51,234,0.2)] z-10 group-hover:scale-125 group-hover:bg-brand-500 transition-all duration-500"></div>
+                    <div class="glass-card p-6 md:p-8 rounded-2xl border border-white/60 transition-all duration-500 hover:-translate-y-2 md:hover:-translate-y-3 hover:shadow-xl relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-32 h-32 md:w-40 md:h-40 bg-gradient-to-br from-brand-100 to-transparent rounded-full -ml-16 -mt-16 opacity-60"></div>
+                        <h4 class="relative text-brand-600 font-black text-lg md:text-xl mb-2">Month 2: Frontend Engineering</h4>
+                        <h5 class="relative text-xl md:text-2xl font-bold text-gray-900 mb-4">JavaScript & React.js</h5>
+                        <ul class="relative space-y-2 md:space-y-3 text-sm md:text-base text-gray-600">
+                            <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> Deep dive into ES6+ JavaScript</li>
+                            <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> React.js components, state, and hooks</li>
+                            <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> State management & API Fetching</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="relative mb-12 md:mb-24 w-full md:w-1/2 pl-12 md:pl-0 md:pr-12 group" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="absolute top-6 left-0 md:left-auto md:-right-4 w-8 h-8 rounded-full bg-brand-600 border-4 border-white shadow-[0_0_10px_rgba(147,51,234,0.2)] z-10 group-hover:scale-125 group-hover:bg-brand-500 transition-all duration-500"></div>
+                    <div class="glass-card p-6 md:p-8 rounded-2xl border border-white/60 transition-all duration-500 hover:-translate-y-2 md:hover:-translate-y-3 hover:shadow-xl relative overflow-hidden">
+                        <div class="absolute bottom-0 right-0 w-32 h-32 md:w-40 md:h-40 bg-gradient-to-tl from-brand-100 to-transparent rounded-full -mr-16 -mb-16 opacity-60"></div>
+                        <h4 class="relative text-brand-600 font-black text-lg md:text-xl mb-2">Month 3: Server Side Logic</h4>
+                        <h5 class="relative text-xl md:text-2xl font-bold text-gray-900 mb-4">Backend & Databases</h5>
+                        <ul class="relative space-y-2 md:space-y-3 text-sm md:text-base text-gray-600">
+                            <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> Python Core & Django/Flask Frameworks</li>
+                            <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> Database design with MySQL & MongoDB</li>
+                            <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> Building secure RESTful APIs</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="relative mb-12 md:mb-24 w-full md:w-1/2 pl-12 md:ml-auto group" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="absolute top-6 left-0 md:-left-4 w-8 h-8 rounded-full bg-brand-600 border-4 border-white shadow-[0_0_10px_rgba(147,51,234,0.2)] z-10 group-hover:scale-125 group-hover:bg-brand-500 transition-all duration-500"></div>
+                    <div class="glass-card p-6 md:p-8 rounded-2xl border border-white/60 transition-all duration-500 hover:-translate-y-2 md:hover:-translate-y-3 hover:shadow-xl relative overflow-hidden">
+                        <div class="absolute bottom-0 left-0 w-32 h-32 md:w-40 md:h-40 bg-gradient-to-tr from-brand-100 to-transparent rounded-full -ml-16 -mb-16 opacity-60"></div>
+                        <h4 class="relative text-brand-600 font-black text-lg md:text-xl mb-2">Month 4: The Cloud</h4>
+                        <h5 class="relative text-xl md:text-2xl font-bold text-gray-900 mb-4">Deployment & E-commerce</h5>
+                        <ul class="relative space-y-2 md:space-y-3 text-sm md:text-base text-gray-600">
+                            <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> Cloud Hosting basics (AWS, PythonAnywhere)</li>
+                            <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> Git/GitHub Version Control Workflow</li>
+                            <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> Shopify integration and CMS basics</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="relative w-full md:w-1/2 pl-12 md:pl-0 md:pr-12 group" data-aos="zoom-in-up" data-aos-duration="1200">
+                    <div class="absolute top-6 left-0 md:left-auto md:-right-4 w-8 h-8 rounded-full bg-brand-600 border-4 border-white shadow-[0_0_10px_rgba(147,51,234,0.2)] z-10 animate-pulse"></div>
+                    <div class="glass-card p-6 md:p-8 rounded-2xl border border-brand-300 bg-white/90 shadow-xl relative overflow-hidden">
+                        <h4 class="relative text-brand-600 font-black text-lg md:text-xl mb-2">Months 5 & 6: Execution</h4>
+                        <h5 class="relative text-xl md:text-2xl font-bold text-gray-900 mb-4">Live Project & Placement Prep</h5>
+                        <ul class="relative space-y-2 md:space-y-3 text-sm md:text-base text-gray-600">
+                            <li><i class="fa-solid fa-laptop-code text-brand-500 mr-2"></i> End-to-end development of a Live Project</li>
+                            <li><i class="fa-solid fa-bug text-brand-500 mr-2"></i> Quality Assurance, Testing, and Debugging</li>
+                            <li><i class="fa-solid fa-user-tie text-brand-500 mr-2"></i> Soft skills, resume building & mock interviews</li>
+                            <li><i class="fa-solid fa-briefcase text-brand-500 mr-2"></i> <strong class="text-brand-700">Direct evaluation for internal hiring</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-white relative">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 md:mb-16" data-aos="fade-up">
+                <h2 class="text-brand-600 font-bold tracking-widest uppercase text-xs md:text-sm mb-2">Program Features</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Why Choose This Internship?</h3>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 perspective-1000">
+                <div class="group h-56 md:h-64 [perspective:1000px]" data-aos="flip-left" data-aos-delay="0">
                     <div class="relative h-full w-full rounded-2xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                        <div class="absolute inset-0 bg-brand-50 rounded-2xl flex flex-col items-center justify-center p-6 border border-brand-100 [backface-visibility:hidden]">
-                            <div class="h-20 w-20 bg-white rounded-full flex items-center justify-center shadow-inner mb-4 group-hover:scale-110 transition-transform">
-                                <i class="fa-solid fa-building-circle-check text-4xl text-brand-600"></i>
+                        <div class="absolute inset-0 bg-brand-50 rounded-2xl flex flex-col items-center justify-center p-4 md:p-6 border border-brand-100 [backface-visibility:hidden]">
+                            <div class="h-16 w-16 md:h-20 md:w-20 bg-white rounded-full flex items-center justify-center shadow-inner mb-4">
+                                <i class="fa-solid fa-chalkboard-user text-3xl md:text-4xl text-brand-600"></i>
                             </div>
-                            <h3 class="text-xl font-bold text-gray-900 text-center">Placement Eligibility</h3>
+                            <h3 class="text-lg md:text-xl font-bold text-gray-900 text-center">Expert Mentorship</h3>
                         </div>
                         <div class="absolute inset-0 bg-brand-600 rounded-2xl flex flex-col items-center justify-center p-6 text-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
-                            <p class="text-center font-medium">Exclusive eligibility for internal hiring drives at Arshith Fresh & Suntech Solutions upon successful completion.</p>
+                            <p class="text-center font-medium text-sm md:text-base">Learn directly from senior developers. Get daily code reviews, architecture guidance, and industry best practices.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group h-56 md:h-64 [perspective:1000px]" data-aos="flip-left" data-aos-delay="100">
+                    <div class="relative h-full w-full rounded-2xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                        <div class="absolute inset-0 bg-brand-50 rounded-2xl flex flex-col items-center justify-center p-4 md:p-6 border border-brand-100 [backface-visibility:hidden]">
+                            <div class="h-16 w-16 md:h-20 md:w-20 bg-white rounded-full flex items-center justify-center shadow-inner mb-4">
+                                <i class="fa-solid fa-users text-3xl md:text-4xl text-brand-600"></i>
+                            </div>
+                            <h3 class="text-lg md:text-xl font-bold text-gray-900 text-center">Client Interaction</h3>
+                        </div>
+                        <div class="absolute inset-0 bg-brand-600 rounded-2xl flex flex-col items-center justify-center p-6 text-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                            <p class="text-center font-medium text-sm md:text-base">Participate in client meetings, learn requirement gathering, and understand how to translate business needs to code.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group h-56 md:h-64 [perspective:1000px]" data-aos="flip-left" data-aos-delay="200">
+                    <div class="relative h-full w-full rounded-2xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                        <div class="absolute inset-0 bg-brand-50 rounded-2xl flex flex-col items-center justify-center p-4 md:p-6 border border-brand-100 [backface-visibility:hidden]">
+                            <div class="h-16 w-16 md:h-20 md:w-20 bg-white rounded-full flex items-center justify-center shadow-inner mb-4">
+                                <i class="fa-solid fa-certificate text-3xl md:text-4xl text-brand-600"></i>
+                            </div>
+                            <h3 class="text-lg md:text-xl font-bold text-gray-900 text-center">Valid Certification</h3>
+                        </div>
+                        <div class="absolute inset-0 bg-brand-600 rounded-2xl flex flex-col items-center justify-center p-6 text-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                            <p class="text-center font-medium text-sm md:text-base">Receive an industry-recognized experience letter and internship certificate detailing your project contributions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group h-56 md:h-64 [perspective:1000px]" data-aos="flip-left" data-aos-delay="300">
+                    <div class="relative h-full w-full rounded-2xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                        <div class="absolute inset-0 bg-brand-50 rounded-2xl flex flex-col items-center justify-center p-4 md:p-6 border border-brand-100 [backface-visibility:hidden]">
+                            <div class="h-16 w-16 md:h-20 md:w-20 bg-white rounded-full flex items-center justify-center shadow-inner mb-4">
+                                <i class="fa-solid fa-building-circle-check text-3xl md:text-4xl text-brand-600"></i>
+                            </div>
+                            <h3 class="text-lg md:text-xl font-bold text-gray-900 text-center">Placement Eligibility</h3>
+                        </div>
+                        <div class="absolute inset-0 bg-brand-600 rounded-2xl flex flex-col items-center justify-center p-6 text-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                            <p class="text-center font-medium text-sm md:text-base">Exclusive eligibility for internal hiring drives at Arshith Fresh & Suntech Solutions upon successful completion.</p>
                         </div>
                     </div>
                 </div>
@@ -443,113 +449,107 @@
         </div>
     </section>
 
-    <!-- FAQ Section (New Matter) -->
-    <section id="faq" class="py-24 bg-brand-50">
+    <section id="faq" class="py-16 md:py-24 bg-brand-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-down">
-                <h2 class="text-brand-600 font-bold tracking-widest uppercase text-sm mb-2">Got Questions?</h2>
-                <h3 class="text-4xl font-extrabold text-gray-900 mb-4">Frequently Asked Questions</h3>
+            <div class="text-center mb-12 md:mb-16" data-aos="fade-down">
+                <h2 class="text-brand-600 font-bold tracking-widest uppercase text-xs md:text-sm mb-2">Got Questions?</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Frequently Asked Questions</h3>
             </div>
             
-            <div class="max-w-3xl mx-auto space-y-6">
-                <!-- FAQ Item 1 -->
-                <div class="glass-card p-6 rounded-2xl hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-delay="100">
-                    <h4 class="text-xl font-bold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-circle-question text-brand-500 mr-3"></i> Who is eligible to apply?</h4>
-                    <p class="text-gray-600 pl-8">This program is specifically designed for undergraduate students, with a primary focus on Degree & 3rd Year B.Tech students who want to build a career in software development.</p>
+            <div class="max-w-3xl mx-auto space-y-4 md:space-y-6">
+                <div class="glass-card p-5 md:p-6 rounded-2xl hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-delay="100">
+                    <h4 class="text-lg md:text-xl font-bold text-gray-900 mb-2 flex items-start"><i class="fa-solid fa-circle-question text-brand-500 mr-3 mt-1"></i> Who is eligible to apply?</h4>
+                    <p class="text-sm md:text-base text-gray-600 pl-8 md:pl-8">This program is specifically designed for undergraduate students, with a primary focus on Degree & 3rd Year B.Tech students who want to build a career in software development.</p>
                 </div>
-                <!-- FAQ Item 2 -->
-                <div class="glass-card p-6 rounded-2xl hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-delay="200">
-                    <h4 class="text-xl font-bold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-circle-question text-brand-500 mr-3"></i> Does this internship guarantee a job?</h4>
-                    <p class="text-gray-600 pl-8">While it does not guarantee a job, <strong>only</strong> students who successfully complete this 6-month internship will be eligible to participate in the exclusive campus recruitment drives conducted by Arshith Fresh and Suntech Solutions.</p>
+                <div class="glass-card p-5 md:p-6 rounded-2xl hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-delay="200">
+                    <h4 class="text-lg md:text-xl font-bold text-gray-900 mb-2 flex items-start"><i class="fa-solid fa-circle-question text-brand-500 mr-3 mt-1"></i> Does this internship guarantee a job?</h4>
+                    <p class="text-sm md:text-base text-gray-600 pl-8 md:pl-8">While it does not guarantee a job, <strong>only</strong> students who successfully complete this 6-month internship will be eligible to participate in the exclusive campus recruitment drives conducted by Arshith Fresh and Suntech Solutions.</p>
                 </div>
-                <!-- FAQ Item 3 -->
-                <div class="glass-card p-6 rounded-2xl hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-delay="300">
-                    <h4 class="text-xl font-bold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-circle-question text-brand-500 mr-3"></i> What happens if I miss a session?</h4>
-                    <p class="text-gray-600 pl-8">We treat this as a professional environment. While occasional academic leaves are permitted with prior notice, consistent attendance is required to earn the final certification and placement eligibility.</p>
+                <div class="glass-card p-5 md:p-6 rounded-2xl hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-delay="300">
+                    <h4 class="text-lg md:text-xl font-bold text-gray-900 mb-2 flex items-start"><i class="fa-solid fa-circle-question text-brand-500 mr-3 mt-1"></i> What happens if I miss a session?</h4>
+                    <p class="text-sm md:text-base text-gray-600 pl-8 md:pl-8">We treat this as a professional environment. While occasional academic leaves are permitted with prior notice, consistent attendance is required to earn the final certification and placement eligibility.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Registration & Application (Enhanced) -->
-    <section id="apply" class="py-24 bg-white relative overflow-hidden">
-        <!-- Decoration -->
-        <div class="absolute right-0 top-1/2 transform -translate-y-1/2 text-[20rem] text-brand-50 opacity-50 pointer-events-none">
+    <section id="apply" class="py-16 md:py-24 bg-white relative overflow-hidden">
+        <div class="absolute right-0 top-1/2 transform -translate-y-1/2 text-[15rem] md:text-[20rem] text-brand-50 opacity-50 pointer-events-none">
             <i class="fa-solid fa-rocket"></i>
         </div>
 
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16" data-aos="zoom-in">
-                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Start Your Tech Career Today</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto text-lg">Limited seats available. Secure your spot in the next cohort.</p>
+            <div class="text-center mb-12 md:mb-16" data-aos="zoom-in">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">Start Your Tech Career Today</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-base md:text-lg">Limited seats available. Secure your spot in the next cohort.</p>
             </div>
 
-            <div class="max-w-4xl mx-auto bg-white rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-brand-100 transform transition-all hover:border-brand-300" data-aos="fade-up">
+            <div class="max-w-4xl mx-auto bg-white rounded-3xl md:rounded-[2.5rem] overflow-hidden shadow-2xl border-2 md:border-4 border-brand-100 transform transition-all hover:border-brand-300" data-aos="fade-up">
                 <div class="flex flex-col md:flex-row">
-                    <!-- Pricing Area -->
-                    <div class="bg-gradient-to-br from-brand-50 to-brand-100 p-10 md:w-2/5 flex flex-col justify-center items-center text-center relative overflow-hidden">
+                    
+                    <div class="bg-gradient-to-br from-brand-50 to-brand-100 p-8 md:p-10 w-full md:w-2/5 flex flex-col justify-center items-center text-center relative overflow-hidden">
                         <div class="absolute top-0 right-0 w-32 h-32 bg-brand-200 rounded-bl-full opacity-50"></div>
-                        <span class="inline-block py-1 px-4 rounded-full bg-brand-600 text-white font-bold text-xs uppercase tracking-widest mb-6 animate-pulse">One-time Processing Fee</span>
+                        <span class="inline-block py-1 px-4 rounded-full bg-brand-600 text-white font-bold text-[10px] md:text-xs uppercase tracking-widest mb-6 animate-pulse">One-time Processing Fee</span>
                         
                         <div class="flex items-start justify-center text-gray-900 mb-2">
-                            <span class="text-3xl font-bold mt-2">₹</span>
-                            <span class="text-6xl font-black tracking-tighter">1,999</span>
+                            <span class="text-2xl md:text-3xl font-bold mt-2">₹</span>
+                            <span class="text-5xl md:text-6xl font-black tracking-tighter">1,999</span>
                         </div>
-                        <p class="text-brand-700 font-semibold mb-8">For entire 6-month program</p>
+                        <p class="text-brand-700 font-semibold mb-6 md:mb-8 text-sm md:text-base">For entire 6-month program</p>
                         
-                        <div class="w-full text-left bg-white p-5 rounded-2xl shadow-md border border-brand-100">
-                            <p class="text-sm font-bold text-gray-800 border-b border-gray-100 pb-3 mb-3 flex items-center"><i class="fa-solid fa-building-columns mr-2 text-brand-500"></i> Payment Details:</p>
-                            <div class="space-y-2">
-                                <p class="text-sm text-gray-700 flex justify-between"><span>UPI ID:</span> <span class="font-mono font-semibold">nfarookafi@oksbi</span></p>
-                                <p class="text-sm text-gray-700 flex justify-between"><span>GPay:</span> <span class="font-mono font-semibold">9493836029</span></p>
-                                <div class="mt-3 pt-3 border-t border-gray-50">
-                                    <p class="text-xs text-gray-500 mb-1">Bank Transfer:</p>
-                                    <p class="text-sm text-gray-700 font-mono">Acc: 925010012605535</p>
-                                    <p class="text-xs text-gray-500">Axis Bank | IFSC: UTIB0003266</p>
-                                    <p class="text-xs text-gray-500">Name: Farook N</p>
+                        <div class="w-full text-left bg-white p-4 md:p-5 rounded-2xl shadow-md border border-brand-100 z-10">
+                            <p class="text-xs md:text-sm font-bold text-gray-800 border-b border-gray-100 pb-2 md:pb-3 mb-2 md:mb-3 flex items-center"><i class="fa-solid fa-building-columns mr-2 text-brand-500"></i> Payment Details:</p>
+                            <div class="space-y-1 md:space-y-2">
+                                <p class="text-xs md:text-sm text-gray-700 flex justify-between"><span>UPI ID:</span> <span class="font-mono font-semibold">nfarookafi@oksbi</span></p>
+                                <p class="text-xs md:text-sm text-gray-700 flex justify-between"><span>GPay:</span> <span class="font-mono font-semibold">9493836029</span></p>
+                                <div class="mt-2 pt-2 md:mt-3 md:pt-3 border-t border-gray-50">
+                                    <p class="text-[10px] md:text-xs text-gray-500 mb-1">Bank Transfer:</p>
+                                    <p class="text-xs md:text-sm text-gray-700 font-mono">Acc: 925010012605535</p>
+                                    <p class="text-[10px] md:text-xs text-gray-500">Axis Bank | IFSC: UTIB0003266</p>
+                                    <p class="text-[10px] md:text-xs text-gray-500">Name: Farook N</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Features & Application -->
-                    <div class="p-10 md:w-3/5 bg-white flex flex-col justify-between">
+                    <div class="p-8 md:p-10 w-full md:w-3/5 bg-white flex flex-col justify-between">
                         <div>
-                            <h4 class="text-2xl font-bold text-gray-900 mb-6">What You Get:</h4>
-                            <ul class="space-y-4 mb-8">
+                            <h4 class="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">What You Get:</h4>
+                            <ul class="space-y-3 md:space-y-4 mb-6 md:mb-8">
                                 <li class="flex items-start group">
-                                    <div class="flex-shrink-0 h-6 w-6 rounded-full bg-brand-100 flex items-center justify-center mr-3 group-hover:bg-brand-500 group-hover:text-white transition-colors">
-                                        <i class="fa-solid fa-check text-xs"></i>
+                                    <div class="flex-shrink-0 h-5 w-5 md:h-6 md:w-6 rounded-full bg-brand-100 flex items-center justify-center mr-3 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                                        <i class="fa-solid fa-check text-[10px] md:text-xs"></i>
                                     </div>
-                                    <span class="text-gray-700 font-medium">6 Months of Intensive Technical Training</span>
+                                    <span class="text-sm md:text-base text-gray-700 font-medium">6 Months of Intensive Technical Training</span>
                                 </li>
                                 <li class="flex items-start group">
-                                    <div class="flex-shrink-0 h-6 w-6 rounded-full bg-brand-100 flex items-center justify-center mr-3 group-hover:bg-brand-500 group-hover:text-white transition-colors">
-                                        <i class="fa-solid fa-check text-xs"></i>
+                                    <div class="flex-shrink-0 h-5 w-5 md:h-6 md:w-6 rounded-full bg-brand-100 flex items-center justify-center mr-3 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                                        <i class="fa-solid fa-check text-[10px] md:text-xs"></i>
                                     </div>
-                                    <span class="text-gray-700 font-medium">Hands-on Experience with Live Projects</span>
+                                    <span class="text-sm md:text-base text-gray-700 font-medium">Hands-on Experience with Live Projects</span>
                                 </li>
                                 <li class="flex items-start group">
-                                    <div class="flex-shrink-0 h-6 w-6 rounded-full bg-brand-100 flex items-center justify-center mr-3 group-hover:bg-brand-500 group-hover:text-white transition-colors">
-                                        <i class="fa-solid fa-check text-xs"></i>
+                                    <div class="flex-shrink-0 h-5 w-5 md:h-6 md:w-6 rounded-full bg-brand-100 flex items-center justify-center mr-3 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                                        <i class="fa-solid fa-check text-[10px] md:text-xs"></i>
                                     </div>
-                                    <span class="text-gray-700 font-medium">Valid Experience & Internship Certification</span>
+                                    <span class="text-sm md:text-base text-gray-700 font-medium">Valid Experience & Internship Certification</span>
                                 </li>
                                 <li class="flex items-start group">
-                                    <div class="flex-shrink-0 h-6 w-6 rounded-full bg-brand-100 flex items-center justify-center mr-3 group-hover:bg-brand-500 group-hover:text-white transition-colors">
-                                        <i class="fa-solid fa-check text-xs"></i>
+                                    <div class="flex-shrink-0 h-5 w-5 md:h-6 md:w-6 rounded-full bg-brand-100 flex items-center justify-center mr-3 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                                        <i class="fa-solid fa-check text-[10px] md:text-xs"></i>
                                     </div>
-                                    <span class="text-gray-700 font-medium font-bold text-brand-700">Exclusive Campus Recruitment Eligibility</span>
+                                    <span class="text-sm md:text-base text-gray-700 font-medium font-bold text-brand-700">Exclusive Campus Recruitment Eligibility</span>
                                 </li>
                             </ul>
                         </div>
                         
-                        <div class="mt-8 pt-8 border-t border-gray-100">
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSekZmxBgdicFxMfbA0qNori2sD8bKKtzEqGLQJJwDMdxeUvlA/viewform?usp=header" target="_blank" class="block w-full text-center px-8 py-4 bg-brand-600 text-white text-lg font-bold rounded-xl hover:bg-brand-700 transition-all shadow-[0_0_20px_rgba(147,51,234,0.4)] hover:shadow-[0_0_30px_rgba(147,51,234,0.6)] transform hover:-translate-y-1">
+                        <div class="mt-4 md:mt-8 pt-4 md:pt-8 border-t border-gray-100">
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSekZmxBgdicFxMfbA0qNori2sD8bKKtzEqGLQJJwDMdxeUvlA/viewform?usp=header" target="_blank" class="block w-full text-center px-4 md:px-8 py-3 md:py-4 bg-brand-600 text-white text-base md:text-lg font-bold rounded-xl hover:bg-brand-700 transition-all shadow-[0_0_20px_rgba(147,51,234,0.4)] hover:-translate-y-1">
                                 Complete Registration Form <i class="fa-solid fa-arrow-right ml-2 animate-bounce inline-block"></i>
                             </a>
-                            <p class="text-center text-sm text-gray-500 mt-4 flex items-center justify-center gap-4">
+                            <p class="text-center text-xs md:text-sm text-gray-500 mt-4 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
                                 <span><i class="fa-solid fa-envelope text-brand-500 mr-1"></i> support@arshithfresh.com</span>
+                                <span class="hidden sm:inline">|</span>
                                 <span><i class="fa-solid fa-phone text-brand-500 mr-1"></i> +91 86184 71424</span>
                             </p>
                         </div>
@@ -559,13 +559,99 @@
         </div>
     </section>
 
+    <footer class="premium-footer">
+        <div class="footer-wrap">
+            <div class="footer-top-row">
+                <div class="brand-editorial">
+                    <h2>Arshith <span>Group</span></h2>
+                    <p>Fusing timeless traditional integrity with sophisticated technological intelligence to build sustainable market ecosystems.</p>
+                </div>
+                <div class="lux-newsletter">
+                    <p>Join the inner circle</p>
+                    <div class="input-group-animated">
+                        <input type="email" id="newsletter_email" placeholder="Enter corporate email layout" aria-label="Newsletter Email">
+                        <button class="lux-submit-btn" id="newsletter_btn" onclick="executeNewsletterSubscription(event)" aria-label="Submit Email">
+                            <i class="fa-solid fa-arrow-right-long" style="pointer-events: none;"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Scripts -->
+            <div class="footer-main-grid">
+                <div>
+                    <h3 class="grid-title">Ecosystem</h3>
+                    <ul class="lux-links-list">
+                        <li><a href="https://arshithfresh.com/">Arshith Fresh Corporate</a></li>
+                        <li><a href="https://www.suntechsolutions.com/">Suntech Digital Labs</a></li>
+                        <li><a href="https://arshithfresh.com/">E-Commerce Supply Chain</a></li>
+                        <li><a href="https://arshithfresh.com/pages/contact-for-franchise">Global Franchises</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="grid-title">About Us</h3>
+                    <ul class="lux-links-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="ourbusiness.html">Our Businesses</a></li>
+                        <li><a href="careers.html">Careers Portal</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="grid-title">More</h3>
+                    <ul class="lux-links-list">
+                        <li><a href="internship.html">Internship</a></li>
+                        <li><a href="page.html">Apply Internship</a></li>
+                        <li><a href="newsroom.html">NewsRoom</a></li>
+                        <li><a href="contact.html">ContactUs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="grid-title">Concierge Support</h3>
+                    <div class="lux-contact-item">
+                        <div class="lux-icon-circle"><i class="fa-solid fa-phone-flip"></i></div>
+                        <div class="lux-contact-text">
+                            <span>Inquiries Line</span>
+                            <a href="tel:+918618471424">+91 86184 71424</a>
+                        </div>
+                    </div>
+                    <div class="lux-contact-item">
+                        <div class="lux-icon-circle"><i class="fa-solid fa-envelope-open"></i></div>
+                        <div class="lux-contact-text">
+                            <span>Electronic Mailing</span>
+                            <a href="mailto:support@arshithfresh.com">support@arshithfresh.com</a>
+                        </div>
+                    </div>
+                    <div class="lux-contact-item">
+                        <div class="lux-icon-circle"><i class="fa-solid fa-map-pin"></i></div>
+                        <div class="lux-contact-text">
+                            <span>Headquarters</span>
+                            <p>Bengaluru, India</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom-meta">
+                <div class="legal-lux-links">
+                    <a href="https://arshithfresh.com/policies/privacy-policy">Privacy Charter</a>
+                    <a href="https://arshithfresh.com/policies/refund-policy">Return & Refund</a>
+                    <a href="https://arshithfresh.com/policies/terms-of-service">Accessibility</a>
+                </div>
+                <div class="lux-social-container">
+                    <div class="lux-social-wrapper"><a href="https://www.linkedin.com/company/arshith-fresh-india-pvt-ltd/?originalSubdomain=in" class="lux-social-link"><i class="fa-brands fa-linkedin-in"></i></a></div>
+                    <div class="lux-social-wrapper"><a href="https://www.instagram.com/arshith_fresh/" class="lux-social-link"><i class="fa-brands fa-instagram"></i></a></div>
+                </div>
+                <div class="copyright-lux">
+                    &copy; 2026 The Arshith Group. Crafted to perfection.
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
         // Initialize AOS animations
         AOS.init({
-            once: false, /* Changed from true to false so animations replay on scroll */
+            once: false,
             offset: 80,
             duration: 800,
             easing: 'ease-out-cubic',
@@ -576,586 +662,85 @@
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) {
                 nav.classList.add('shadow-md', 'bg-white/90');
-                nav.classList.remove('py-4');
-                nav.classList.add('py-2');
+                nav.classList.remove('py-5');
+                nav.classList.add('py-3');
             } else {
                 nav.classList.remove('shadow-md', 'bg-white/90');
-                nav.classList.add('py-4');
-                nav.classList.remove('py-2');
+                nav.classList.add('py-5');
+                nav.classList.remove('py-3');
             }
         });
+
+        // Mobile Menu Interaction
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+        const closeIcon = document.getElementById('closeIcon');
+        let isMenuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+                menuIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Footer Newsletter Script
+        function executeNewsletterSubscription(event) {
+            if (event) event.preventDefault();
+            
+            const emailInput = document.getElementById('newsletter_email');
+            const registerBtn = document.getElementById('newsletter_btn');
+            
+            if (!emailInput) {
+                alert("Configuration Error: Input field missing.");
+                return;
+            }
+            
+            const emailData = emailInput.value.trim();
+            
+            if (!emailData || !emailData.includes('@')) {
+                alert("Please enter a valid corporate email layout.");
+                return;
+            }
+            
+            if (registerBtn) registerBtn.disabled = true;
+            
+            fetch('https://arshit-group.onrender.com/process_new.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: emailData })
+            })
+            .then(response => {
+                if (!response.ok) throw new Error("Network response failure");
+                return response.json();
+            })
+            .then(payload => {
+                if (payload.success) {
+                    alert("Welcome to the inner circle. Your email has been successfully cataloged.");
+                    emailInput.value = ''; 
+                } else {
+                    alert("Database System Message: " + payload.message);
+                }
+            })
+            .catch(err => {
+                console.error('Network Transaction Failure:', err);
+                alert("Communication Error: Could not link up to server.");
+            })
+            .finally(() => {
+                if (registerBtn) registerBtn.disabled = false;
+            });
+        }
     </script>
 </body>
 </html>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxury Light Footer - Arshith Group</title>
-    <!-- Premium Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        /* --- Luxury Light Variables --- */
-        :root {
-            --lux-bg: #fbfbfc;
-            --lux-card: #ffffff;
-            --lux-dark: #111612;
-            --lux-muted: #68706c;
-            --lux-gold: #c5a880;          /* Subtle high-end luxury tint */
-            --lux-emerald: #1b4d3e;       /* Deep rich corporate emerald */
-            --lux-mint: #f4f7f5;          /* Premium soft light canvas */
-            --bezier-luxury: cubic-bezier(0.16, 1, 0.3, 1); /* Ultra smooth ease-out */
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        body {
-            background-color: #f0f2f4;
-            padding-top: 0px; /* Reduced body spacing */
-        }
-
-        /* --- Main Footer Container (Decreased Padding) --- */
-        .premium-footer {
-            background-color: var(--lux-bg);
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-            padding: 50px 0 25px 0; /* Cut in half for a tight, crisp look */
-            position: relative;
-            color: var(--lux-dark);
-            overflow: hidden;
-        }
-
-        /* Delicate Soft Radial Aura */
-        .premium-footer::before {
-            content: '';
-            position: absolute;
-            top: -10%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            height: 60%;
-            background: radial-gradient(circle, rgba(197, 168, 128, 0.04) 0%, rgba(27, 77, 62, 0.02) 50%, transparent 100%);
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .footer-wrap {
-            max-width: 1200px; /* Reduced container width for a cleaner compact span */
-            margin: 0 auto;
-            padding: 0 25px;   /* Tighter horizontal margins */
-            position: relative;
-            z-index: 2;
-        }
-
-        /* --- Top Section: Editorial Row (Decreased Spacing & Sizes) --- */
-        .footer-top-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center; /* Switched to center for tighter vertical balance */
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            padding-bottom: 25px;
-            margin-bottom: 35px; /* Significantly compressed spacing */
-        }
-
-        .brand-editorial h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px; /* Reduced from 42px */
-            font-weight: 500;
-            color: var(--lux-dark);
-            line-height: 1.1;
-            letter-spacing: -0.3px;
-        }
-
-        .brand-editorial h2 span {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            color: var(--lux-emerald);
-            font-weight: 400;
-        }
-
-        .brand-editorial p {
-            color: var(--lux-muted);
-            font-size: 13px; /* Reduced from 15px */
-            margin-top: 6px;
-            max-width: 380px;
-            line-height: 1.5;
-        }
-
-        /* --- Compact Animated Minimalist Newsletter --- */
-        .lux-newsletter {
-            width: 320px; /* Made narrower */
-        }
-
-        .lux-newsletter p {
-            font-size: 11px; /* Scaled down */
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-            color: var(--lux-muted);
-            margin-bottom: 8px;
-        }
-
-        .input-group-animated {
-            position: relative;
-            display: flex;
-            align-items: center;
-            border-bottom: 1.5px solid rgba(0, 0, 0, 0.1);
-            padding-bottom: 5px;
-            transition: all 0.4s var(--bezier-luxury);
-        }
-
-        .input-group-animated input {
-            width: 100%;
-            border: none;
-            outline: none;
-            background: transparent;
-            font-size: 14px; /* Reduced */
-            color: var(--lux-dark);
-            padding-right: 30px;
-        }
-
-        .input-group-animated input::placeholder {
-            color: #a0aec0;
-            font-weight: 300;
-        }
-
-        .input-group-animated::after {
-            content: '';
-            position: absolute;
-            bottom: -1.5px;
-            left: 0;
-            width: 0;
-            height: 1.5px;
-            background: var(--lux-emerald);
-            transition: all 0.6s var(--bezier-luxury);
-        }
-
-        .input-group-animated:focus-within::after {
-            width: 100%;
-        }
-
-        .lux-submit-btn {
-            position: absolute;
-            right: 0;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 15px;
-            color: var(--lux-dark);
-            transition: all 0.4s var(--bezier-luxury);
-        }
-
-        .lux-submit-btn:hover {
-            color: var(--lux-gold);
-            transform: translateX(3px);
-        }
-
-        /* --- Main Navigation Grid (Optimized Gaps) --- */
-        .footer-main-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1.1fr;
-            gap: 30px; /* Reduced grid layout gap from 50px */
-            margin-bottom: 45px; /* Shrunk spacing before baseline */
-        }
-
-        .grid-title {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 700;
-            color: var(--lux-dark);
-            margin-bottom: 16px; /* Tightened label margin */
-        }
-
-        .lux-links-list {
-            list-style: none;
-        }
-
-        .lux-links-list li {
-            margin-bottom: 10px; /* Reduced list spacing */
-        }
-
-        .lux-links-list a {
-            text-decoration: none;
-            color: var(--lux-muted);
-            font-size: 13.5px; /* Highly precise clean text scale */
-            font-weight: 400;
-            display: inline-block;
-            position: relative;
-            padding-bottom: 1px;
-            transition: color 0.3s ease;
-        }
-
-        .lux-links-list a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background-color: var(--lux-gold);
-            transition: width 0.4s var(--bezier-luxury);
-        }
-
-        .lux-links-list a:hover {
-            color: var(--lux-dark);
-        }
-
-        .lux-links-list a:hover::after {
-            width: 100%;
-        }
-
-        /* Tighter Contact Block Layout */
-        .lux-contact-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 12px; /* Smoothed list gap down */
-        }
-
-        .lux-icon-circle {
-            width: 28px; /* Tighter structural shape */
-            height: 28px;
-            border-radius: 50%;
-            background-color: var(--lux-mint);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
-            color: var(--lux-emerald);
-            transition: all 0.4s var(--bezier-luxury);
-        }
-
-        .lux-contact-item:hover .lux-icon-circle {
-            background-color: var(--lux-emerald);
-            color: #ffffff;
-            transform: scale(1.05);
-        }
-
-        .lux-contact-text span {
-            display: block;
-            font-size: 10px;
-            text-transform: uppercase;
-            color: var(--lux-muted);
-            letter-spacing: 0.3px;
-        }
-
-        .lux-contact-text a, .lux-contact-text p {
-            font-size: 13.5px;
-            color: var(--lux-dark);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        /* --- Social & Fine Print Footer Bottom --- */
-        .footer-bottom-meta {
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-            padding-top: 25px; /* Clean baseline spacing layout */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .copyright-lux {
-            font-size: 12px;
-            color: var(--lux-muted);
-        }
-
-        /* Compact Premium Social Buttons */
-        .lux-social-container {
-            display: flex;
-            gap: 10px;
-        }
-
-        .lux-social-wrapper {
-            position: relative;
-        }
-
-        .lux-social-link {
-            width: 34px; /* Reduced shell radius */
-            height: 34px;
-            border-radius: 50%;
-            background: var(--lux-card);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            color: var(--lux-dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 13px;
-            transition: all 0.4s var(--bezier-luxury);
-            position: relative;
-            z-index: 2;
-        }
-
-        .lux-social-link::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            border-radius: 50%;
-            background: var(--lux-emerald);
-            transform: scale(0);
-            transition: transform 0.4s var(--bezier-luxury);
-            z-index: -1;
-        }
-
-        .lux-social-link:hover {
-            color: #ffffff;
-            border-color: var(--lux-emerald);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(27, 77, 62, 0.1);
-        }
-
-        .lux-social-link:hover::before {
-            transform: scale(1);
-        }
-
-        .legal-lux-links {
-            display: flex;
-            gap: 20px; /* Reduced inline gaps */
-        }
-
-        .legal-lux-links a {
-            font-size: 12px;
-            color: var(--lux-muted);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .legal-lux-links a:hover {
-            color: var(--lux-gold);
-        }
-
-        /* --- High-End Mobile Responsiveness --- */
-        @media (max-width: 1024px) {
-            .footer-main-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 30px;
-            }
-            .footer-top-row {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 20px;
-            }
-            .lux-newsletter {
-                width: 100%;
-            }
-        }
-
-        @media (max-width: 668px) {
-            .premium-footer {
-                padding: 35px 0 20px 0;
-            }
-            .footer-wrap {
-                padding: 0 16px;
-            }
-            .brand-editorial h2 {
-                font-size: 24px;
-            }
-            .footer-main-grid {
-                grid-template-columns: 1fr;
-                gap: 25px;
-                margin-bottom: 35px;
-            }
-            .footer-bottom-meta {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-            .legal-lux-links {
-                justify-content: center;
-                order: 2;
-            }
-            .lux-social-container {
-                justify-content: center;
-                order: 1;
-            }
-            .copyright-lux {
-                order: 3;
-            }
-        }
-    </style>
-</head>
-<body>
-
- <!-- ================= PREMIUM RICH FOOTER START ================= -->
-    <!-- ================= PREMIUM RICH FOOTER START ================= -->
-<footer class="premium-footer">
-    <div class="footer-wrap">
-        
-        <!-- Luxury Header Editorial Row -->
-        <div class="footer-top-row">
-            <div class="brand-editorial">
-                <h2>Arshith <span>Group</span></h2>
-                <p>Fusing timeless traditional integrity with sophisticated technological intelligence to build sustainable market ecosystems.</p>
-            </div>
-            
-            <div class="lux-newsletter">
-                <p>Join the inner circle</p>
-                <div class="input-group-animated">
-                    <input type="email" id="newsletter_email" placeholder="Enter corporate email layout" aria-label="Newsletter Email">
-                    <button class="lux-submit-btn" id="newsletter_btn" onclick="executeNewsletterSubscription(event)" aria-label="Submit Email">
-                        <i class="fa-solid fa-arrow-right-long" style="pointer-events: none;"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Main Architecture Navigation Links -->
-        <div class="footer-main-grid">
-            
-            <!-- Division 1 -->
-            <div>
-                <h3 class="grid-title">Ecosystem</h3>
-                <ul class="lux-links-list">
-                    <li><a href="https://arshithfresh.com/">Arshith Fresh Corporate</a></li>
-                    <li><a href="https://www.suntechsolutions.com/">Suntech Digital Labs</a></li>
-                    <li><a href="https://arshithfresh.com/">E-Commerce Supply Chain</a></li>
-                    <li><a href="https://arshithfresh.com/pages/contact-for-franchise">Global Franchises</a></li>
-                </ul>
-            </div>
-
-            <!-- Division 2 -->
-            <div>
-                <h3 class="grid-title">About Us</h3>
-                <ul class="lux-links-list">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="ourbusiness.html">Our Businesses</a></li>
-                    <li><a href="careers.html">Careers Portal</a></li>
-                </ul>
-            </div>
-
-            <!-- Division 3 -->
-            <div>
-                <h3 class="grid-title">More</h3>
-                <ul class="lux-links-list">
-                    <li><a href="internship.html">Internship</a></li>
-                    <li><a href="page.html">Apply Internship</a></li>
-                    <li><a href="newsroom.html">NewsRoom</a></li>
-                    <li><a href="contact.html">ContactUs</a></li>
-                </ul>
-            </div>
-
-            <!-- Division 4: Contact Minimalist Cards -->
-            <div>
-                <h3 class="grid-title">Concierge Support</h3>
-                
-                <div class="lux-contact-item">
-                    <div class="lux-icon-circle"><i class="fa-solid fa-phone-flip"></i></div>
-                    <div class="lux-contact-text">
-                        <span>Inquiries Line</span>
-                        <a href="tel:+918618471424">+91 86184 71424</a>
-                    </div>
-                </div>
-
-                <div class="lux-contact-item">
-                    <div class="lux-icon-circle"><i class="fa-solid fa-envelope-open"></i></div>
-                    <div class="lux-contact-text">
-                        <span>Electronic Mailing</span>
-                        <a href="mailto:support@arshithfresh.com">support@arshithfresh.com</a>
-                    </div>
-                </div>
-
-                <div class="lux-contact-item">
-                    <div class="lux-icon-circle"><i class="fa-solid fa-map-pin"></i></div>
-                    <div class="lux-contact-text">
-                        <span>Headquarters</span>
-                        <p>Bengaluru, India</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Fine Print & Social Media Section -->
-        <div class="footer-bottom-meta">
-            
-            <div class="legal-lux-links">
-                <a href="https://arshithfresh.com/policies/privacy-policy">Privacy Charter</a>
-                <a href="https://arshithfresh.com/policies/refund-policy">Return & Refund</a>
-                <a href="https://arshithfresh.com/policies/terms-of-service">Accessibility Compliance</a>
-            </div>
-
-            <div class="lux-social-container">
-                <div class="lux-social-wrapper"><a href="https://www.linkedin.com/company/arshith-fresh-india-pvt-ltd/?originalSubdomain=in" class="lux-social-link"><i class="fa-brands fa-linkedin-in"></i></a></div>
-                <div class="lux-social-wrapper"><a href="https://www.instagram.com/arshith_fresh/" class="lux-social-link"><i class="fa-brands fa-instagram"></i></a></div>
-            </div>
-
-            <div class="copyright-lux">
-                &copy; 2026 The Arshith Group. Crafted to perfection.
-            </div>
-
-        </div>
-
-    </div>
-</footer>
-<!-- ================= PREMIUM RICH FOOTER END ================= -->
-    <!-- ================= PREMIUM RICH FOOTER END ================= -->
-
-<script>
-function executeNewsletterSubscription(event) {
-    // 1. Prevent page from breaking or refreshing
-    if (event) event.preventDefault();
-    
-    // 2. Fetch elements directly
-    const emailInput = document.getElementById('newsletter_email');
-    const registerBtn = document.getElementById('newsletter_btn');
-    
-    if (!emailInput) {
-        alert("Configuration Error: Input field with id 'newsletter_email' not found on this page layout.");
-        return;
-    }
-    
-    const emailData = emailInput.value.trim();
-    
-    // 3. Force an immediate check alert window
-    if (!emailData || !emailData.includes('@')) {
-        alert("Please enter a valid corporate email layout.");
-        return;
-    }
-    
-    // Lock controls
-    if (registerBtn) registerBtn.disabled = true;
-    
-    // 4. Ship data packet to backend
-    fetch('https://arshit-group.onrender.com/process_new.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: emailData })
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error("Network response failure, code status: " + response.status);
-        }
-        return response.json();
-    })
-    .then(payload => {
-        if (payload.success) {
-            alert("Welcome to the inner circle. Your email has been successfully cataloged.");
-            emailInput.value = ''; // Flush input field
-        } else {
-            alert("Database System Message: " + payload.message);
-        }
-    })
-    .catch(err => {
-        console.error('Network Transaction Failure:', err);
-        alert("Communication Error: Could not link up to process_new.php. Double check that the file is in your primary root folder.");
-    })
-    .finally(() => {
-        if (registerBtn) registerBtn.disabled = false;
-    });
-}
-</script>
-</body>
-</html>
-    
